@@ -1,0 +1,328 @@
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title></title>
+<style>
+/*菜单样式*/
+.bgrounds{
+	border-style: outset;
+	border-width: 1;
+	background-image:url(image/leftmenu_bg1.jpg)
+}
+.bgroundOver{
+	border-style: outset;
+	border-width: 1;
+	background-image:url(image/leftmenu_bg2.jpg)
+}
+.bgroundStatus{
+	border-style: outset;
+	border-width: 1px;
+	background-image:url(image/leftmenu_bg2.jpg)
+}
+.nextbground{
+	border-width: 1;
+	background-color:#b5ddfd
+}
+.nextbgroundOver{
+	border-style: outset;
+	border-width: 1;
+	background-color:#c4e4ff
+}
+.nextbgroundStatus{
+	border-style: inset;
+	border-width: 1;
+	background-color:#c4e4ff
+}
+.menuHasUrl{
+	border-style: outset;
+	border-width: 1;
+	background-color:#23adf0
+}
+.menuHasUrlOver{
+	border-style: inset;
+	border-width: 1;
+	background-color:#7ac8fa
+}
+	td{font-size:9pt}
+</style>
+
+<script language="javascript">
+var leftMenuXml;//模块节点
+var leftMenuId;
+var display="none";
+var levelStatus=null;//第一层最后点击项
+var level2Status=null;//第二层最后点击项
+var urlBasePath="";
+//加载模块菜单
+function loadLeftMenu(id)
+{
+	leftMenuXml = new ActiveXObject("Msxml.DOMDocument");
+	leftMenuXml.onreadystatechange = parseLeftMenu;
+	leftMenuId = id;//加载模块数
+	leftMenuXml.load("conf/main_menu.xml");
+}
+
+function parseLeftMenu()
+{
+	var state = leftMenuXml.readyState;
+	if (state == 4)
+	{
+		var err = leftMenuXml.parseError;
+		if (err.errorCode != 0)
+			menu.innerHTML=err.reason;
+		else
+		{
+			var index = -1;
+			leftMenuXml = leftMenuXml.childNodes[1];
+			if(leftMenuId!="x")
+			{
+				var arrMenu = leftMenuXml.getElementsByTagName("menu");//查找相应节点
+				for (var i=0;i<arrMenu.length;i++)
+				{
+					if (arrMenu[i].getAttribute("id") == leftMenuId)
+					{
+						index = i;
+						break;
+					}
+				}
+				if (index == -1)
+					return;
+				leftMenuXml = arrMenu[index];
+			}
+
+			var html = '<table border="0" cellpadding="0" cellspacing="0" width="100%">';
+			len = leftMenuXml.childNodes.length;
+			for (var i=0;i<len;i++)
+			{//开始解析生成主菜单
+				var nodes = leftMenuXml.childNodes[i];
+				if (nodes.getAttribute("url") != null && nodes.getAttribute("url") != "")
+				{
+					html += '<tr level="'+nodes.getAttribute("id")+'" flagHasUrl="false" onclick="showHasUrlHideSubMenu();"><td onmouseover="menuUrlOver(this)"  onmouseout="menuUrlOut(this)" class="menuHasUrl" style="cursor:hand;text-align:center;height:20;"  onclick="doLinkHasUrlSubMenu(\''+nodes.getAttribute("url")+'\')">';
+					html += nodes.getAttribute("text") + '</td></tr>';
+				}
+				else
+				{
+					html += '<tr level="'+nodes.getAttribute("id")+'" flag="false" onclick="this.flag=\'true\';this.children[0].className=\'bgroundStatus\';showHideSubMenu();"><td class="bgrounds" style="cursor:hand;text-align:center;height:20;" onmouseover="menuMouseOver(this)"  onmouseout="menuMouseOut(this)">';
+					html += nodes.getAttribute("text") + '</td></tr>';
+				}
+				clen = nodes.childNodes.length;//生成子菜单
+				for (var j=0;j<clen;j++)
+				{
+					var childnode = nodes.childNodes[j];
+					html += '<tr style="display:none;" level="'+nodes.getAttribute("id")+'"><td onclick="doLink(\''+childnode.getAttribute("url")+'\')" flagNext="false" class="nextbground" style="cursor:hand;padding-left:25;height:20;"  onmouseover="menuNextMouseOver(this)"  onmouseout="menuNextMouseOut(this)">';
+					html += childnode.getAttribute("text") + '</td></tr>';
+				}
+			}
+			html += '</table>';
+			menu.innerHTML = html;
+		}
+	}
+}
+//主菜单鼠标效果
+function menuMouseOver(ob)
+{
+	if (ob.parentElement.flag=="true")
+		return;
+	ob.className="bgroundOver";
+}
+function menuMouseOut(ob)
+{
+	if (ob.parentElement.flag=="true")
+		return;
+	ob.className="bgrounds";
+}
+//子菜单鼠标效果
+function menuNextMouseOver(ob)
+{
+	if (ob.flagNext=="true")
+		return;
+	ob.className="nextbgroundOver";
+}
+function menuNextMouseOut(ob)
+{
+	if (ob.flagNext=="true")
+		return;
+	ob.className="nextbground";
+}
+//带有url主菜单的鼠标效果
+function menuUrlOver(ob)
+{
+	if (ob.parentElement.flagHasUrl=="true")
+		return;
+	ob.className="menuHasUrlOver";
+}
+function menuUrlOut(ob)
+{
+	if (ob.parentElement.flagHasUrl=="true")
+		return;
+	ob.className="menuHasUrl";
+}
+//含有url主菜单的点击效果
+function showHasUrlHideSubMenu()
+{
+	event.cancelBubble=true;
+	var ob=event.srcElement.parentElement;
+	if(levelStatus!=null&&levelStatus!=ob)
+	{
+		showHideMenu(levelStatus);
+	}
+	if(levelStatus!=null)
+	{
+		if(typeof(levelStatus.flagHasUrl)=="undefined")
+		{
+			levelStatus.flag="false";
+			levelStatus.children[0].className="bgrounds";
+		}
+		else
+		{
+			levelStatus.flagHasUrl="false";
+			levelStatus.children[0].className="menuHasUrl";
+		}
+	}
+	ob.flagHasUrl="true";
+	ob.children[0].className="nextbgroundOver";
+	levelStatus=ob;
+}
+//根据点击模块，隐藏上一项，展开当前项
+function showHideSubMenu(f)
+{
+	event.cancelBubble=true;
+	var ob=event.srcElement.parentElement;
+	if(levelStatus!=null&&levelStatus!=ob)
+	{
+		showHideMenu(levelStatus);
+	}
+	if(levelStatus!=null)
+	{
+		if(typeof(levelStatus.flagHasUrl)=="undefined")
+		{
+			levelStatus.flag="false";
+			levelStatus.children[0].className="bgrounds";
+		}
+		else
+		{
+			levelStatus.flagHasUrl="false";
+			levelStatus.children[0].className="menuHasUrl";
+		}
+	}
+	if(levelStatus==ob)
+	{
+		levelStatus=null;
+		ob.flag="false";
+		ob.children[0].className="bgrounds";
+	}
+	else
+		levelStatus=ob;
+	showHideMenu(ob);
+}
+//子菜单链结
+function doLink(url)
+{
+	var ob=event.srcElement;
+	ob.flagNext="true";
+	ob.className="nextbgroundStatus";
+	if(level2Status!=null&&level2Status!=ob)
+	{
+		level2Status.flagNext="false";
+		level2Status.className="nextbground";
+	}
+	level2Status=ob;
+	top.main.location.href=urlBasePath + url;
+}
+//主菜单中含有链结的点击
+function doMenuLink(url)
+{
+	event.cancelBubble=true;
+	var ob=window.event.srcElement;
+	if(ob.innerHTML=="自定义菜单")
+		loadLeftMenu("x");
+	ob.parentElement.flagHasUrl="true";
+	ob.className="nextbgroundStatus";
+
+	if(level2Status!=null&&level2Status!=ob)
+	{
+		level2Status.flagHasUrl="false";
+		//level2Status.parentElement.flagHasUrl="false";
+		level2Status.className="menuHasUrl";
+	}
+	level2Status=ob;
+	if(url == "/logout" || url == "logout")
+	{
+		if (!confirm("你确定要退出系统？"))
+		{
+   	     		return;
+	    	}
+	}
+	top.main.location.href=urlBasePath + url;
+	return;
+}
+//含有url的主菜单的点击动作
+function doLinkHasUrlSubMenu(url)
+{
+	top.main.location.href=urlBasePath + url;
+}
+//查找具有相同level属性的行除去第一行外都隐藏
+function showHideMenu(ob)
+{
+	var parentmenu=ob.level;
+	if(ob.nextSibling==null)
+	return false;
+	ob=ob.nextSibling;
+	var showorhide=(ob.style.display!="none")?"none":"block";
+	while(ob.level==parentmenu)
+	{
+		ob.style.display=showorhide;
+		if(ob.nextSibling==null)
+			return false;
+		ob=ob.nextSibling;
+	}
+}
+//页面加载时默认加载各模块名
+function loadMenu()
+{
+	leftMenuXml = new ActiveXObject("Msxml.DOMDocument");
+	leftMenuXml.onreadystatechange = parseMenu;
+	leftMenuXml.load("conf/main_menu.xml");
+}
+function parseMenu()
+{
+	var state = leftMenuXml.readyState;
+	if (state == 4)
+	{
+		var err = leftMenuXml.parseError;
+		if (err.errorCode != 0)
+			menu.innerHTML="菜单加载失败";
+		else
+		{
+			var html = '<table border="0" cellpadding="0" cellspacing="0" width="100%">';
+			len = leftMenuXml.childNodes[1].childNodes.length;
+			for (var i=0;i<len;i++)
+			{
+				var nodes = leftMenuXml.childNodes[1].childNodes[i];
+				if (nodes.getAttribute("url") != null && nodes.getAttribute("url") != "")//带有url没有子菜单的模块
+				{
+					html += '<tr flagHasUrl="false"><td onmouseover="menuUrlOver(this)"  id="'+nodes.getAttribute("id")+'" onmouseout="menuUrlOut(this)" url="'+nodes.getAttribute("url")+'"   onclick="doMenuLink(\''+nodes.getAttribute("url")+'\');top.banner.menuOpen(0,\''+nodes.getAttribute("url")+'\',this.id);" class="menuHasUrl" style="cursor:hand;text-align:center;height:20;">';
+					html += nodes.getAttribute("text") + '</td></tr>';
+				}
+				else
+				{
+					html += '<tr><td id="'+nodes.getAttribute("id")+'" onclick="top.banner.menuOpen(1,\''+nodes.getAttribute("link")+'\',this.id);loadLeftMenu(\''+nodes.getAttribute("id")+'\')" class="menuHasUrl" style="cursor:hand;text-align:center;height:20;"  onmouseover="menuUrlOver(this)"  onmouseout="menuUrlOut(this)">';
+					html += nodes.getAttribute("text") + '</td></tr>';
+				}
+			}
+			html += '</table>';
+			menu.innerHTML = html;
+			//top.banner.loadok = true;
+		}
+	}
+}
+</script>
+</head>
+<body leftmargin="0" bgcolor="#CCCCCC" topmargin="0" marginwidth="0" marginheight="0" onload="loadMenu()">
+<div id="menu">正在加载菜单，请稍后...</div>
+<div style="display:none"></div>
+</body>
+</html>                                                                                                    
+                                                                                                    

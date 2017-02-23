@@ -1,0 +1,95 @@
+
+
+<html>
+<head>
+<title></title>
+
+<script language="javascript">
+
+var menu_scroll=null;//菜单滚动项
+
+function init()
+{
+	menu_scroll=xinxipage;//菜单滚动项
+}
+
+function showHideMenu()
+{
+	menu_scroll=(menu_scroll==new_date)?xinxipage:new_date;
+	if(xinxi.style.height=="100%")
+	{
+		imgCaidan.src="image/menu_up.gif";
+		imgXinxi.src="image/info_up.gif";
+		menu.style.height="100%";
+		xinxi.style.height="0";
+		document.getElementById("new_date").style.display="block";
+		document.getElementById("xinxipage").style.display="none";
+	}
+	else
+	{
+		imgCaidan.src="image/menu_down.gif";
+		imgXinxi.src="image/info_down.gif";
+		menu.style.height="0";
+		xinxi.style.height="100%";
+		document.getElementById("xinxipage").style.display="block";
+		document.getElementById("new_date").style.display="none";
+	}
+}
+
+var movx,scrollx,scrolly;
+/*
+设置自动定时移动
+*/
+function movstar(a,time)
+{//垂直移动菜单
+	movx=setInterval("mov("+a+")",time);
+}
+/*
+取消自动定时移动
+*/
+function movover()
+{
+	clearInterval(movx);
+}
+/*
+移动
+*/
+function mov(a)
+{//点击时快速移动菜单
+	scrollx=menu_scroll.document.body.scrollLeft;
+	scrolly=menu_scroll.document.body.scrollTop;
+	scrolly=scrolly+a;
+	menu_scroll.window.scroll(scrollx,scrolly);
+}
+	
+</script>
+
+</head>
+
+<body onload="init()" bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" scrolling="no">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+  <tr>
+    <td height="20"><img id="imgCaidan" src="image/menu_down.gif" onclick="showHideMenu()" style="cursor:hand" width="148" height="20"></td>
+  </tr>
+  <tr>
+    <td bgcolor="818181" id="menu" style="height:0%"><IFRAME style="display:none" border="0" id="new_date" name="new_date" marginWidth=0 frameSpacing=0 marginHeight=0 src="leftmenu.htm" frameBorder=0 noResize width="100%" height="100%" scrolling="no" vspale="0"></IFRAME></td>
+  </tr>
+  <tr>
+    <td height="20">
+    <img id="imgXinxi" src="image/info_down.gif" onclick="showHideMenu()" style="cursor:hand" width="148" height="20"></td>
+  </tr>
+  <tr> 
+    <td bgcolor="818181" id="xinxi" style="height:100%"><IFRAME style="display:block" border=0  name="xinxipage" marginWidth="0" frameSpacing="0" marginHeight="0" src="leftinfo.htm" frameBorder="0" noResize width="100%" height="100%" scrolling="no" vspale="0"></IFRAME></td>
+  </tr>
+  <tr>
+    <td height="22" background="image/menubg.gif" valign="bottom">
+      <div align="right">
+        <img style="cursor:hand" border="0" onMouseUp="movover();movstar(-1,20)" onMouseDown="movover();movstar(-3,2)" onMouseOver="movstar(-1,20)"; onMouseOut="movover()" alt="点住不放可以快速向上滚动" src="image/menu_pageup.gif" width="18" height="17">&nbsp;
+        <img style="cursor:hand" border="0" onMouseUp="movover();movstar(1,20)" onMouseDown="movover();movstar(3,2)" onMouseOver="movstar(1,20)"; onMouseOut="movover()" alt="点住不放可以快速向下滚动" src="image/menu_pagedown.gif" width="18" height="17">&nbsp;&nbsp;
+      </div>
+    </td>
+  </tr>
+</table>
+</body>
+</html>                                                                                                    
+                                                                                                    
