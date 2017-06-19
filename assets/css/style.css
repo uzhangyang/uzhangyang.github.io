@@ -6,7 +6,7 @@
 
     100% To use For Personal And Commercial Use.
     IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
-   
+
     ========================================================  */
 
 /* =============================================================
@@ -15,7 +15,7 @@
 body {
     font-family: 'PT Sans', 'Open Sans', sans-serif;
     line-height: 30px;
-    font-size: 15px;
+    font-size: 18px;
 }
 
 .set-pad {
@@ -26,7 +26,7 @@ body {
     padding-bottom:50px;
 }
 /*=====================================
-  NAVBAR STYLES 
+  NAVBAR STYLES
     ===================================*/
 
 .logo-custom {
@@ -54,7 +54,7 @@ body {
 
 
 /*=====================================
-  HOME STYLES 
+  HOME STYLES
     ===================================*/
 .home-sec {
     padding-top: 10px;
@@ -104,7 +104,7 @@ body {
     margin: 5px;
 }
 /*=====================================
-  TAG LINE STYLES 
+  TAG LINE STYLES
     ===================================*/
 
 .tag-line {
@@ -124,7 +124,7 @@ body {
             margin-right: 8px;
         }
 /*=====================================
-  HEADER LINE STYLES 
+  HEADER LINE STYLES
     ===================================*/
 .header-line {
     font-weight: 900;
@@ -143,7 +143,7 @@ h1::after {
 }
 
 /*=====================================
-  ABOUT STYLES 
+  ABOUT STYLES
   ===================================*/
 .about-div {
     padding: 30px;
@@ -195,7 +195,7 @@ h1::after {
     margin-bottom: 20px;
 }
 /*=====================================
-  FACULTY STYLES 
+  FACULTY STYLES
   ===================================*/
 #faculty-sec {
     background-color: #000;
@@ -234,7 +234,7 @@ h1::after {
     }
 
 /*=====================================
-  CONTACT STYLES 
+  CONTACT STYLES
   ===================================*/
 #contact-sec {
     padding-top: 10px;
@@ -260,7 +260,7 @@ h1::after {
     color:#fff;
 }
 /*=====================================
-  Footer STYLES 
+  Footer STYLES
   ===================================*/
 #footer {
     padding:5px 20px;

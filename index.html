@@ -18,21 +18,21 @@
      <!-- FLEXSLIDER CSS -->
 <link href="assets/css/flexslider.css" rel="stylesheet" />
     <!-- CUSTOM STYLE CSS -->
-    <link href="assets/css/style.css" rel="stylesheet" />    
+    <link href="assets/css/style.css" rel="stylesheet" />
   <!-- Google	Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-83431029-1', 'auto');
-  ga('send', 'pageview');
 
-function ismob() { 
+
+
+
+
+
+
+function ismob() {
  if( navigator.userAgent.match(/Android/i)
  || navigator.userAgent.match(/webOS/i)
  || navigator.userAgent.match(/iPhone/i)
@@ -45,7 +45,7 @@ function ismob() {
  else {
     return false;
   }
-}  
+}
 if( ismob() ) {
 	window.location.replace("index_m.html");
 }
@@ -59,7 +59,7 @@ if( ismob() ) {
 }
 #main_table_left_col {
    float:left;
-   width:160px;
+   width:200px;
    height: 100%;
    vertical-align:middle;
    text-align:left;
@@ -78,68 +78,70 @@ if( ismob() ) {
 </head>
 <body>
 
-   
+
  <div class="navbar navbar-inverse navbar-fixed-top " id="menu">
         <div class="container">
 			<div class="navbar-header" style="padding-top: 7px;">
-                
+
                 <a style="font-weight: 700; letter-spacing: 0.5pt; color: #fff; font-size: 24pt; text-shadow: 0.5px 0.5px 0.5px #ccc; vertical-align: bottom;" href="#" class="navbar-brand" >
 					Yang Zhang (张杨)</a>
             </div>
-            
+
 		    <div class="navbar-collapse collapse move-me">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#about">ABOUT</a></li>
-                    <li><a href="#publications">PUBLICATIONS</a></li>
-                    <li><a href="#resume">STUDENTS</a></li>
-                    <li><a href="#projects">PROJECTS</a></li>
-                    <li><a href="#contact">RESEARCH_INTERESTS</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#project">Projects</a></li>
+                    <li><a href="#students">Students</a></li>
+                    <li><a href="#books">Books</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-           
+
         </div>
     </div>
       <!--NAVBAR SECTION END-->
-	  
+
     <div  class="tag-line" >
          <div class="container">
            <div class="row  text-center" >
                <div class="col-lg-12  col-md-12 col-sm-12">
-               
+
 					<h2 data-scroll-reveal="enter from the bottom after 0.1s" ></h2>
                    </div>
                </div>
              </div>
-        
+
     </div>
-    <!--HOME SECTION TAG LINE END-->   
-	
-	
+    <!--HOME SECTION TAG LINE END-->
+
+
          <div id="about" class="container set-pad" >
              <div class="row text-center">
                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-					 <h1 data-scroll-reveal="enter from the bottom after 0.2s"  class="header-line">ABOUT</h1>
+					 <h1 data-scroll-reveal="enter from the bottom after 0.2s"  class="header-line">About</h1>
                      <p data-scroll-reveal="enter from the bottom after 0.3s" >
 						<div id="main_table">
 							<div id="main_table_left_col">
-								
-								<img src=image/vito.jpg border=1 width=150 id="profile_img">
+
+								<img src=image/vito.jpg border=1 width=190 id="profile_img">
 							</div>
 							<div id="main_table_right_col">
-							  Ph.D<br />
-							    Associate Professor&nbsp;<br />
-							    Department of Computer&nbsp;<br />
-  <a href="http://xxxy.web.hebust.edu.cn/">School of Information Science and  Engineering&nbsp;</a><br />
-  <a href="http://www.hebust.edu.cn/">Hebei  University of Science and Technology</a>&nbsp;<br />
-							    26, Yuxiang Street, Shijiazhuang,  Hebei, China, 050000<br />
-						      
-Email: zhangyang /at/ hebust.edu.cn</div>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am an associate professor
+                   at Department of Computer, <a href="http://xxxy.web.hebust.edu.cn/" target="_blank">
+                    School of Information Science and  Engineering </a>,<a href="http://www.hebust.edu.cn/" target="_blank">
+                      Hebei  University of Science and Technology (HEBUST)</a>.
+                      Prior to joining HEBUST, I received my master and doctoral degree from <a href="http://www.hebeu.edu.cn/" target="_blank">Hebei University of Engineering</a>
+                      and <a href="http://www.bit.edu.cn/" target="_blank">Beijing Institute of Technology</a>,
+                      , respectively. I am a visiting scholar at
+                      <a href="http://www.cs.purdue.edu/" target="_blank">Department  of Computer Science</a>,
+                      <a href="http://www.purdue.edu/" target="_blank">Purdue University</a>, working with Prof.
+                      <a href="https://www.cs.purdue.edu/homes/xyzhang/" target="_blank">Xiangyu Zhang</a> from Jan, 2017 to Jan, 2018. Currently,
+                      my research interests include parallel programming, software refactoring, concurrent bug, software ananlysis
+                      , and aspect-oriented programming.
+</p></div>
 						</div>
 
-					    
-					    
-						
-						
                      </p>
                  </div>
 
@@ -150,11 +152,11 @@ Email: zhangyang /at/ hebust.edu.cn</div>
            </div>
          </div>
    <!-- FEATURES SECTION END-->
-   
+
 		<div id="publications" class="container set-pad" >
              <div class="row text-center">
                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-                     <h1 data-scroll-reveal="enter from the bottom after 0.2s"  class="header-line">PUBLICATIONS</h1>
+                     <h1 data-scroll-reveal="enter from the bottom after 0.2s"  class="header-line">Selected Publications</h1>
                      <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>2017 </p>
                      <ul align=left>
                        <li><strong>Yang Zhang. </strong>Improving the  learning of parallel programming using software refactoring. Computer  Applications in Engineering Education. 2017. 25(1):112-119.</li>
@@ -181,7 +183,7 @@ Email: zhangyang /at/ hebust.edu.cn</div>
                      <ul align=left>
                        <li ><strong>Yang Zhang</strong>, WeixingJi. A scalable method-level parallel library and its  improvement. The Journal of Supercomputing. 2012，61(3)：1154-1167.</li>
                      </ul>
-                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left><br />                     
+                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left><br />
                      </p>
                  </div>
 
@@ -191,43 +193,13 @@ Email: zhangyang /at/ hebust.edu.cn</div>
            <div class="row" >
            </div>
          </div>
-		 
-   
-		<div id="resume" class="container set-pad" >
-             <div class="row text-center">
-                 <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
-                     <h1 data-scroll-reveal="enter from the bottom after 0.2s"  class="header-line">STUDENTS</h1>
-                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>
-						I am fortunate to work with these talented students.
-</p>
-                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>Current students
-                     </p>
-                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>Yajie Zheng (co-advised with Dongwen Zhang, 2015-present) 
-                     </p>
-                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>Xin Yu (co-advised with Dongwen Zhang, 2016-present)
-                     </p>
-                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>Yanan Liang (co-advised with Dongwen Zhang, 2016-present)
-                     </p>
-                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>Mengmeng Wei (co-advised with Dongwen Zhang, 2016-present) 
-                     </p>
-                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>Former students 
-                     </p>
-                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>Chenguang Liu (co-advised with Dongwen Zhang, 2014-2017) <br />
-                       
-                     </p>
-                 </div>
 
-             </div>
-             <!--/.HEADER LINE END-->
 
-           <div class="row" >
-				<br /><br /><br />
-           </div>
-         </div>
-		 
+
+
    <!-- FEATURES SECTION END-->
-    <div id="faculty-sec" >
-    <div class="container set-pad" id="projects">
+    <div id="project" >
+    <div class="container set-pad" id="pro">
              <div class="row text-center">
                  <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
                      <h1 data-scroll-reveal="enter from the bottom after 0.1s" class="header-line">Projects</h1>
@@ -240,70 +212,103 @@ Email: zhangyang /at/ hebust.edu.cn</div>
              <!--/.HEADER LINE END-->
 
            <div class="row" >
-           
-               
                  <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.4s">
                      <div class="faculty-div">
-                     <img src="assets/img/prjpic1.jpg" class="img-rounded" />
-                   <h3 ></h3>
-                 <hr />
-                         <h4></h4>
                    <p >
                        Natural Science Foundation of China with grant No. 61440012
-                       
                    </p>
                 </div>
                    </div>
-                 
-               <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.6s">
-                     <div class="faculty-div">
-                     <a href=./webranz><img src="assets/img/prjpic3.jpg" class="img-rounded" /></a>
-                   <h3 ></h3>
-                 <hr />
-                         <h4></h4>
-                   <p >
-                       Natural Science Foundation of Hebei Province with grant No. F2016208017
-                       
-                   </p>
-                </div>
-                   </div>
-                 
-				 <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.5s">
-                     <div class="faculty-div">
-                     <a href=./webranz><img src="assets/img/prjpic2.jpg" class="img-rounded" /></a>
-                   <h3></h3>
-                 <hr />
-                         <h4></h4>
-                   <p >
+                      <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.6s">
+                        <div class="faculty-div">
+                            <p >
+                              Natural Science Foundation of Hebei Province with grant No. F2016208017
+                            </p>
+                          </div>
+                        </div>
+
+				              <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.5s">
+                        <div class="faculty-div">
+                          <p >
                        Top-notch Young Scientist Foundation of Hebei Educational Department with grant No. BJ2014013
-                       
-                   </p>
+                          </p>
+                    </div>
                 </div>
-                   </div>
-               </div>
-             </div>
+            </div>
         </div>
+    </div>
     <!-- FACULTY SECTION END-->
+
+
+    <div id="students" class="container set-pad" >
+             <div class="row text-center">
+                 <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                     <h1 data-scroll-reveal="enter from the bottom after 0.2s"  class="header-line">Students</h1>
+                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>
+            I am fortunate to work with these talented students.
+    </p>
+                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>Current students:
+                     </p>
+                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>Yajie Zheng (co-advised with Dongwen Zhang, 2015-present)
+                     </p>
+                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>Xin Yu (co-advised with Dongwen Zhang, 2016-present)
+                     </p>
+                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>Yanan Liang (co-advised with Dongwen Zhang, 2016-present)
+                     </p>
+                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>Mengmeng Wei (co-advised with Dongwen Zhang, 2016-present)
+                     </p>
+                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>Former students:
+                     </p>
+                     <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>Chenguang Liu (co-advised with Dongwen Zhang, 2014-2017) <br />
+
+                     </p>
+                 </div>
+
+             </div>
+             <!--/.HEADER LINE END-->
+
+
+         </div>
+
+         <div id="books" class="container set-pad" >
+                  <div class="row text-center">
+                      <div class="col-lg-8 col-lg-offset-2 col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                          <h1 data-scroll-reveal="enter from the bottom after 0.2s"  class="header-line">Books</h1>
+                          <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>
+                            1. Yang Zhang. <a href="http://www.tup.com.cn/booksCenter/book_05778501.html" target="_blank">Java Parallel Programming</a>. Tsinghua University Press. 2015.
+                          </p>
+                          <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>
+                            2. Yang Zhang, Dongwen Zhang, Wenbing Jin. Theory, Technology and Practice of Parallel Execution for Multicore Processor Architecture. National Industrial Press. 2014.
+                          </p>
+
+                      </div>
+
+                  </div>
+                  <!--/.HEADER LINE END-->
+
+
+              </div>
+
      <div class="container" id="contact">
              <div class="row set-row-pad"  >
     <div class="col-lg-4 col-md-4 col-sm-4   col-lg-offset-1 col-md-offset-1 col-sm-offset-1 " data-scroll-reveal="enter from the bottom after 0.4s">
 
-                    <h2 ><strong>Research interests</strong></h2>
+                    <h2 ><strong>Contact</strong></h2>
         <hr />
                     <div>
-                        <h4>Parallel programming, Software analysis, Automated software refactoring, Aspect-oriented programming ...</h4>
+                        <p>26, Yuxiang Street, Shijiazhuang, Hebei, China.</p>
+                          <p>E-mail: zhangyang@hebust.edu.cn</p>
+
                     </div>
 
 
                 </div>
                  <div class="col-lg-4 col-md-4 col-sm-4   col-lg-offset-1 col-md-offset-1 col-sm-offset-1" data-scroll-reveal="enter from the bottom after 0.4s">
 
-                    <h2 ><strong>Advices </strong></h2>
+                    <h2 ><strong> Hobbies </strong></h2>
         <hr />
                     <div >
-                    <p><a href="http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mleone/web/how-to.html">Advice on Research</a> from CMU </p>
-      <p><a href="http://homes.cs.washington.edu/~mernst/advice/write-technical-paper.html">Advice on Writing a Technical Paper</a> from Washington University</p>
-      
+                    <p>  Badminton, Ping-pong, Chinese Chess, Running, Traveling, Music ...</p>
                     </div>
                     </div>
 
@@ -312,14 +317,17 @@ Email: zhangyang /at/ hebust.edu.cn</div>
                  </div>
      <!-- CONTACT SECTION END-->
     <div id="footer">
-          <p>Visit counter:
-      
+      <a href="http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mleone/web/how-to.html" target="_blank">Advice on Research</a> |
+<a href="http://homes.cs.washington.edu/~mernst/advice/write-technical-paper.html" target="_blank">Advice on Writing a Technical Paper</a> |
+
+          Visit counter:
+
       <!-- Start of StatCounter Code for Dreamweaver -->
 <script type="text/javascript">
 var sc_project=11373500;
 var sc_invisible=0;
 var sc_security="03737a84";
-var sc_text=2; 
+var sc_text=2;
 var scJsHost = (("https:" == document.location.protocol) ?
 "https://secure." : "http://www.");
 document.write("<sc"+"ript type='text/javascript' src='" +
@@ -333,22 +341,22 @@ src="//c.statcounter.com/11373500/0/03737a84/0/" alt="web
 analytics"></a></div></noscript>
 <!-- End of StatCounter Code for Dreamweaver -->
 
-      
-      </p>
+
+
     </div>
      <!-- FOOTER SECTION END-->
-   
+
     <!--  Jquery Core Script -->
     <script src="assets/js/jquery-1.10.2.js"></script>
     <!--  Core Bootstrap Script -->
     <script src="assets/js/bootstrap.js"></script>
-    <!--  Flexslider Scripts --> 
+    <!--  Flexslider Scripts -->
          <script src="assets/js/jquery.flexslider.js"></script>
      <!--  Scrolling Reveal Script -->
     <script src="assets/js/scrollReveal.js"></script>
-    <!--  Scroll Scripts --> 
+    <!--  Scroll Scripts -->
     <script src="assets/js/jquery.easing.min.js"></script>
-    <!--  Custom Scripts --> 
+    <!--  Custom Scripts -->
          <script src="assets/js/custom.js"></script>
 </body>
 </html>
