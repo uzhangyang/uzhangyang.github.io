@@ -46,7 +46,7 @@
 <hr/>
 <p style="text-align:justify">FineLock transforms a  coarse-grained synchronized lock into a fine-grained <i>ReentrantReadWriteLock</i> by lock downgrading and lock splitting.</p>
 <h3>Lock Downgrading</h3>
-<p style="text-align:justify">We showcase how FineLock can reduce lock contention using the example:</p>
+<p style="text-align:justify">We showcase how FineLock can reduce lock contention using the following example:</p>
 <pre>
 1 <code>public</code> <code>synchronized</code> void cached() {
 2     <code>if</code> (!cacheValid) {
@@ -55,8 +55,8 @@
 5     ... <comment>// read data</comment>
 6 }       </pre>
 
-<p style="text-align:justify">The code shows a typical implementation of cache processing (extracted from Java API Specification) where the method is protected by a synchronized lock (line 1). It first checks whether the cache contains data in line 2. If so, the data is read (line 5). Otherwise, data will be written into the cache (line 3). </p>
-<p style="text-align:justify">Here shows the code refactored by lock downgrading:</p>
+<p style="text-align:justify">The code shows a typical implementation of cache processing where the method is protected by a synchronized lock (line 1). It first checks whether the cache contains data in line 2. If so, the data is read (line 5). Otherwise, data will be written into the cache (line 3). </p>
+<p style="text-align:justify">This figure shows the code refactored by lock downgrading:</p>
 
 <pre>
 11 <code>public</code> void cached() {
@@ -83,7 +83,7 @@
 <p style="text-align:justify">It first acquires a read lock (line 12) which is enough to ensure concurrency for the condition checking in line 13. When the condition holds, a write lock must be used and thus the read lock is released (line 14) and a write lock is acquired (line 15). Note that the condition is rechecked in line 17 to guarantee the consistency since the condition might be changed by another thread. After the data is written to the cache (line 18), the write lock is downgraded into a read lock (line 22) to allow more concurrency. Finally, after the data is read (line 26), the read lock is released in line 28.</p>
 
 <h3>Lock Splitting</h3>
-<p style="text-align:justify">The example code is as follow. The method <i>checkTowrite()</i> is protected by a synchronized lock. It first checks the flag in line 32. If so, the write operations are executed (line 33). </p>
+<p style="text-align:justify">The example code is as follow. The method <i>checkTowrite()</i> is protected by a synchronized lock. It first checks the flag in line 32. If the conditions holds, the write operations are executed (line 33). </p>
 <pre>
 31 <code>public</code> <code>synchronized</code> void checkToWrite(){
 32     <code>if</code> (flag) {
@@ -91,7 +91,7 @@
 34     }
 35 }</pre>
 
-<p style="text-align:justify">Here shows the code refactored by lock splitting:</p>
+<p style="text-align:justify">This figure shows the code refactored by lock splitting:</p>
 <pre>
 36 <code>public</code> void checkToWrite(){
 37     lock.readLock.lock();
@@ -111,9 +111,9 @@
 51	     }
 52      }
 53 } </pre>
-<p style="text-align:justify">The refactored code is similar to the code with lock downgrading. It first acquires a read lock (line 37) for the condition checking. When the condition holds, a write lock must be used and thus the read lock is released (line 40) and a write lock is acquired (line 41). The condition also needs to be rechecked (line 42). The finally block is used to determine which lock the thread holds and release it (line 47-51).</p>
+<p style="text-align:justify">The refactored code first acquires a read lock (line 37) for the condition checking. When the condition holds, a write lock should be used.  A read lock is released (line 40) and a write lock is acquired (line 41). The condition needs to be rechecked (line 42). The finally block is used to determine which lock the thread holds and release it (line 47-51).</p>
 
-<p style="text-align:justify">There shows another pattern of lock splitting. The read and write operations are separated in methods <i>WriteRead()</i> and <i>ReadWrite()</i>. The read lock can be acquired for the read operations (line 67-72, 81-86), and the write lock can be acquired for the write operations (line 61-66, 87-92).</p>
+<p style="text-align:justify">The following figure shows another pattern of lock splitting. The read and write operations are separated in methods <i>WriteRead()</i> and <i>ReadWrite()</i>. The read lock can be acquired for the read operations (lines 67-72, 81-86), and the write lock can be acquired for the write operations (lines 61-66, 87-92).</p>
 <pre>
 60 <code>public</code> void WriteRead(){
 61     lock.writelock.lock();
@@ -147,15 +147,12 @@
 
 <h2>The Screenshot of FineLock</h2>
 <hr/>
-<p style="text-align:justify">FineLock is implemented as an extension to Eclipse IDE, and can be installed by a plugin jar file. Here shows the screenshot:</p>
+<p style="text-align:justify">FineLock is implemented as an extension to Eclipse IDE, and can be installed by a plugin jar file <a href="refactoring/flock.jar">flock.jar</a>. Source code can be downloaded <a href="refactoring/flock.zip">flock.zip</a>. Here shows the screenshot:</p>
 <div style="text-align:center">
 <img src="refactoring/screen.png" height="600" width="820"/>
 </div>
-<p style="text-align:justify">The left-hand side of the screenshot presents a customized class SynTest that includes two fields and two synchronized methods, while the right-hand side shows the refactored results by using splitting and downgrading locks.</p>
+<p style="text-align:justify">The left-hand side of the screenshot presents a customized class SynTest that contains two fields and two synchronized methods, while the right-hand side shows the refactored results by using splitting and downgrading locks.</p>
 </div>
-<div style="text-align:center">
-Source code: <a href="refactoring/flock.zip">flock.zip</a>
-Eclipse plugins: <a href="refactoring/flock.jar">flock.jar</a> <br>
-</div>
+
 </body>
 </html>
