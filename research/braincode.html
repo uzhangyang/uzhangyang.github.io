@@ -22,16 +22,17 @@
 <body style="width:800px; margin:0 auto;">
     <h1>MARS: Code Smell Detection Based on Residual Network and Metric-Attention Mechanism</h1>
     <div style="border:1px solid #CCC"></div>  
-    <p>Code smell detection has become an established approach to discovering problems in source code to be corrected through 
-software refactoring. However, the accuracy of existing approaches is still need to improve.</p>
-    <p>Although many promising techniques are proposed, several problems of current works still exist.  Firstly, existing
-works mainly focus on those popular code smells, such as feature envy, god class and long method. Few works have
-been conducted on Brain class and Brain method code smells. Secondly, the accuracy of existing approaches are not satisfying and are
-possible to conduct further improvements.Thirdly, there is no public dataset available to detect BC/BM code smell. 
-Therefore, how to build a dataset with smelly and non-smelly BC/BM samples to train deep learning model becomes 
-increasingly urgent.</p>
-    <p>We propose a MARS detect code smell. A metric-attention mechanism is presented and introduced to residual network. 
-To support the training of MARS, a high-quality dataset BrainCode is generated for Brain class and Brain method by extracting features from 20 large real-world applications. 
+    <p>Code smell detection has become an established approach to discovering problems in source code to be corrected through software refactoring. 
+However, the accuracy of existing approaches is still needed to improve.</p>
+    <p>Although many promising techniques are proposed, several problems of current works still exist.
+Firstly, existing works mainly focus on those popular code smells, such as feature envy, god class, and long method. 
+Few works have been conducted on Brain class and Brain method code smells. 
+Secondly, the accuracy of existing approaches is not satisfying, which is possible to conduct further improvements. 
+Thirdly, there is no public dataset available to detect BC/BM code smell. 
+Therefore, how to build a dataset with smelly and non-smelly BC/BM samples to train the deep learning model becomes increasingly urgent.</p>
+    <p>We propose a MARS to detect code smells.
+ A metric-attention mechanism is presented and introduced to the residual network.
+ To support the training of MARS, a high-quality dataset BrainCode is generated for the Brain Class and Brain Method by extracting features from 20 large real-world applications. 
 MARS obtains an average of 2.01% higher accuracy than existing approaches, which dramatically improves state-of-the-art.</p>
      <h2>Download</h2>
     <div style="border:1px solid #CCC"></div>  
@@ -56,7 +57,7 @@ MARS obtains an average of 2.01% higher accuracy than existing approaches, which
     <br />13 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspx = self.dense(x)
     <br />14 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspreturn x
     </div>
-    <p> The metric-attention mechanism scales the  features of code metrics twice to calculate the weight coefficient . The first layer
+    <p> The metric-attention mechanism scales the feature information of code metrics twice to calculate the weight. The first layer
 represents the subsampling layer to decrease the number of features by a factor of n(line5). Tanh is used as an activation function(line6). 
 The second layer represents the upsampling layer to expand the number of features to the original quantities(line7). 
 Sigmoid is the gating function to ensure that the values of all weighted metrics are within a range between 0 and 1(line8).</p>
@@ -89,7 +90,7 @@ after the second BN layer. </p>
    <br />22 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspout = F.relu(out)
    <br />23 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspreturn out
    </div>
-   <p>The residuals block contains residuals part and the direct mappings.The residuals part is represented by the convolution layer and metric-attention mechanism(line4~10).
-The direct mapping is represented in line 11.BN represents the batch normalization that accelerates the convergence rate of the network.ReLU is the activation function.</p>
+   <p>The residuals block contains the residuals part and the direct mappings.The residuals part is represented by the convolution layer and metric-attention mechanism(line4~10).
+ The direct mapping is represented in line 11.BN represents the batch normalization that accelerates the convergence rate of the network.ReLU is the activation function.</p>
 </body>
 </html>
