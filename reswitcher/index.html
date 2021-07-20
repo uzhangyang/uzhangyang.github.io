@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReSwitcher</title>
+</head>
+<body style="width:800px; margin:0 auto;">
+    <h1>ReSwitcher: Automatically Refactoring Java Programs for Switch Expression</h1>
+    <div style="border:1px solid #CCC"></div>
+    <p>Several irregularities of the existing switch statement have long been an irritation to users. These include the default control flow behavior between switch labels (fall through), the default scoping in switch blocks (the whole block is treated as one scope), and the fact that switch works only as a statement, even though it is often more natural to express multi-way conditionals as expressions.</p>
+    <p>The current design of Java's switch statement follows closely languages such as C and C++, and supports fall through semantics by default. Whilst this traditional control flow is often useful for writing low-level code (such as parsers for binary encodings), as switch is used in higher-level contexts, its error-prone nature starts to outweigh its flexibility. The many break statements make the switch statement unnecessarily verbose, and this visual noise often masks hard to debug errors, where missing break statements would mean accidental fall through.</p>
+    <p>Starting from JDK 12, switch expression is introduced as the first preview feature. JDK 13 provides the second preview feature to support a new statement for yielding a value from a switch expression. Since JDK 14, this expression has become a standard feature, accompanied by a solution that using arrow labels to eliminate the need for break statements to remove the fall-through semantics. The coding way that simplifies everyday coding and keeps the code safe.</p>
+	<p>The C++ community recommends the fall-through attribute to comment when the program falls through. The default control flow of switch statements in Golang is to break out rather than to fall through. Switch expression has been proposed in C# and Java. A tool has been come up to convert switch statements to switch expressions automatically for C#. However, none of the existing automated refactoring tools supports refactoring Java programs for switch expression.</p>
+	<p>We presents a novel approach to automatically refactor Java programs for switch expression and develop a prototype <i>ReSwitcher</i> as an Eclipse plugin. The intention of <i>ReSwitcher</i> is to 1) remove the fall-through semantics from a switch statement, and 2) convert a switch statement into a switch expression.</p>
+     <h2>Download</h2>
+    	<p>We are here to contribute our code and plugins.
+		</p><a href="https://github.com/Chaoshuai-Li/ReSwitcher" >ReSwitcher Source Code</a>
+		<br/>
+		</p><a href="https://github.com/Chaoshuai-Li/ReSwitcher-Plugin" >ReSwitcher Eclipse Plugin</a>
+	<br/>
+	<br/>
+	<div style="border:1px solid #CCC"></div>
+	<br/>
+	<br/>
+
+
+<img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_24/viewers_3/labels_1/pageviews_1/flags_0/percent_0/"  border="0">
+
+
+
+</body>
+</html>

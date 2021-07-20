@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<!-- saved# -->
+<html lang="zh-cmn-Hans"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="编译原理">
+    <meta name="keywords" content="编译原理">
+    <title>编译原理</title>
+
+	<link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/ccfconf.css" rel="stylesheet">
+<script type="text/javascript">try {
+var AG_onLoad=function(func){if(document.readyState==="complete"||document.readyState==="interactive")func();else if(document.addEventListener)document.addEventListener("DOMContentLoaded",func);else if(document.attachEvent)document.attachEvent("DOMContentLoaded",func)};
+var AG_removeElementById = function(id) { var element = document.getElementById(id); if (element && element.parentNode) { element.parentNode.removeChild(element); }};
+var AG_removeElementBySelector = function(selector) { if (!document.querySelectorAll) { return; } var nodes = document.querySelectorAll(selector); if (nodes) { for (var i = 0; i < nodes.length; i++) { if (nodes[i] && nodes[i].parentNode) { nodes[i].parentNode.removeChild(nodes[i]); } } } };
+var AG_each = function(selector, fn) { if (!document.querySelectorAll) return; var elements = document.querySelectorAll(selector); for (var i = 0; i < elements.length; i++) { fn(elements[i]); }; };
+var AG_removeParent = function(el, fn) { while (el && el.parentNode) { if (fn(el)) { el.parentNode.removeChild(el); return; } el = el.parentNode; } };
+navigator.getBattery = undefined;
+(function() { window.Ya = window.Ya || {}; window.Ya.Metrika = function() { var noop = function() {}; this.addFileExtension = noop; this.extLink = noop; this.file = noop; this.hit = noop; this.notBounce = noop; this.params = noop; this.reachGoal = noop; this.replacePhones = noop; this.clickmap = noop; this.trackLinks = noop; }; })();
+var _gaq = []; var _gat = { _getTracker: function() { return { _initData: function(){}, _trackPageview: function(){}, _trackEvent: function(){}, _setAllowLinker: function() {}, _setCustomVar: function() {} } }, _createTracker: function() { return this._getTracker(); }, _anonymizeIp: function() {} };
+function urchinTracker() {};
+var addthis = { init: function() {}, addEventListener: function() {}, button: function() {}, counter: function() {}, update: function() {}, toolbox: function() {}, layers: function() {} };
+window.uabInject = function() {};
+window.wcs_add = {}; window.wcs_do = function() { };
+} catch (ex) { console.error('Error executing AG js: ' + ex); }</script><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+
+<body><div class="container">
+    <!-- top -->
+    <div class="row masthead">
+        <div class="col-md-12 bg" id="top">
+            <img id="bg" src="/bg/keda.jpg" class="img-responsive img-rounded">
+        </div>
+    </div>
+
+    <!--main-->
+    <div class="row">
+        <!-- nav-list -->
+        <div class="col-md-3 col-sm-4">
+            <div class="sidebar-nav">
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#sidebar-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse" id="sidebar-navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li id="home" class=""><a onClick="return update('home');">课程简介</a></li>
+                            <li id="date" class=""><a onClick="return update('date');">教学安排</a></li>
+                            <li id="academic"><a onClick="return update('academic');">课件下载</a></li>
+                            <li id="keynote"><a onClick="return update('keynote');">学习资料</a></li>
+                            <li id="call" class=""><a onClick="return update('call');">主讲教师</a></li>
+                      <!--     <li id="reg"><a onClick="return update('reg');">注册</a></li>
+                            <li id="venue"><a onClick="return update('venue');">会议地点</a></li>
+                            <li id="committee"><a onClick="return update('committee');">委员会</a></li>
+
+                             <li id="program"><a onClick="return update('program');">日程</a></li>
+                            <li id="download"><a onClick="return update('download');">资料下载</a></li>
+                            <li id="gallery"><a onClick="return update('gallery');">会议照片</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- content -->
+        <div class="col-md-9 col-sm-8" id="content">
+            <!-- home -->
+            <div name="home" class="text-justify" >
+                <div class="col-md-10 col-sm-4">
+    				          <p><strong>编译原理</strong></p>
+                      <p>本课程现为河北科技大学重点建设课程，是计算机科学与技术和软件工程专业必修课。通过本课程的学习，使学生理解编译程序的构造原理和工作原理，并掌握词法分析程序、语法分析程序、中间代码及目标代码生成、存贮组织与分配的构造及技巧，培养学生具有设计开发计算机编译程序及其它系统软件的能力。</p><br>
+
+                      <p><strong></strong></p>
+
+                    <p class="text-custom">
+                      <strong>上课时间：每周二3-4节、每周五1-2节</strong><br>
+                      <strong>上课地点：经管楼C205</strong>
+                    </p>
+
+
+                    <p>
+                        可以通过 <a href="http://tuan1.hq.lovt.cn/app/index.php?c=entry&do=show&m=xiaof_toupiao&i=19&sid=10&id=445&wxref=mp.weixin.qq.com#wechat_redirect">石家庄市青年“五四”奖章 候选人</a> 了解我
+                    </p>
+
+                </div>
+
+                <!--<div class="col-md-2 col-sm-4">
+                    <p>往届链接</p>
+                    <p><a href="http://oscar-lab.org/yoser15-1/" target="_blank">YOSER 14</a></p>
+                    <p><a href="http://oscar-lab.org/yoser15-2/" target="_blank">YOSER 15</a></p>
+                    <p><a href="http://g.eqxiu.com/s/pzpjhIez?eqrcode=1&from=groupmessage&isappinstalled=0" target="_blank">YOSER 16</a></p>
+                </div>
+              -->
+            </div>
+
+            <!-- date -->
+            <div name="date" class="date col-md-10"  style="display: none;">
+                <table class="table table-hover my-table">
+                    <tbody>
+                      <tr><td>教学安排如下：</td></tr>
+                    <tr><td>
+                      1） 绪论（2学时）<br/>
+
+                      （1） 编译程序的基本概念<br/>
+
+                      （2） 编译程序的组成部分<br/>
+
+                      （3） 分遍及程序的开发<br/>
+
+                      2） 文法和语言（12学时）<br/>
+
+                      （1） 形式语言的基本概念<br/>
+
+                      （2） 文法变换<br/>
+
+                      （3） 文法分类<br/>
+
+                      （4） 文法的化简<br/>
+
+                      3） 词法分析（10学时）<br/>
+
+                      （1） 自动机概念<br/>
+
+                      （2） 自动机用于词法分析<br/>
+
+                      （3） 词法分析举例<br/>
+
+                      4） 语法分析（20学时）<br/>
+
+                      （1） 自底向上和自顶向下的语法分析<br/>
+
+                      （2） 简单优先方法<br/>
+
+                      （3） 算符优先方法<br/>
+
+                      （4） LR（0）和SLR（1）方法、LR（1）方法<br/>
+
+                      5)  中间语言（2学时）<br/>
+
+                      （1） 递波兰式及其生成算法<br/>
+
+                      （2） 三元式及其生成算法<br/>
+
+                      （3） 四元式及其生成算法<br/>
+
+                      6) 优化简介（2学时）<br/>
+
+                      （1） 合并常数<br/>
+
+                      （2） 清除多余运算<br/>
+
+                      （3） 外提不变运算<br/>
+
+                      （4） 消减运算强度<br/>
+
+                      （5） 下标变量优化。<br/>
+
+
+
+                    </td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- academic -->
+            <div name="academic" style="display:none">
+
+                <p><strong>请下载课件，如未及时更新，请耐心等待...</strong></p> <br>
+                <p><strong>说明：1-1表示第一周第一次课</strong></p> <br>
+                <div class="row row-padding">
+                    <div class="col-md-5 col-xm-3 text-center">
+                      <table class="table table-hover my-table">
+                          <tbody>
+                            <tr><td>（每次课课后更新...）</td></tr>
+                          <tr>
+                            <td><a href="/1-1.ppt">1-1</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/1-2.ppt">1-2</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/2-1.ppt">2-1</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/2-2.ppt">2-2</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/3-1.ppt">3-1</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/3-2.ppt">3-2</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/4-1.ppt">4-1</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/4-2.ppt">4-2</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/5-1.ppt">5-1</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/5-2.ppt">5-2</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/6-1.ppt">6-1</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/6-2.ppt">6-2</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/7-1.ppt">7-1</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/7-2.ppt">7-2</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/8-1.ppt">8-1</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/8-2.ppt">8-2</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/9-1.ppt">9-1</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/9-2.ppt">9-2</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/10-1.ppt">10-1</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/10-2.ppt">10-2</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/11-1.ppt">11-1</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/11-2.ppt">11-2</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/12-1.ppt">12-1</a></td>
+                          </tr>
+                          <tr>
+                            <td><a href="ppts/12-2.ppt">12-2</a></td>
+                          </tr>
+                      </tbody>
+                    </table>
+                    </div>
+
+                </div>
+            </div>
+
+             <!-- keynote -->
+            <div name="keynote" style="display:none">
+                <p>编译原理学习资料：</p>
+                <p>&nbsp</p>
+                <p><strong>经典教材参考书目</strong></p>
+                <div class="row row-padding">
+
+                    <div class="col-md-1 col-xm-1 text-center">
+                        <img src="img/long.jpeg" class="img-circle img-padding">
+                        <p>龙书</p>
+                        <p></p>
+                    </div>
+
+                    <div class="col-md-45 col-xm-1 text-center">
+                        <img src="./img/hu.jpeg" class="img-circle img-padding">
+                        <p>虎书</p>
+                        <p></p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- call -->
+            <div name="call" class="text-justify" style="display: none;">
+               <p><strong>张杨</strong></p>
+                <p>博士，副教授，硕士生导师，博士毕业于北京理工大学计算机软件与理论专业；中国计算机学会会员，中国计算机学会高性能计算专业委员会委员、分布式计算与系统专业委员会委员；曾受国家留学基金委委派前往美国Purdue大学进行访学一年。主要研究方向包括并发软件错误发现和修复、并发软件重构、Web和Android程序性能优化等。</p>
+                <p>答疑地点：信息楼C306</p>
+                <p>答疑时间：每周一 15:00-16:00 (其他时间需要发邮件预约)</p>
+                <p>联系方式：zhangyang /AT/ hebust.edu.cn</p>
+
+            </div>
+
+            <!-- registration -->
+            <div name="reg" class="" style="display:none">
+                <p><strong> </strong></p>
+                <table class="table table-hover my-table">
+                    <tbody id="attendee">
+                    </tbody>
+                </table>
+            </div>
+
+             <!-- venue -->
+            <div name="venue" class="" style="display:none">
+                <h4>举办地址</h4>
+                <p></p>
+                <p></p>
+                <div id="allmap">
+                    <a href="http://j.map.baidu.com/qr7LI" target="_blank">
+                    <img src="./img/map.png" title="查看详细信息" height="400" width="768"></div>
+                    </a>
+                <br>
+
+
+
+
+            </div>
+
+            <!-- committee -->
+            <div name="committee" style="display:none">
+                <p><strong>组织委员会</strong>（如有任何疑问，请联系以下人员）</p><br>
+                <table class="table table-hover my-table">
+                    <tbody>
+                        <tr><td><strong>姓名</strong></td><td><strong>电子邮件</strong></td></tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr><td></td><td></td></tr>
+                    </tbody>
+                    </table>
+
+
+                <p style="text-align: right"></p>
+            </div>
+
+            <!-- program -->
+            <div name="program" class="col-md-10" style="display:none">
+				<h4>日程</h4>
+                待定
+
+            </div>
+
+            <!-- download -->
+            <div name="download" class="" style="display:none">
+    			<h4>资料下载</h4>
+    			<p>持续更新中</p>
+
+            </div>
+
+            <!-- gallery -->
+            <div name="gallery" class="" style="display:none">
+				<h4>会议照片</h4>
+                <p>持续更新中</p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--<footer class="footer">
+    <div class="container">
+        <hr class="small">
+      <p class="text-muted">C语言程序设计</p>
+    </div>
+</footer> -->
+
+
+
+<script src="./js/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/ccfconf.js"></script>
+<script type="text/javascript">
+
+</script>
+</body></html>

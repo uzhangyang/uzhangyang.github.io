@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MARS</title>
+    <style>
+           .app{
+                   height:30px;
+                   wight:380px;
+                   position: relative;
+           }
+           a{
+                   position: absolute;
+                   top:20px;
+                   left:600px;
+            }
+          span {
+                color: orange;
+            }
+    </style>
+</head>
+<body style="width:800px; margin:0 auto;">
+    <h1>MARS: Code Smell Detection Based on Residual Network and Metric-Attention Mechanism</h1>
+    <div style="border:1px solid #CCC"></div>
+    <p>Code smell detection has become an established approach to discovering problems in source code to be corrected through software refactoring.
+However, the accuracy of existing approaches is still needed to improve.</p>
+    <p>Although many promising techniques are proposed, several problems of current works still exist.
+Firstly, existing works mainly focus on those popular code smells, such as feature envy, god class, and long method.
+Few works have been conducted on Brain class and Brain method code smells.
+Secondly, the accuracy of existing approaches is not satisfying, which is possible to conduct further improvements.
+Thirdly, there is no public dataset available to detect BC/BM code smell.
+Therefore, how to build a dataset with smelly and non-smelly BC/BM samples to train the deep learning model becomes increasingly urgent.</p>
+    <p>We propose a MARS to detect code smells.
+ A metric-attention mechanism is presented and introduced to the residual network.
+ To support the training of MARS, a high-quality dataset BrainCode is generated for the Brain Class and Brain Method by extracting features from 20 large real-world applications.
+MARS obtains an average of 2.01% higher accuracy than existing approaches, which dramatically improves state-of-the-art.</p>
+     <h2>Download</h2>
+    <div style="border:1px solid #CCC"></div>
+     <div class="app"> Base on twenty applications, we generate a dataset called BrainCode. The MARS is implemented by using the pytorch framework.Source code is available based on the request.
+<a href="https://github.com/DongChunhao/BrainCode/tree/main" download="BrainCode.txt">BrainCode</a>    </div>
+     <h3>Metric-Attention Mechanism</h3>
+    <div style="border:1px solid #CCC"></div>
+    <p>We show the generation of metric-attention mechanism:</p>
+    <div style="background-color:WhiteSmoke;">
+    1 &nbspclass Attention(Model):
+    <br />2&nbsp&nbsp&nbsp&nbsp&nbsp&nbspdef __init__(self, in_dim=128):
+    <br />3 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspsuper(Attention, self).__init__()
+    <br />4 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspself.mlp = nn.Sequential(
+    <br />5 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspnn.Linear(in_dim, in_dim/n),
+    <br />6 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspnn.Tanh(),
+    <br />7 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspnn.Linear(in_dim/n,in_dim),
+    <br />8 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspnn.Sigmoid())
+    <br />9 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspself.dense = nn.Linear(in_dim, in_dim)
+    <br />10&nbsp&nbsp&nbsp&nbspdef forward(self, x):
+    <br />11 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspscore = self.mlp(x)
+    <br />12 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspx = x * score
+    <br />13 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspx = self.dense(x)
+    <br />14 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspreturn x
+    </div>
+    <p> The metric-attention mechanism scales the feature information of code metrics twice to calculate the weight. The first layer
+represents the subsampling layer to decrease the number of features by a factor of n(line5). Tanh is used as an activation function(line6).
+The second layer represents the upsampling layer to expand the number of features to the original quantities(line7).
+Sigmoid is the gating function to ensure that the values of all weighted metrics are within a range between 0 and 1(line8).</p>
+    <h2>Improved ResBlock</h2>
+    <div style="border:1px solid #CCC"></div>
+    <p>We show that residual block is improved with introducing metric-attention mechanism. Metric-attention is added just
+after the second BN layer. </p>
+     <div style="background-color:WhiteSmoke;">
+    1 &nbspclass ResidualBlock(Model):
+    <br />2&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp def __init__(self, inchannel, outchannel,reduction=16,stride=1):
+    <br />3 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspsuper(ResidualBlock, self).__init__()
+    <br />4 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspself.left = nn.Sequential(
+    <br />5 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspnn.Conv1d(inchannel, outchannel, kernel_size=3, stride=stride, padding=1, bias=False),
+    <br />6 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspnn.BatchNorm1d(outchannel),
+    <br />7 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspnn.ReLU(inplace=True),
+    <br />8 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspnn.Conv1d(outchannel, outchannel, kernel_size=3, stride=1, padding=1, bias=False),
+    <br />9 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspnn.BatchNorm1d(outchannel))
+    <br />10&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspself.attn=Attention(outchannel)
+   <br />11&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspself.shortcut = nn.Sequential()
+   <br />12&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspif stride != 1 or inchannel != outchannel:
+   <br />13&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspself.shortcut = nn.Sequential(
+   <br />14&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspnn.Conv1d(inchannel, outchannel, kernel_size=1, stride=stride, bias=False),
+   <br />15&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspnn.BatchNorm1d(outchannel))
+   <br />16 &nbsp&nbsp&nbsp&nbspdef forward(self, x):
+   <br />17 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspout = self.left(x)
+   <br />18 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspout = out.transpose(1, 2)
+   <br />19 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspout = self.attn(out)
+   <br />20 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspout = out.transpose(1, 2)
+   <br />21 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspout += self.shortcut(x)
+   <br />22 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspout = F.relu(out)
+   <br />23 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspreturn out
+   </div>
+   <p>The residuals block contains the residuals part and the direct mappings.The residuals part is represented by the convolution layer and metric-attention mechanism(line4~10).
+ The direct mapping is represented in line 11.BN represents the batch normalization that accelerates the convergence rate of the network.ReLU is the activation function.</p>
+
+ <img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_24/viewers_0/labels_1/pageviews_1/flags_0/percent_0/"  border="0">
+
+
+</body>
+</html>
