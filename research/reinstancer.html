@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>ReInstancer</title>
+        <style type="text/css">
+        pre code
+		{
+        color:rgb(127, 0, 85);
+        line-height:1.4;
+	    font-family:Consolas;
+        }
+
+        pre comment
+		{
+        color:rgb(63, 127, 95);
+        line-height:1.4;
+	    font-family:Consolas;
+		}
+
+        pre	{
+	    margin: 0;
+        padding-left: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+	    border: 0;
+	    border: 1px dotted #785;
+	    background: #f5f5f5;
+	    line-height:1.4;
+	    font-family:Consolas;
+        }
+
+        .content{
+            margin-left:250;
+            margin-right:250;
+        }
+        </style>
+    </head>
+<body>
+<div class="content">
+<h1>ReInstancer: Automatically Refactoring for Instanceof Pattern
+Matching</h1>
+<hr/>
+<p style="text-align:justify">Pattern matching for instanceof is widely used with the advantage
+of conditionally extracting components from objects and with the
+disadvantage of the compulsory usage of type castings. It has been
+periodically proposed as the preview feature in lately published JDK
+to avoid redundant type castings and to optimize pattern matching in multi-branch statements.</p>
+<p style="text-align:justify">There is a strong need to provide
+full support of refactoring instanceof pattern matching. However,
+manual refactoring is time-consuming and tedious.</p>
+<p style="text-align:justify">We propose presents a
+refactoring tool ReInstancer that alleviates type castings by converting a multi-branch statement with instanceof pattern matching into
+a switch statement or expression automatically.</p>
+<h2>Instanceof for pattern matching and convert it to switch statement or switch expression</h2>
+<hr/>
+<p style="text-align:justify">ReInstancer convert multi-branch if statement with instanceof to switch statement or switch expression.</p>
+<h3>Pattern matching and Convert</h3>
+<p style="text-align:justify">We showcase how ReInstancer can reduce redundant type castings and convert multi-branch statement to switch expression using the following example:</p>
+<pre>
+1 <code>public</code> <code>Object</code> onvertToDefaultType(SessionInterface session, Object a) {
+2     <code>if</code> (a == null) {
+3       <code>return</code> a；
+4     }<code>if</code> (a instanceof byte[]) {     
+5        <code>return</code> <code>new</code> BinaryData((<code>byte</code>[]) a, <code>false</code>);
+6     }<code>if</code> (a instanceof String){     
+7        <code>return</code> castOrConvertToType(session, a,Type.SQL_VARCHAR,<code>false</code>);
+8     }<code>else</code>{    
+9      <code>return</code> a；
+10    }
+11 }       </pre>
+<p style="text-align:justify">This figure shows the code refactored by ReInstancer:</p>
+
+<pre>
+12 <code>public</code> <code>Object</code> onvertToDefaultType(SessionInterface session, Object a) {
+13     <code>return</code> <code>switch</code> (a) {
+14            <code>case</code> <code>null</code> ->a;
+15            <code>case</code> <code>byte</code>[]) a0 -> <code>new</code> BinaryData(a0, <code>false</code>);
+16            <code>case</code> String -> castOrConvertToType(session, a,Type.SQL_VARCHAR,<code>false</code>);
+17            <code>default</code> -> a;
+18      };
+19  }    </pre>
+
+<p style="text-align:justify">It shows an improved implementation by converting
+this multi-branch statement into a switch expression. It merges a
+null testing into the switch expression, thus make the code unified
+and clean.</p>
+
+<h2>The website of ReInstancer</h2>
+<hr/>
+<p style="text-align:justify">ReInstancer is implemented as an extension to Eclipse IDE, its source code URL is<a href="https://github.com/a2669761538/ReInstancer">ReInstancer</a>. Source code is available based on the request.</p>
+<div style="text-align:center">
+</div>
+</div>
+
+</body>
+</html>
