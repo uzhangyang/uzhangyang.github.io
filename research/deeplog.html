@@ -1,0 +1,107 @@
+
+<!-- saved from url=(0052)https://uzhangyang.github.io/research/delesmell.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title>DeepLog</title>
+        <style type="text/css">
+        pre code
+		{
+        color:rgb(127, 0, 85);
+        line-height:1.4;
+	    font-family:Consolas;
+        }
+
+        pre comment
+		{
+        color:rgb(63, 127, 95);
+        line-height:1.4;
+	    font-family:Consolas;
+		}
+
+        pre	{
+	    margin: 0;
+        padding-left: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+	    border: 0;
+	    border: 1px dotted #785;
+	    background: #f5f5f5;
+	    line-height:1.4;
+	    font-family:Consolas;
+        }
+
+        .content{
+            margin-left:250;
+            margin-right:250;
+        }
+        </style>
+    <script type="text/javascript" src="chrome-extension://lgedckpahehacohndmafhkdmdjdgaima/js/inject.js"></script></head>
+<body data-new-gr-c-s-check-loaded="14.1026.0" data-gr-ext-installed="">
+<div class="content">
+<h1>DeepLog: Deep-Learning-Based Log Recommendation</h1>
+<hr>
+<p style="text-align:justify">Log recommendation plays a vital role in analyzing run-time issues including anomaly detection, performance monitoring, and security evaluation. However, existing deep-learning-based approaches for log recommendation suffer from insufficient features and low F<SUB>1</SUB>. </p>
+<p style="text-align:justify">To this end, this paper proposes a prototype called <i>DeepLog</i> to recommend log location based on a deep learning model. <i>DeepLog</i> parses the source code into an abstract syntax tree and then converts each method into a block hierarchical tree in which <i>DeepLog</i> extracts both semantic and syntactic features. </p>
+
+<p style="text-align:justify">By doing this, we construct a dataset with more than 110K samples. <i>DeepLog</i> employs a double-branched neural network model to recommend log locations. We evaluate the effectiveness of <i>DeepLog</i> by answering four research questions. The experimental results demonstrate that it can recommend 8,725 logs for 23 projects and the 𝐹1 of <i>DeepLog</i> is 28.17% higher than that of the existing approaches, which improves state-of-the-art. </p>
+<p style="text-align:justify">A demonstration video can be accessed at <a href="https://www.youtube.com/watch?v=ikkYhkg1bBM">here</a></p>
+
+
+
+
+<h2>DeepLog model and dataset</h2>
+<hr>
+<h3>DeepLog Model</h3>
+<p style="text-align:justify">We present the deep learning model of <i>DeepLog</i> in the following code.</p>
+
+
+<p style="text-align:justify">The model： </p>
+<p style="text-align:justify"></p>
+<pre>
+1  <code>model1 = tf.keras.models.Sequential([                                                  </code>
+2  <code>    (Convolution1D(input_shape=(semantic_vec_length_chain, 1), filters=1,              </code>
+3  <code>                   kernel_size=1, strides=1, padding='same',                           </code>
+4  <code>                   activation='relu', kernel_initializer=keras.initializers.Ones(),    </code>
+5  <code>                   bias_initializer='zeros')),                                         </code>
+6  <code>    (MaxPooling1D(pool_size=2, strides=2, padding='same', )),                          </code>
+7  <code>    (Flatten()),                                                                       </code>
+8  <code>    (keras.layers.Embedding(num_word, embedding_dim)),                                 </code>
+9  <code>    (keras.layers.GlobalMaxPool1D()),                                                  </code>
+10 <code>])                                                                                     </code>
+11 <code>model2 = tf.keras.models.Sequential([                                                  </code>
+12 <code>    (Convolution1D(input_shape=(syntatic_vec_length_chain, 1), filters=1,              </code>
+13 <code>                   kernel_size=1, strides=1, padding='same',                           </code>
+14 <code>                   activation='relu', kernel_initializer=keras.initializers.Ones(),    </code>
+15 <code>                   bias_initializer='zeros')),                                         </code>
+16 <code>    (MaxPooling1D(pool_size=2, strides=2, padding='same', )),                          </code>
+17 <code>    (Flatten()),                                                                       </code>
+18 <code>    (keras.layers.Embedding(num_word, embedding_dim)),                                 </code>
+19 <code>    (keras.layers.GlobalMaxPool1D()),                                                  </code>
+20 <code>])                                                                                     </code>
+21 <code>model_together = keras.layers.concatenate([model2.output, model1.output])              </code>
+22 <code>x = Dropout(0.4)(model_together)                                                       </code>
+23 <code>x = Dense(24, activation='relu')(x)                                                    </code>
+24 <code>x = Dense(128, activation='relu')(x)                                                   </code>
+25 <code>final_output = Dense(24, activation='relu')(x)                                         </code>
+26 <code>final_output = Dense(2, activation='softmax')(final_output)                            </code>
+27 <code>model = Model(inputs=[model3.input, model2.input], outputs=final_output)</code>
+
+</pre>
+
+<p style="text-align:justify">Compile model</p>
+<p style="text-align:justify"></p>
+<pre>
+1  <code>model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])</code>
+</pre>
+
+
+<h3>DeepLog Dataset and models</h3>
+<p style="text-align:justify"> For the reproducibility of the evaluation, all models and datasets are available at <a href="https://github.com/cxiaosong/DeepLog">dataset and model</a></p>
+
+
+
+</div>
+
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
