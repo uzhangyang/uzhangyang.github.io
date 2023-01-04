@@ -37,8 +37,7 @@
     </head>
 <body>
 <div class="content">
-<h1>ReInstancer: Automatically Refactoring for Instanceof Pattern
-Matching</h1>
+<h1>ReInstancer: An Automatic Refactoring Approach for Instancerof Pattern Matching</h1>
 <hr/>
 <p style="text-align:justify">Pattern matching for instanceof is widely used with the advantage
 of conditionally extracting components from objects and with the
@@ -60,14 +59,12 @@ a switch statement or expression automatically.</p>
 1 <code>public</code> <code>Object</code> onvertToDefaultType(SessionInterface session, Object a) {
 2     <code>if</code> (a == null) {
 3       <code>return</code> a；
-4     }<code>if</code> (a instanceof byte[]) {
+4     }<code>if</code> (a instanceof byte[]) {     
 5        <code>return</code> <code>new</code> BinaryData((<code>byte</code>[]) a, <code>false</code>);
-6     }<code>if</code> (a instanceof String){
-7        <code>return</code> castOrConvertToType(session, a,Type.SQL_VARCHAR,<code>false</code>);
-8     }<code>else</code>{
-9      <code>return</code> a；
-10    }
-11 }       </pre>
+6     }<code>else</code>{    
+7      <code>return</code> a；
+8    }
+9 }       </pre>
 <p style="text-align:justify">This figure shows the code refactored by ReInstancer:</p>
 
 <pre>
@@ -75,10 +72,9 @@ a switch statement or expression automatically.</p>
 13     <code>return</code> <code>switch</code> (a) {
 14            <code>case</code> <code>null</code> ->a;
 15            <code>case</code> <code>byte</code>[]) a0 -> <code>new</code> BinaryData(a0, <code>false</code>);
-16            <code>case</code> String -> castOrConvertToType(session, a,Type.SQL_VARCHAR,<code>false</code>);
-17            <code>default</code> -> a;
-18      };
-19  }    </pre>
+16            <code>default</code> -> a;
+17      };
+18  }    </pre>
 
 <p style="text-align:justify">It shows an improved implementation by converting
 this multi-branch statement into a switch expression. It merges a
@@ -87,11 +83,12 @@ and clean.</p>
 
 <h2>The website of ReInstancer</h2>
 <hr/>
-<p style="text-align:justify">ReInstancer is implemented as an extension to Eclipse IDE, its source code URL is<a href="https://github.com/a2669761538/ReInstancer">ReInstancer</a>. Source code is available based on the request.</p>
+<p style="text-align:justify">ReInstancer is implemented as an extension to Eclipse IDE, its source code URL is<a href="https://github.com/a2669761538/ReInstancer">ReInstancer</a>. Source code is available based on the request.
+The projects and tools used by ReInstancer and the experimental results are <a href="https://zenodo.org/record/7503149#.Y7VGCNVBxPY">Result and tool</a>. 
+</p>
 <div style="text-align:center">
 </div>
 </div>
-<img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_24/viewers_3/labels_1/pageviews_1/flags_0/percent_0/"  border="0">
 
 </body>
 </html>
