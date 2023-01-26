@@ -1,5 +1,5 @@
 
-<!-- saved from url=(0052)https://uzhangyang.github.io/research/delesmell.html -->
+<!-- saved from url=(0050)https://uzhangyang.github.io/research/deeplog.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <title>DeepLog</title>
@@ -35,12 +35,12 @@
             margin-right:250;
         }
         </style>
-    <script type="text/javascript" src="chrome-extension://lgedckpahehacohndmafhkdmdjdgaima/js/inject.js"></script></head>
-<body data-new-gr-c-s-check-loaded="14.1026.0" data-gr-ext-installed="">
+    <script type="text/javascript" src="chrome-extension://lgedckpahehacohndmafhkdmdjdgaima/js/inject.js"></script><script type="text/javascript" src="chrome-extension://lgedckpahehacohndmafhkdmdjdgaima/js/inject.js"></script></head>
+<body data-new-gr-c-s-check-loaded="14.1027.0" data-gr-ext-installed="">
 <div class="content">
 <h1>DeepLog: Deep-Learning-Based Log Recommendation</h1>
 <hr>
-<p style="text-align:justify">Log recommendation plays a vital role in analyzing run-time issues including anomaly detection, performance monitoring, and security evaluation. However, existing deep-learning-based approaches for log recommendation suffer from insufficient features and low F<SUB>1</SUB>. </p>
+<p style="text-align:justify">Log recommendation plays a vital role in analyzing run-time issues including anomaly detection, performance monitoring, and security evaluation. However, existing deep-learning-based approaches for log recommendation suffer from insufficient features and low F<sub>1</sub>. </p>
 <p style="text-align:justify">To this end, this paper proposes a prototype called <i>DeepLog</i> to recommend log location based on a deep learning model. <i>DeepLog</i> parses the source code into an abstract syntax tree and then converts each method into a block hierarchical tree in which <i>DeepLog</i> extracts both semantic and syntactic features. </p>
 
 <p style="text-align:justify">By doing this, we construct a dataset with more than 110K samples. <i>DeepLog</i> employs a double-branched neural network model to recommend log locations. We evaluate the effectiveness of <i>DeepLog</i> by answering four research questions. The experimental results demonstrate that it can recommend 8,725 logs for 23 projects and the 𝐹1 of <i>DeepLog</i> is 28.17% higher than that of the existing approaches, which improves state-of-the-art. </p>
@@ -57,8 +57,7 @@
 
 <p style="text-align:justify">The model： </p>
 <p style="text-align:justify"></p>
-<pre>
-1  <code>model1 = tf.keras.models.Sequential([                                                  </code>
+<pre>1  <code>model1 = tf.keras.models.Sequential([                                                  </code>
 2  <code>    (Convolution1D(input_shape=(semantic_vec_length_chain, 1), filters=1,              </code>
 3  <code>                   kernel_size=1, strides=1, padding='same',                           </code>
 4  <code>                   activation='relu', kernel_initializer=keras.initializers.Ones(),    </code>
@@ -90,19 +89,16 @@
 
 <p style="text-align:justify">Compile model</p>
 <p style="text-align:justify"></p>
-<pre>
-1  <code>model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])</code>
+<pre>1  <code>model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])</code>
 </pre>
 
 
 <h3>DeepLog Dataset and models</h3>
-<p style="text-align:justify"> For the reproducibility of the evaluation, all models and datasets are available at <a href="https://github.com/cxiaosong/DeepLog">dataset and model</a></p>
+<p style="text-align:justify"> For the reproducibility of the evaluation, all models, datasets and plug-in source code are available at <a href="https://github.com/cxiaosong/DeepLog">dataset, model and plug-in</a></p>
 
-<img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_24/viewers_3/labels_1/pageviews_0/flags_0/percent_0/"  border="0">
-
-
-</div>
+<img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_32/viewers_3/labels_1/pageviews_1/flags_0/percent_0/"  border="0">
 
 
 
-</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+</body></html>
