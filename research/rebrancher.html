@@ -70,7 +70,7 @@ the conditional expressions are different. </p>
    allow=true;
  } else if (ruleTypeString.equals("accept")) {
    allow=true;
- } else if (ruleTypeString.equals("prohibit")) {
+ } else if (ruleTypeString.equals("prohibit")) {   
    allow=false;
  } else if (ruleTypeString.equals("deny")) {
    allow=false;
@@ -113,7 +113,7 @@ switch (ruleTypeString) {
   case "allow", "permit", "accept":
     allow=true;
     break;
-  case "prohibit", "deny", "reject":
+  case "prohibit", "deny", "reject": 
     allow=false;
     break;
   default :
@@ -131,7 +131,7 @@ branches.</p>
 <pre>
 <code>
 switch (ruleTypeString) {
-  case "allow", "permit", "accept"->
+  case "allow", "permit", "accept"-> 
     allow=true;
   case "prohibit", "deny", "reject"->
     allow=false;
@@ -157,16 +157,56 @@ allow=switch (ruleTypeString) {
 </code>
 </pre>
 
+<h3> Optimize nested if-else statement</h3>
+<p style="text-align:justify">The code snippet presents the improvement for the nested if-else conditional branching by introducing the principle that exit branches are evaluated first. The exit branches refer to branches that are intuitively used for terminating conditional branching, such as exception handling and function return. Prioritizing the evaluation in the branch structure for these branches can avoid being missed by developers. </p>
+
+<pre>
+<code>
+//defore refactoring
+if (diff != null) {
+  if (m_caseOrder.equals("upper")) {
+    if (diff[0] == UPPER_CASE) {
+      return -1;
+    } else {
+      return 1;
+    }
+  } else {
+    if (diff[0] == LOWER_CASE) {
+      return -1;
+    }
+  }
+} else {
+  return 0;
+}
+</code>
+</pre>
+
+<pre>
+<code>
+//after refactoring
+if (diff == null) {
+  return 0;
+} else if (!m_caseOrder.equals("upper")) {
+  if (diff[0] == LOWER_CASE) {
+    return -1;
+  }
+} else if (diff[0] == UPPER_CASE) {
+  return -1;
+} else {
+  return 1;
+}
+</code>
+</pre>
+
 
 <h2>The website of ReBrancher</h2>
 <hr/>
-<p style="text-align:justify">ReBrancher is implemented as an extension of Eclipse IDE, the prototype ReBrancher is available at <a href="https://github.com/Chaoshuai-Li/ReBrancher">ReBrancher</a>.
-The benchmarks used to evaluate ReBrancher are available <a href="https://zenodo.org/record/7649353#.Y_DPPmnitro">here</a>.
+<p style="text-align:justify">ReBrancher is implemented as an extension to Eclipse IDE, the prototype ReBrancher is available at <a href="https://github.com/Chaoshuai-Li/ReBrancher">ReBrancher</a>. 
+The benchmarks used to evaluate ReBrancher are available <a href="https://zenodo.org/record/7649353#.Y_DPPmnitro">here</a>. 
 </p>
 <div style="text-align:center">
 </div>
 </div>
-<img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_32/viewers_0/labels_1/pageviews_1/flags_0/percent_0/"  border="0">
 
 </body>
 </html>
