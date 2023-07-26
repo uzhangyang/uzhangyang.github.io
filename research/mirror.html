@@ -1,0 +1,293 @@
+
+<!-- saved from url=(0052)https://uzhangyang.github.io/research/delesmell.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title>MIRROR</title>
+        <style type="text/css">
+        pre code
+		{
+        color:rgb(127, 0, 85);
+        line-height:1.4;
+	    font-family:Consolas;
+        }
+
+        pre comment
+		{
+        color:rgb(63, 127, 95);
+        line-height:1.4;
+	    font-family:Consolas;
+		}
+
+        pre	{
+	    margin: 0;
+        padding-left: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+	    border: 0;
+	    border: 1px dotted #785;
+	    background: #f5f5f5;
+	    line-height:1.4;
+	    font-family:Consolas;
+        }
+
+        .content{
+            margin-left:250;
+            margin-right:250;
+        }
+        </style>
+    </head>
+<body data-new-gr-c-s-check-loaded="14.1033.0" data-gr-ext-installed="">
+<div class="content">
+<h1>MIRROR: Multi-objective Refactoring Recommendation via Correlation Analysis</h1>
+<hr>
+<p style="text-align:justify">Refactoring is a critical but complex task to improve the code quality by altering software structure without changing the observable behavior. Although there are many refactoring tools available to recommend refactoring solutions,
+ however, almost all previous reconstructive recommendation techniques only considered the overall attributes and lacked the importance of considering the sub-attributes and their correlations. And in previous approaches, refactoring solutions focused on only a few common types of refactoring operations. Responding to the above issues, this paper proposes an approach,named Multi-objectIve Refactoring Recommendation via Correlation Analysis(<i>MIRROR</i>).</p>
+<p style="text-align:justify"> We developed an Eclipse plugin called <i>MIRROR</i> to automatically generate a list of refactoring recommendations. <i>MIRROR</i> can recommend refactorings from different perspectives to (i) improve quality, (ii) remove the code smell, and (iii) maximize the similarity to refactoring history.</p>
+
+<p style="text-align:justify"> The tool uses the Java project to be refactored as input and is able to find the best compromise between three objectives while providing more reasonable refactorings. To evaluate the effectiveness of <i>MIRROR</i>, extensive experimental evaluations are conducted on 6 large open-source projects
+and compare <i>MIRROR</i> in various aspects with two existing tools. The experimental results show that <i>MIRROR</i> improves the F1 by up to 5.63% and 3.75% compared with existing refactoring recommendation tools <i>JMove</i> and <i>QMove</i>.</p>
+
+
+<h2>MIRROR tools and partial code</h2>
+<hr>
+<h3>MIRROR partial code</h3>
+<p style="text-align:justify">We show part of the code for <i>MIRROR</i> with the following code.</p>
+<pre>
+	<code>
+public double UND() {
+	int i=1;
+	if(i==1) {
+		a=(-0.33*averageNumberOfAncestors()+0.33*dataAccessMetric()-0.33*directClassCoupling()
+		+0.33*cohesionAmongMethods()-0.33*numberOfPolymorphicMethods()-0.33*numberOfMethods()
+		-0.33*classDesignSize());
+		i++;
+		return a;
+	}
+	return (-0.33*averageNumberOfAncestors()+0.33*dataAccessMetric()-0.33*directClassCoupling()
+	+0.33*cohesionAmongMethods()-0.33*numberOfPolymorphicMethods()-0.33*numberOfMethods()
+	-0.33*classDesignSize());
+}
+
+public double EXT() {
+	int j=1;
+	if(j==1) {
+		b=(0.5*averageNumberOfAncestors()-0.5*directClassCoupling()+0.5*functionalAbstraction()
+		+0.5*numberOfPolymorphicMethods());
+		j++;
+		return b;
+	}
+	return (0.5*averageNumberOfAncestors()-0.5*directClassCoupling()+0.5*functionalAbstraction()
+	+0.5*numberOfPolymorphicMethods());
+}
+
+public double EFE() {
+	int k=1;
+	if(k==1) {
+		c=(0.2*averageNumberOfAncestors()+0.2*dataAccessMetric()+0.2*aggregation()
+		+0.2*functionalAbstraction()+0.2*numberOfPolymorphicMethods());
+		k++;
+		return c;
+	}
+	return (0.2*averageNumberOfAncestors()+0.2*dataAccessMetric()+0.2*aggregation()
+	+0.2*functionalAbstraction()+0.2*numberOfPolymorphicMethods());
+}
+
+public double quality() {
+	return UND()+EFE()+EXT()-qualityOriginal()/qualityOriginal();
+}
+
+public int num() throws BiffException, IOException {
+	int num=0;
+	int row=readsheetrow(new File("Code smell address"));
+	File file=new File("Code smell address");
+	Workbook wb=Workbook.getWorkbook(file);
+	Sheet sheet =wb.getSheet("sheet1");
+	for (int i = 0; i < this.units.size(); i++)
+	{
+		for (TypeDeclaration td : getAllTypes(this.units.get(i)))
+		{
+			for(int j=0;j< row;j++) {
+				Cell cell=sheet.getCell(0,j);
+				if((String)td.getName()==cell.getContents())
+					num++;
+				}
+			}
+		 }
+	return num;
+}
+public int numoriginal() {
+	int numoriginal=0;
+	String name="Gantt";
+//	String name="ApacheAnt";
+//	String name="Xerces-J";
+//	String name="JFreeChart";
+//	String name="Rihno";
+//	String name="jhotdraw";
+	try {
+		List<Integer> a=new ArrayList<Integer>();
+		a = readSpecifyColumns(new File("Code smell address"));
+		Workbook wb = Workbook.getWorkbook(new File("Code smell address"));
+		for (int i = 0; i < a.size(); i++) {
+			Sheet sheet =wb.getSheet(i);
+			if(sheet.getName()==name) {
+				numoriginal = a.get(i);
+			}else {
+
+			}
+
+		}
+		copy_excel(new File("Code smell address"));
+	}catch(Exception e) {
+		e.printStackTrace();
+	}
+	return numoriginal;
+}
+public double codesmells() throws BiffException, IOException {
+	return num()/numoriginal();
+}
+
+public double scoreratio() {
+	jxl.Workbook wb = null;
+	InputStream is = null;
+	try {
+		is = new FileInputStream("History address");
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	}
+
+	try {
+		wb = Workbook.getWorkbook(is);
+	} catch (BiffException e) {
+		e.printStackTrace();
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	int sheetSize = wb.getNumberOfSheets();
+	Sheet[] sheet = wb.getSheets();
+
+	double score = 0;
+	int k = 0;
+
+	for (int i = 0; i < sheetSize; i++) {
+		score = 0;
+		k = 0;
+		int rownum = sheet[i].getRows();
+		for (int j = 1; j < rownum; j++) {
+			Cell[] cells = sheet[i].getRow(j);
+				String RefactorName, RefactorNamePosition;
+			if (cells.length < 3) {
+				RefactorName = "";
+			} else {
+				RefactorName = (cells[2].getContents());
+			}
+			if (cells.length < 6) {
+				RefactorNamePosition = "";
+			} else {
+				RefactorNamePosition = (cells[5].getContents());
+			}
+
+			int rownum2 = sheet2[i].getRows();
+			for (int c = 0; c < rownum2; c++) {
+				Cell[] cells2 = sheet2[i].getRow(c);
+				String RefactorType, RefactorTypePosition;
+				if (cells2.length < 3) {
+					RefactorType = "";
+				} else {
+					if (cells2[2].getContents() != "") {
+
+						RefactorType = cells2[2].getContents();
+
+						RefactorTypePosition = cells2[0].getContents();
+
+						if (RefactorType == RefactorName) {
+								k++;
+							if (RefactorNamePosition.contains(RefactorTypePosition)) {
+								score += 2;
+							} else {
+								score++;
+							}
+
+						}
+					}
+				}
+
+			}
+		}
+
+	}
+	double percentage;
+	if (k == 0) {
+		percentage = 0;
+		return percentage;
+	}
+	percentage = score / k * 2;
+	return percentage;
+}
+public double history() {
+	return scoreratio();
+}
+    </code>
+</pre>
+
+<p style="text-align:justify"></p>
+<pre>
+	<code>
+public static void main(String[] args)
+{
+	System.out.printf("Automated Refactoring Tool Running");
+
+	if (args.length > 0)
+	{
+		if (args[0].equals("-f"))
+		{
+
+			long start = System.currentTimeMillis();
+			ToolTasks run=new ToolTasks();
+			run.run();
+			long end = System.currentTimeMillis();
+		    System.out.println("Total running time of the programme：" + (end - start) + "ms");
+		}
+		else if (args[0].equals("-r"))
+		{
+			try
+			{
+				BufferedReader br = new BufferedReader(new FileReader(args[1]));
+				ToolTasks run=new ToolTasks(br.readLine());
+				run.run();
+				br.close();
+			}
+			catch (IOException e)
+			{
+				System.out.println("\r\nEXCEPTION: Cannot read source path from file.");
+				System.exit(1);
+			}
+		}
+		else
+		{
+			System.out.print("\r\n\r\nArgument not applicable. Input arguments must consist of one
+			                of the following:\r\n"
+					+ " -f to pass in a directory containing the input\r\n"
+					+ " -r to read in a file containing the input directory");
+		}
+	}
+	else
+	{
+		ToolTasks run=new ToolTasks();
+		run.run();
+	}
+
+	System.out.printf("\r\n\r\nFinished!");
+}
+
+
+     </code>
+</pre>
+
+<h3>MIRROR tools</h3>
+<p style="text-align:justify">The source code for the <i>MIRROR</i> tool is available at the following URL <a href="https://github.com/Ganguan/MIRROR"> https://github.com/Ganguan/MIRROR</a></p>
+
+</div>
+<img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_32/viewers_0/labels_1/pageviews_1/flags_0/percent_0/"  border="0">
+
+</body>
+</html>
