@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>MultiSmell</title>
+		<style>
+			    body {
+			        font: 14px Arial,sans-serif;
+			        margin: 0px;
+					height: auto;
+					width: 100%;
+			    }
+			    header {
+			        padding: 10px 20px;
+			        background: #acb3b9;
+			    }
+			    header h1 {
+					font-family: 'Times New Roman', Times, serif;
+			        font-size: 26px;
+			    }
+				.details {
+					text-align: left;
+					font-family: 'Times New Roman', Times, serif;
+					font-weight: 400;
+					font-size: 18px;
+					width: 80%;
+					text-indent: 1em;
+				}
+				.one{
+					font-weight: 700;
+					text-indent: 0em;
+				}
+				.clearfix {
+					height: auto;
+					width: auto;
+				}
+			    .clearfix:after {
+			        content: ".";
+			        display: block;
+					height: 0;
+			        clear: both;
+			        visibility: hidden;
+			    }
+				.describe{
+					/* background: burlywood; */
+					/* width: 80%; */
+				}
+				pre{
+					text-align: left;
+					width: 80%;
+				}
+				.code{
+					background: gainsboro;
+					border:1px black dashed;
+					color: #191970;
+					font-size: 16px;
+					font-family: 'Times New Roman', Times, serif;
+					font-weight: 400;
+					user-select: none;
+				}
+				.py{
+					font-size: 16px;
+					font-weight: 400;
+					color: red;
+				}
+			    footer {
+			        background: #acb3b9;          
+			        text-align: center;
+			        padding: 5px;
+			    }
+		</style>
+	</head>
+	<body>
+		<header class="hd">
+			<center>
+				<h1>
+					Multi-label Code Smell Detection based on Heterogeneous Graph Neural Network
+				</h1>
+			</center>
+		</header>
+		<div class="clearfix">
+			<center>
+				<div class="describe">
+					<p class="one details">Introduce</p>
+					<p class="details">
+						Code smells are poor implementation and bad design choices that may signify the weakness of software design. 
+						The practice of software development often involves the co-occurrence of multiple code smells. 
+						However, the single-label detection is unable to identify and mark the presence of multiple code smells together
+						 and fails to capture the relationship and impact between code smells. 
+						 To address these problems, we propose <i>MultiSmell</i>, a multi-label code smell detection approach based on a heterogeneous graph neural network.
+					</p>
+					<p class="details">
+						Firstly, the text features is extracted on the AST of the source program, 
+						while the structural metric features is extracted by iPlasma. 
+						Then, the semantic relationships embedded between the text features are obtained by XLNet pre-training model and BiLSTM model, 
+						and combine the CNN model for deep feature extraction of the metric features. 
+						Secondly, each code sample is labeled with multiple labels by using static analysis tools and detection rules, 
+						combining textual and metric features into feature information. 
+						Next, the feature and the label information are modeled as different types of nodes on the heterogeneous graph, 
+						the two types of nodes are iteratively fused through the message-passing mechanism. 
+						Finally, a MLP is employed to accomplish the detection of multi-label code smell.
+					</p>
+					<p class="details">
+						The experiment results show that <i>MultiSmell</i> improves by an average of 17.47% in accuracy and an average of 10.35% in F1 against existing approaches, 
+						demonstrating the effectiveness of our approach in detecting multi-label code smell.
+					</p>
+				</div>
+				<hr>
+				<div class="model">
+					<p class="one details">
+						<i>MultiSmell</i> model
+					</p>
+					<p class="details">
+						Here we show the primary code of MultiSmell.
+					</p>
+					<!-- <p class="one details py"> model.py</p> -->
+					<pre class="code code_two">
+						
+<code>class config(object):</code>
+	<code>
+	def __init__(self, model_name,types):
+		self.model_name = model_name
+		self.types = types
+		self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+		self.require_improvment = 1000
+		self.pretain = 'xlnet'
+		self.num_class = 3
+		self.num_epochs = 30
+		self.batch_size = 128
+		self.padding_size = 20
+		self.learning_rate = 1e-4
+		self.gru_hidden = 256
+		self.rnn_hidden = 256
+		self.hidden_size = 256
+		self.num_layer = 2
+		self.gat_layers = 3
+		self.dropout = 0.5
+		self.linear = 128
+	</code>
+<code>class Bi_LSTM(nn.Module):</code>
+	<code>
+	def __init__(self):
+		super(Bi_LSTM, self).__init__()
+		self.lstm_1 = torch.nn.LSTM(
+			input_size=768,
+			hidden_size=128,
+			num_layers=2,
+			batch_first=True,
+			dropout=0.4,
+			bidirectional=True
+		)
+		self.dropout = torch.nn.Dropout(0.4)
+		self.linear_1 = torch.nn.Linear(256,128)
+		self.act = torch.nn.Tanh()
+		self.flatten = torch.nn.Flatten()
+		
+	def forward(self,inputs):
+		inputs = inputs.reshape(inputs.shape[0],1,-1)
+		out,_ = self.lstm_1(inputs)
+		out = self.dropout(out)
+		out = out[:, -1, :]
+		out = self.linear_1(out)
+		return out
+	</code>
+<code>class CNN(nn.Module):</code>
+<code>
+	def __init__(self):
+		super(CNN, self).__init__()
+		self.cnn = nn.Sequential(
+			torch.nn.Conv1d(20,128,kernel_size=6,padding='same'),
+			torch.nn.ReLU(),
+			torch.nn.BatchNorm1d(128),
+			torch.nn.Conv1d(128,128,kernel_size=6,padding='same'),
+			torch.nn.ReLU(),
+		)
+		self.flatten = nn.Flatten()
+	
+	def forward(self,inputs):
+		inputs = inputs.view(inputs.shape[0],-1,1)
+		out = self.cnn(inputs)
+		out = self.flatten(out)
+		return out
+</code>
+<code>class MultiSmell(nn.Module):</code>
+<code>
+	def __init__(self, config):
+		super(MultiSmell, self).__init__()
+		self.xlnet = XLNetModel.from_pretrained('XLNet-path')
+		for param in self.xlnet.parameters():
+			param.requires_grad = False
+		self.bi_lstm = Bi_LSTM()
+		self.cnn = CNN()
+		self.dropout = torch.nn.Dropout(0.4)
+		self.act = torch.nn.ReLU()
+		self.flatten = nn.Flatten()
+		self.fc = torch.nn.Linear(256,128)
+		self.gat = HGAT(config)
+	
+	def forward(self, x1, mask, x2, label):
+		encoder_out = self.xlnet(x1, attention_mask=mask)[0]
+		encoder_out, _ = torch.max(encoder_out, dim=1)
+		out_1 = self.bi_lstm(encoder_out)
+		x2 = x2.view(x2.shape[0],-1,1)
+		out_2 = self.cnn(x2)
+		out = torch.cat([out_1,out_2],dim=1)
+		logits = self.gat(out)
+		return logits
+</code>
+<code>class HGAT(nn.Module):</code>
+<code>
+	def __init__(self, config):
+		super(HGAT, self).__init__()
+		self.config = config
+		hidden_size = config.hidden_size
+		self.embeding = nn.Embedding(config.num_class, hidden_size)
+		self.relation = nn.Linear(hidden_size, hidden_size)
+		self.fc1 = nn.Linear(hidden_size, hidden_size)
+		self.fc2 = nn.Linear(hidden_size, 1)
+		self.layers = nn.ModuleList([GATLayer(hidden_size) for _ in range(config.gat_layers)])
+	
+	def forward(self, x, mask=None):
+		p = torch.arange(self.config.num_class, device=x.device).long()
+		p = self.embeding(p)
+		p = self.relation(p)
+		p = p.unsqueeze(0).expand(x.size(0), p.size(0), p.size(1))
+		label, p = self.gat_layer(x.unsqueeze(1), p,mask)
+		p = self.fc1(p)
+		p = torch.tanh(p)
+		p = self.fc2(p).squeeze(2)
+		p = torch.sigmoid(p)
+		return p
+		
+	def gat_layer(self, x, p, mask=None):
+		for m in self.layers:
+			x, p = m(x, p, mask)
+		return x, p
+</code>
+<code>class GATLayer(nn.Module):</code>
+<code>
+	def __init__(self, hidden_size):
+		super().__init__()
+		self.ra1 = NodeAttention(hidden_size)
+		self.ra2 = NodeAttention(hidden_size)
+	
+	def forward(self, x, p, mask=None):
+		x = self.ra1(x, p) + x
+		p = self.ra2(p,x, mask) + p
+		return x, p
+</code>
+<code>class NodeAttention(nn.Module):</code>
+<code>
+	def __init__(self, hidden_size):
+		super(NodeAttention, self).__init__()
+		self.query = nn.Linear(hidden_size, hidden_size)
+		self.key = nn.Linear(hidden_size, hidden_size)
+		self.value = nn.Linear(hidden_size, hidden_size)
+		self.score = nn.Linear(2 * hidden_size, 1)
+		self.gate = nn.Linear(hidden_size * 2, 1)
+	
+	def forward(self, p, x, mask=None):
+		q = self.query(p)
+		k = self.key(x)
+		score = self.fuse(q, k)
+		if mask is not None:
+			mask = 1 - mask[:, None, :].expand(-1, score.size(1), -1)
+			score = score.masked_fill(mask == 1, -1e9)
+		score = F.softmax(F.leaky_relu(score,0.2), 2)
+		v = self.value(x)
+		out = torch.einsum('bcl,bld->bcd', score, v) + p
+		return out
+	
+	def fuse(self, x, y):
+		x = x.unsqueeze(2).expand(-1, -1, y.size(1), -1)
+		y = y.unsqueeze(1).expand(-1, x.size(1), -1, -1)
+		temp = torch.cat([x, y], 3)
+		return self.score(temp).squeeze(3)
+</code>
+					</pre>
+				</div>
+				<hr>
+				<div class="model">
+					<p class="one details">
+						<i>MultiSmell</i> Dataset
+					</p>
+					<p class="details">The source part of the dataset is available at the following URL <a href="https://github.com/HyLiu-cn/MultiSmell/tree/main/dataset">Multi-label dataset</a>.</p>
+				</div>
+				<div class="model">
+					<p class="one details">
+						<i>MultiSmell</i> compares models
+					</p>
+					<p class="details">
+						The code of the <i>MultiSmell</i>'s comparison experiments are available at the following URL <a href="https://github.com/HyLiu-cn/MultiSmell/tree/main/Comparative%20models">Models</a>
+					</p>
+				</div>
+			</center>
+		</div>
+		<img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_32/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" border="0">
+	</body>
+</html>
