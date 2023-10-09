@@ -1,0 +1,129 @@
+.hs-content .active-sec {
+    background: #FF0000  !important;
+}
+.hs-inner h2:after {
+    background: #FF0000 ;
+}
+a.hs-totop-link {
+    background: #FF0000 ;
+}
+.hs-inner .before-title {
+    color: #FF0000 ;
+}
+.hs-menu nav .active-sec .fa {
+    background: #FF0000 ;
+}
+    .hs-headline .download{
+background: #FF0000 ;
+    }
+.aside1 a {
+    color: #FF0000 ;
+}
+.aside1 a:hover {
+    background: #FF0000 ;
+}
+.aside1 .aside-content .part1 {
+    color: #FF0000 ;
+}
+#header .news-scroll span {
+    color: #FF0000 ;
+}
+.tabs-left > .nav-tabs > li > a {
+    background: #FF0000 ;
+}
+.tabs-left > .nav-tabs > li > a:hover, .tabs-left > .nav-tabs > li > a:focus {
+    background: #FF0000 ;
+}
+.about-section .tab-pane h4 {
+    color: #FF0000 ;
+}
+.resume-section .resume > li > .resume-tag {
+    background: #FF0000 ;
+}
+.resume-section .resume h4 {
+    color: #FF0000 ;
+}
+.bar-main-container {
+    background: #FF0000 ;
+}
+.publication-section .date {
+    background: #FF0000 ;
+}
+.publication-section .media h4 {
+    color: #FF0000 ;
+}
+.publication-detail .ext_link {
+    background: #FF0000 ;
+}
+.publication-detail .ext_link:hover {
+    color: #FF0000;
+}
+.team-card-container h3 {
+    color: #FF0000 ;
+}
+.team-card-container .back .social-icons a {
+    background: #FF0000 ;
+}
+.research-section .slide-header h4 {
+    color: #FF0000 ;
+}
+.research-section .slider-details {
+    background: #FF0000 ;
+}
+.teaching-section .teaching > li > .teaching-tag {
+    background: #FF0000 ;
+}
+.teaching-section .teaching h4 {
+    color: #FF0000 ;
+}
+.services-section .services > li > .services-tag {
+    background: #FF0000 ;
+}
+.services-section .services h4 {
+    color: #FF0000 ;
+}
+.work_desc .ext_link {
+    background: #FF0000 ;
+}
+.work_desc .ext_link:hover {
+    color: #FF0000 ;
+}
+.awards-section .awards > li > .awards-img {
+    border-color: #FF0000;
+    border:1px solid;
+}
+.awards-section .awards h4 {
+    color: #FF0000;
+}
+.awards-section .date {
+    background: #FF0000;
+}
+.contact-section #contact_form .submit_btn:hover {
+    color: #FF0000 ;
+    border: 1px solid #FF0000 ;
+}
+.contact-section .contact_info h3 {
+    color: #FF0000 ;
+}
+.pace .pace-progress {
+    background: #FF0000 ;
+}
+@-webkit-keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 .1em #FF0000 ;
+    }
+    100% {
+        box-shadow: 0 0 0 3em transparent;
+    }
+}
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 .1em #FF0000 ;
+    }
+    100% {
+        box-shadow: 0 0 0 3em transparent;
+    }
+}
+#my-link {
+    background: #FF0000 ;
+}

@@ -1,342 +1,1618 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <title>Yang Zhang's homepage</title>
-    <!-- BOOTSTRAP CORE STYLE CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONT AWESOME CSS -->
-    <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
-     <!-- FLEXSLIDER CSS -->
-     <link href="assets/css/flexslider.css" rel="stylesheet" />
-    <!-- CUSTOM STYLE CSS -->
-    <link href="assets/css/style.css" rel="stylesheet" />
-  <!-- Google	Fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css' />
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <title> Yang Zhang's homepage</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    
+    <!--<meta name="google-site-verification" content="3dccZ34-cQQw8EyVoKHusZZORRJbLNRHP67qUtbVcUo"/>-->
 
-<!--<script>
-function ismob() {
- if( navigator.userAgent.match(/Android/i)
- || navigator.userAgent.match(/webOS/i)
- || navigator.userAgent.match(/iPhone/i)
- || navigator.userAgent.match(/iPod/i)
- || navigator.userAgent.match(/BlackBerry/i)
- || navigator.userAgent.match(/Windows Phone/i)
- ){
-    return true;
-  }
- else {
-    return false;
-  }
-}
-if( ismob() ) {
-	window.location.replace("index_m.html");
-}
-</script>-->
+    <link rel="shortcut icon" href="images/log.ico">
 
-<style type="text/css">
-#main_table {
-   text-align:left;
-   width:100%;
-   margin:0 0;
-}
-#main_table_left_col {
-   float:left;
-   width:233px;
-   height: 100%;
-   vertical-align:middle;
-   text-align:left;
-}
-#main_table_right_col {
-    padding:0px 0px;
-    margin:0px auto;
-    overflow:hidden;
-}
-#profile_img {
-    border-radius: 10%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    <!-- CSS | STYLE -->
 
-}
-</style>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/all.css" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" type="text/css" href="css/linecons.css" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/colors/blue.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <!-- CSS | Google Fonts -->
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:200,400,300,500,600' rel='stylesheet' type='text/css'>
+    
+    <!-- JS | Fontawesome
+    <script src="https://kit.fontawesome.com/f4dae39126.js"></script> --> 
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">-->
+    
+    <!-- Show/Hide JS NON TOCCARE !! -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyAnSatGqt3193jgFaZckyml3JXRzzZfWKg" type="text/javascript"></script>-->
+    
+    <!-- End Show/Hide Js -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics  -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145809957-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145809957-1');
+    </script>
+    
+    
+    <!-- JS | Media Screen -->
+    <noscript>
+        <style>
+        @media screen and (max-width: 755px) {
+            .hs-content-scroller {
+                overflow: visible;
+            }
+        }
+        </style>
+    </noscript>
+
+
+    <style type="text/css">
+        #main_table {
+           text-align:left;
+           width:100%;
+           margin:0 0;
+        }
+        #main_table_left_col {
+           float:left;
+           width:233px;
+           height: 100%;
+           vertical-align:middle;
+           text-align:left;
+        }
+        #main_table_right_col {
+            padding:0px 0px;
+            margin:0px auto;
+            overflow:hidden;
+        }
+        #profile_img {
+            border-radius: 15%;
+              box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        
+        }
+        </style>
 </head>
+
 <body>
-
-
-    <div class="navbar navbar-inverse navbar-fixed-top " id="menu">
-        <div class="container">
-			       <div class="navbar-header" style="padding-top: 7px;">
-               <a style="font-weight: 700; letter-spacing: 0.5pt; color: #fff; font-size: 20pt; text-shadow: 0.5px 0.5px 0.5px #ccc; vertical-align: bottom;" href="#" class="navbar-brand" >
-         Yang Zhang (张杨) </a>
-             </div>
-
-		           <div class="navbar-collapse collapse move-me">
-                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#awards">Awards</a></li>
-                    <li><a href="#publications">Publications</a></li>
-                    <li><a href="#students">Students</a></li>
-                    <li><a href="#book">Books</a></li>
-                    <!--HOME <li><a href="#contact">Contact</a></li>-->
-                </ul>
-              </div>
-        </div>
+    <!-- Page preloader -->
+    <div id="page-loader">
+        <canvas id="demo-canvas"></canvas>
     </div>
-    <!--NAVBAR SECTION END-->
+    <!-- End Page preloader -->
+    
+    <!-- Container -->
+    <div id="hs-container" class="hs-container">
 
-    <div  class="tag-line" >
-         <div class="container">
-           <div class="row  text-center" >
-               <div class="col-lg-12  col-md-12 col-sm-12">
-					            <h2 data-scroll-reveal="enter from the bottom after 0.1s" >
-
-                      </h2>
-               </div>
-           </div>
-         </div>
-    </div>
-    <!--HOME SECTION TAG LINE END-->
-
-
-    <div id="about" class="container set-pad" >
-          <div class="row text-center">
-                 <div class="col-lg-10 col-lg-offset-1 col-md-8 col-sm-8 col-md-offset-1 col-sm-offset-4">
-					              <h1 data-scroll-reveal="enter from the bottom after 0.2s"  class="header-line">About</h1>
-                        <p data-scroll-reveal="enter from the bottom after 0.3s" >
-						                    <div id="main_table">
-							                           <div id="main_table_left_col">
-                                           <img src="images/young.jpg" border=1 width=220 id="profile_img">
-							                           </div>
-							                           <div id="main_table_right_col">
-                                           <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am a professor at <a href="http://xxxy.web.hebust.edu.cn/" target="_blank">
-                                              School of Information Science and  Engineering</a>, <a href="http://www.hebust.edu.cn/" target="_blank">
-                                              Hebei  University of Science and Technology</a> (HeBUST). Currently, I am leading intelligent software Lab.
-                                              I received my doctoral degree from <a href="http://www.bit.edu.cn/" target="_blank">Beijing Institute of Technology</a> under the supervision of Prof. Feng Shi and Prof. <a href="https://jiweixing.github.io/" target="_blank">Weixing Ji</a>.
-                                              I was a visiting scholar at <a href="http://www.purdue.edu/" target="_blank">Purdue University</a> under the supervision of Prof.
-                                              <a href="https://www.cs.purdue.edu/homes/xyzhang/" target="_blank">Xiangyu Zhang</a>, and then at <a href="https://federation.edu.au/" target="_blank">Federation University Australia</a> working with Prof. <a href="https://federation.edu.au/institutes-and-schools/iiss/staff-profiles/staff-profiles/archive/guojun-lu" target="_blank">Guojun Lu</a>
-                                              and Dr. <a href="https://federation.edu.au/institutes-and-schools/iiss/staff-profiles/staff-profiles/archive/grant-meredith" target="_blank">Grant Meredith</a>.
-                                              My research spans intelligent software engineering, software evolution, parallel programming, and deep learning. I am passionate about software refactoring.
-                                          </p>
-                                          <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My Chinese homepage can be found at <a href="https://xxxy.web.hebust.edu.cn/jyjx/yjsjy/ssjy/zhangyang.htm" target="_blank">here</a>. </p>
-                                          <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>E-mail:</b>  zhangyang AT hebust.edu.cn </p>
-                                        </div>
-    						               </div>
-                        </p>
-                 </div>
-          </div>
-             <!--/.HEADER LINE END-->
-
-          <div class="row" >
-
-          </div>
-   </div>
-   <!-- FEATURES SECTION END-->
-
-   <div id="awards" class="container set-pad" >
-          <div class="row text-center">
-                <div class="col-lg-10 col-lg-offset-1 col-md-11 col-sm-8 col-md-offset-1 col-sm-offset-2">
-                      <h1 data-scroll-reveal="enter from the bottom after 0.2s"  class="header-line">Awards and Professional Activities</h1>
-                      <!--  <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>2018</p>-->
-                      <ul align=left>
-                          <li><strong> Three-graded Talent Scientist Award of Hebei Province. 2018. (河北省"三三三人才工程")</strong></li>
-                          <li><strong> Distinguished Youth Medal Award of Shijiazhuang City. 2018. (石家庄青年五四奖章)</strong></li>
-                          <li><strong> Excellent Teaching Master Award of HeBUST. 2022. (河北科技大学教学名师)</strong></li>
-                          <li><strong> Distinguished Membership Award of China Computer Federation (CCF). 2023. </strong></li>
-                          <li>Executive Member of CCF Technical Committee on High Performance Computing.</li>
-                          <li>Executive Member of CCF Technical Committee on Distributed Computing and System.</li>
-                          <li>Executive Member of CCF Technical Committee on Software Engineering.</li>
-                      </ul>
-                </div>
-          </div>
-          <!--/.HEADER LINE END-->
-
-          <div class="row" >
-
-          </div>
-    </div>
-
-
-		<div id="publications" class="container set-pad" >
-          <div class="row text-center">
-                 <div class="col-lg-10 col-lg-offset-1 col-md-10 col-sm-8 col-md-offset-1 col-sm-offset-2">
-                     <h1 data-scroll-reveal="enter from the bottom after 0.2s"  class="header-line">Recent Publications</h1>
-                     <ul align=left>
-                       <li><strong>Yang Zhang</strong>, Ke Guan, Lining Fang. MIRROR: Multi-objective Refactoring Recommendation via Correlation Analysis. Automated Software Engineering. 2023. Accepted </li>
-                       <li><strong>Yang Zhang</strong>, <a href="https://cxiaosong.github.io/" target="_blank">Xiaosong Chang</a>, Lining Fang, Yifan Lu. DeepLog: Deep-Learning-Based Log Recommendation. Proceedings of 45th International Conference on Software Engineering (ICSE - DEMO Track). May 17-20, 2023, Melbourne, Austrilia.</li>
-                       <li><strong>Yang Zhang</strong>, Chuyan Ge, Shuai Hong, Ruili Tian, Chunhao Dong, Jingjing Liu. DeleSmell: Code Smell Detection Based on Deep Learning and Latent Semantic Analysis. Knowledge-Based Systems. 2022.</li>
-                       <li><strong>张杨</strong>，乔柳，东春浩, 高鸿斌. <a href="https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.20220014" target="_blank">基于深度学习的数据竞争检测方法</a>. 计算机研究与发展. 2022, 59(9): 1914-1928.</li>
-                       <li><strong>Yang Zhang</strong>, Jiali Yan, Liu Qiao, Hongbin Gao. A Novel Approach of Data Race Detection Based on CNN-BiLSTM Hybrid Neural Network. Neural Computing and Applications. 2022. </li>
-                       <li><strong>张杨</strong>, 东春浩, 刘辉, 葛楚妍. <a href="http://www.jos.org.cn/jos/article/abstract/6548?st=article_issue" target="_blank">基于预训练模型和多层次信息的代码坏味检测方法</a>. 软件学报. 2022, 33(5): 1551-1568 </li>
-                       <li>Shuai Hong, <strong>Yang Zhang</strong>, <a href="https://chaoshuai-li.github.io/" target="_blank">Chaoshuai Li</a>, Yu Bai. ReInstancer: Automatically Refactoring for Instanceof Pattern Matching. Proceedings of 44th International Conference on Software Engineering (ICSE - Demo Track). May 22-27, 2022, Pittsburgh, PA, USA. </li>
-                       <li><strong>Yang Zhang</strong>, Chunhao Dong. MARS: Detecting Brain Class/Method Code Smell Based on Metric-Attention Mechanism and Residual Network. Journal of Software: Evolution and Process. 2021. </li>
-                       <li><strong>张杨</strong>，邵帅，张冬雯. <a href="http://www.jos.org.cn/jos/article/abstract/6132?st=article_issue" target="_blank">基于下推自动机的细粒度锁自动重构方法</a>. 软件学报. 2021, 32(12): 3710-3717 </li>
-                       <li><strong>Yang Zhang</strong>, <a href="https://jedishao23.github.io/" target="_blank">Shuai Shao</a>, <a href="http://www.cs.rutgers.edu/~jz798/" target="_blank">Juan Zhai</a>, <a href="https://www.cs.rutgers.edu/~sm2283/" target="_blank">Shiqing Ma</a>. FineLock: Automatically Refactoring Coarse-grained Locks into Fine-grained Locks. Proceedings of the 29th ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA2020). July 18-22, 2020. Virtual Event, USA. </li>
-                       <li> <a href="https://dblp.org/pid/06/6785-37.html" target="_blank">dblp...</a>  </li>
-                     </ul>
-                 </div>
-
-          </div>
-
-          <div class="row" >
-
-          </div>
-    </div>
-
-
-    <div id="students" class="container set-pad" >
-        <div class="row text-center">
-            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-sm-8 col-md-offset-1 col-sm-offset-2">
-                <h1 data-scroll-reveal="enter from the bottom after 0.2s"  class="header-line">Students</h1>
-                <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My postgraduate students received much recognition, including
-                        many Ph.D candidates (e.g. <a href="https://uconn.edu/" title="Shuai Shao" target="_blank">University of Connecticut</a>,
-                        <a href="https://www.bit.edu.cn/" title="Chunhao Dong" target="_blank">Beijing Institute of Technology</a>,
-                        <a href="https://www.hit.edu.cn/" title="Chuyan Ge" target="_blank">Harbin Institute of Technology</a>,
-                        <a href="https://www.dlmu.edu.cn/" title="Shuai Hong" target="_blank">Dalian Maritime University</a>),
-                        assistant professors at academia (e.g. <a href="https://tudarco.ac.tz" title="Dickensi Edison Mlwafu" target="_blank">Tumaini Univerity</a>, Hebei Chemical and Pharmaceutical College, Shandong University of Political Science and Law),
-                        and industrial companies.
-                        Some students received national scholarship award, and Hebei postgraduate innovation foundation.
-                </p>
-                <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am fortunate to work with these talented students. All students in my Lab can be found at <a href="stu.html">here</a>.
-                </p>
+        <!-- Sidebar-->
+        <div class="aside1">
+            <a href="mailto:uzhangyang@gmail.com" class="contact-button"><i class="fas fa-paper-plane"></i></a> 
+            <a href="https://xxxy.web.hebust.edu.cn/jyjx/yjsjy/ssjy/zhangyang.htm" target="_blank" class="download-button" alt="Chinese homepage"><i class="fas fa-graduation-cap"></i></a>
+            <div class="aside-content"><span class="part2">Prof.</span><span class="part1">Yang Zhang </span>
             </div>
-          </div>
-      </div>
-
-
-
-      <div id="book" >
-        <div class="container set-pad" id="pro">
-                 <div class="row text-center">
-                     <div class="col-lg-10 col-lg-offset-1 col-md-10 col-sm-8 col-md-offset-1 col-sm-offset-2">
-                         <h1 data-scroll-reveal="enter from the bottom after 0.1s" class="header-line">Books</h1>
-                          <p data-scroll-reveal="enter from the bottom after 0.3s">
-
-                          </p>
-                   </div>
-               </div>
-               <!--/.HEADER LINE END-->
-
-             <div class="row" >
-               <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.4s">
-                     <div class="faculty-div">
-                          <img src="images/paraprog.jpg" width=250 height=350 id="profile_img"/>
-                          <hr />
-                           <a href="https://mp.weixin.qq.com/s?__biz=MzI5MzIwNDI1MQ==&mid=2650263862&idx=3&sn=ceb986c28cf179b5916c3c415cf6f13e&chksm=f476c942c301405436349cdfee7fdcea0b9f8bc1803f4648f41130192dd1eab290ea79b0c91e&mpshare=1&scene=23&srcid=05318RJxAah6a9HTaKJRf1FV&sharer_sharetime=1687335099086&sharer_shareid=9b67d05fac68b955f03083887445c636#rd" target="_blank">Parallel Programming</a>
-                     </div>
-               </div>
-
-               <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.4s">
-                     <div class="faculty-div">
-                           <img src="images/refactoring.jpg" border=1  id="profile_img"  class="img-rounded" width=250 height=350 />
-                           <hr />
-                           Concurrency-oriented Software Refactoring
-                     </div>
+        </div>
+        <aside class="hs-menu" id="hs-menu">
+            <!-- Profile Image-->
+            <div class="hs-headline">
+                <a id="my-link" href="#my-panel"><i class="fa fa-bars"></i></a>
+                <div>
+                    <img src="images/young.jpg" alt="" width="150" height="213" id="profile_img" />
                 </div>
-
-
-                <div class="col-lg-4  col-md-4 col-sm-4" data-scroll-reveal="enter from the bottom after 0.4s">
-                      <div class="faculty-div">
-                           <img src="images/core.jpg" border=1  id="profile_img"  class="img-rounded" width=250 height=350 />
-                           <hr />
-                           Multicore-oriented Parallel Execution
-                     </div>
+                <div class="profile_info">
+                    <h1>Yang Zhang </h1>
+                    <h6>zhangyang [at] hebust.edu.cn</h6>
+                    <div class="separator-aside"></div>
+                    <h7>&nbsp;&nbsp;&nbsp;Hebei University of Science and Technology</h7>
+                    <h6>Shijiazhuang, Hebei, China</h6>
                 </div>
-             </div>
-          </div>
-          <div class="row" >
-          </div>
-      </div>
+                <div style="clear:both"></div>
+            </div>
+            <!-- End Profile Image-->
 
-              <div class="container" id="contact">
-                <div class="row set-row-pad"  >
-                  <!--
-                  <div class="col-lg-5 col-md-6 col-sm-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 " data-scroll-reveal="enter from the bottom after 0.4s">
-                    <h2 ><strong> Contact </strong></h2>
-                    <hr />
-                    <div>
-                        <p> <b>Address:</b> </p>
-                        <p> 26, Yuxiang Street, Shijiazhuang, Hebei, China.</p>
-                        <p> <b>E-mail:</b>   </p>
-                        <p> zhangyang@hebust.edu.cn </p>
+            <!-- Menu -->
+            <nav>
+                <a href="#section1"><span class="menu_name">ABOUT</span><span class="fas fa-home"></span> </a>
+                <a href="#section2"><span class="menu_name">AWARDS</span><span class="fas fa-trophy"></span> </a>
+                <a href="#section3"><span class="menu_name">PUBLICATIONS</span><span class="fas fa-pencil-alt"></span> </a>
+                <a href="#section4"><span class="menu_name">BOOKS</span><span class="fas fa-book"></span> </a>
+                <a href="#section5"><span class="menu_name">STUDENTS</span><span class="fas fa-chalkboard-teacher"></span> </a>
+                <!--<a href="#section6"><span class="menu_name">STUDENTS</span><span class="fas fa-user-tie"></span> </a>
+                <a href="#section7"><span class="menu_name">AWARDS</span><span class="fas fa-trophy"></span> </a>
+                <a href="#section8"><span class="menu_name">CONTACT</span><span class="fas fa-paper-plane"></span> </a> -->
+                <!--<div class="main-navigation"  >
+                    <ul class="navigation">
+                      <p class="profile-description" align=left>Enrollment year:</p>
+                        <li><a href="#stu2024" class=""><i class="fa"></i>2024</a></li>
+                        <li><a href="#stu2023" class="active"><i class="fa"></i>2023</a></li>
+                        <li><a href="#stu2022" class=""><i class="fa"></i>2022</a></li>
+                        <li><a href="#stu2021" class=""><i class="fa"></i>2021</a></li>
+                        <li><a href="#stu2020" class=""><i class="fa"></i>2020</a></li>
+                        <li><a href="#stu2019" class=""><i class="fa"></i>2019</a></li>
+                        <li><a href="#stu2018" class=""><i class="fa"></i>2018</a></li>
+                        <li><a href="#stu2017" class=""><i class="fa"></i>2017</a></li>
+                        <li><a href="#stu2016" class=""><i class="fa"></i>2016</a></li>
+                        <li><a href="#stu2015" class=""><i class="fa"></i>2015</a></li>
+                        <li><a href="#stu2014" class=""><i class="fa"></i>2014</a></li>
+                    </ul>
+                </div>  .main-navigation -->
+            </nav>
+            <!-- End Menu-->
+            
+            <!-- Social Icons -->
+            <!--<div class="aside-footer">
+                <a class="social" href="https://twitter.com/fabiopalomba3" data-toggle="tooltip" data-placement="top" title="MyTwitter"><i class="fab fa-twitter"></i></a>
+                <a class="social" href="skype:fabiopalomba13?chat" data-toggle="tooltip" data-placement="top" title="MySkype"><i class="fab fa-skype"></i></a>
+                <a class="social" href="http://it.linkedin.com/pub/fabio-palomba/4a/542/60/" data-toggle="tooltip" data-placement="top" title="MyLinkedin"><i class="fab fa-linkedin"></i></a>
+                <a class="social" href="https://scholar.google.com/citations?user=hwcOgd4AAAAJ&hl=en&oi=ao" data-toggle="tooltip" data-placement="top" title="MyScholar"><i class="ai ai-google-scholar"></i></a>
+                <a class="social" href="https://dblp.uni-trier.de/pers/hd/p/Palomba:Fabio" data-toggle="tooltip" data-placement="top" title="MyDblp"><i class="ai ai-dblp"></i></a>
+                <a class="social" href="https://orcid.org/0000-0001-9337-5116" data-toggle="tooltip" data-placement="top" title="MyOrcId"><i class="ai ai-orcid"></i></a>
+            </div>-->
+            <!-- End Social Icons -->
+            
+        </aside>
+        <!-- End sidebar -->
+
+        <!-- Go Site Up Button -->
+        <a href="#hs-menu" class="hs-totop-link"><i class="fa fa-chevron-up"></i></a>
+        <!-- End Go Site Up Button -->
+
+        <!-- Page Scroller -->
+        <div class="hs-content-scroller">
+            
+            <!-- Header -->
+            <div id="header_container">
+                <div id="header">
+                    <div><a class="home"><i class="fas fa-home"></i></a>
                     </div>
-                  </div>
-                  -->
-                  <div class="col-lg-5 col-md-6 col-sm-5   col-lg-offset-1 col-md-offset-1 col-sm-offset-1" data-scroll-reveal="enter from the bottom after 0.4s">
-                    <h2 ><strong> Hobbies </strong></h2>
-                      <hr />
-                      <div >
-                          <p> I like playing badminton, tennis, table tennis, mobile game, Chinese chess, and guitar. </p>
-                          <p> I also enjoy running, traveling, swimming ...</p>
-                      </div>
-                  </div>
-                  <div class="col-lg-5 col-md-6 col-sm-5   col-lg-offset-1 col-md-offset-1 col-sm-offset-1" data-scroll-reveal="enter from the bottom after 0.4s">
-                    <h2 ><strong> Visitors </strong></h2>
-                      <hr />
-                      <div >
-                        Since July, 2020
-                        <!--<a href="https://info.flagcounter.com/HbVu"><img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_18/viewers_0/labels_1/pageviews_1/flags_0/percent_0/"  border="0"></a>-->
-                        <img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_48/viewers_3/labels_1/pageviews_1/flags_1/percent_0/"  border="0">
-                      </div>
-                  </div>
-
+                    
+                    <!-- Recent Awards Scroll - MODIFY -->
+                    <div class="news-scroll">
+                        <span><i class="far fa-newspaper fa-lg"></i>&emsp;NEWS: </span>
+                        <ul id="marquee" class="marquee">
+                            <li>I have been awarded with distinguished membership for the outstanding contribution to China Computer Federation!</li>
+                            <li>One paper has been accepted by the <strong>Automated Software Engineering Journal (ASE)!</strong></li>
+                        </ul>
+                    </div>
+                    <!-- End Recent Awards Scroll -->
+                    
                 </div>
-              </div>
-     <!-- CONTACT SECTION END-->
+            </div>
+            <!-- End Header -->
+
+            <!-- Content Wrapper -->
+            <div class="hs-content-wrapper">
+                
+                <!-- ABOUT Section -->
+                <article class="hs-content about-section" id="section1" >
+                    <span class="sec-icon fas fa-home"></span>
+                    <div class="hs-inner">
+                        <span class="before-title">.01</span>
+                        <h2>ABOUT</h2>
+                        <span class="content-title">PERSONAL DETAILS</span>
+                        <div class="aboutInfo-contanier">
+                            
+                            <div class="more-details">
+                                <div class="tabbable tabs-vertical tabs-left">
+                                    <ul id="myTab" class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#bio" data-toggle="tab">Bio</a>
+                                        </li>
+                                        <li>
+                                            <a href="#hobbies" data-toggle="tab">Hobbies</a>
+                                        </li>
+                                        <li>
+                                            <a href="#facts" data-toggle="tab">Visitors</a>
+                                        </li>
+                                    </ul>
+                                    <div id="myTabContent" class="tab-content">
+
+                                        <!-- Short Biography - MODIFY -->
+                                        <div class="tab-pane fade in active" id="bio">
+                                            <h3>BIO</h3>
+                                            <h4>ABOUT ME</h4>
+                                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I am a professor at <a href="http://xxxy.web.hebust.edu.cn/" target="_blank">
+                                                School of Information Science and  Engineering</a>, <a href="http://www.hebust.edu.cn/" target="_blank">
+                                                Hebei  University of Science and Technology</a> (HeBUST). Currently, I am leading intelligent software Lab.
+                                                I received my doctoral degree from <a href="http://www.bit.edu.cn/" target="_blank">Beijing Institute of Technology</a> under the supervision of Prof. Feng Shi and Prof. <a href="https://jiweixing.github.io/" target="_blank">Weixing Ji</a>.
+                                                I was a visiting scholar at <a href="http://www.purdue.edu/" target="_blank">Purdue University</a> under the supervision of Prof.
+                                                <a href="https://www.cs.purdue.edu/homes/xyzhang/" target="_blank">Xiangyu Zhang</a>, and then at <a href="https://federation.edu.au/" target="_blank">Federation University Australia</a> working with Prof. <a href="https://federation.edu.au/institutes-and-schools/iiss/staff-profiles/staff-profiles/archive/guojun-lu" target="_blank">Guojun Lu</a>
+                                                and Dr. <a href="https://federation.edu.au/institutes-and-schools/iiss/staff-profiles/staff-profiles/archive/grant-meredith" target="_blank">Grant Meredith</a>.
+                                                My research spans intelligent software engineering, software evolution, parallel programming, and deep learning. I am passionate about software refactoring.
+                                            </p>
+                                            
+                                            <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My Chinese homepage can be found at <a href="https://xxxy.web.hebust.edu.cn/jyjx/yjsjy/ssjy/zhangyang.htm" target="_blank">here</a>. </p> 
+                                            
+                                        </div>
+                                        <!-- End Short Biography -->
+                                        
+                                        <!-- Numbers - MODIFY -->
+                                        <div class="tab-pane fade" id="facts">
+                                            <h3>Visitors</h3>
+                                            <h4>Since July, 2020</h4>
+                                            
+                                            <div class="facts-wrapper col-md-6">
+                                                <img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_60/viewers_3/labels_1/pageviews_1/flags_1/percent_0/"  border="0">
+                                            </div>
+                                            <div style="clear:both;"></div>
+                                        </div> 
+                                        <!-- End Numbers -->
+                                        
+                                        <!-- Hobbies -->
+                                        <div class="tab-pane fade" id="hobbies">
+                                            <h3>HOBBIES</h3>
+                                            
+                                            <div class="hobbie-wrapper row">
+                                                <div class="hobbie-icon col-md-3"><i class="fas fa-desktop"></i>
+                                                </div>
+                                                <div class="hobbie-description col-md-9">
+                                                    <p> Badminton </p>
+                                                </div>
+                                                <div style="clear:both;"></div>
+                                            </div>
+
+                                            <div class="hobbie-wrapper row">
+                                                <div class="hobbie-icon col-md-3"><i class="fas fa-user-tie"></i>
+                                                </div>
+                                                <div class="hobbie-description col-md-9">
+                                                    <p> Tennis </p>
+                                                </div>
+                                                <div style="clear:both;"></div>
+                                            </div>
+
+                                            <div class="hobbie-wrapper row">
+                                                <div class="hobbie-icon col-md-3"><i class="fas fa-graduation-cap"></i>
+                                                </div>
+                                                <div class="hobbie-description col-md-9">
+                                                    <p> Table tennis</p>
+                                                </div>
+                                                <div style="clear:both;"></div>
+                                            </div>
+
+                                            <div class="hobbie-wrapper row">
+                                                <div class="hobbie-icon col-md-3"><i class="fas fa-paper-plane"></i>
+                                                </div>
+                                                <div class="hobbie-description col-md-9">
+                                                    <p> Mobile game</p>
+                                                </div>
+                                                <div style="clear:both;"></div>
+                                            </div>
+
+                                            <div class="hobbie-wrapper row">
+                                                <div class="hobbie-icon col-md-3"><i class="fas fa-chalkboard-teacher"></i>
+                                                </div>
+                                                <div class="hobbie-description col-md-9">
+                                                    <p> Chinese chess </p>
+                                                </div>
+                                                <div style="clear:both;"></div>
+                                            </div>
+
+                                            <div class="hobbie-wrapper row">
+                                                <div class="hobbie-icon col-md-3"><i class="fas fa-bars"></i>
+                                                </div>
+                                                <div class="hobbie-description col-md-9">
+                                                    <p> Guitar </p>
+                                                </div>
+                                                <div style="clear:both;"></div>
+                                            </div>
+                                            
+                                            <div class="hobbie-wrapper row">
+                                                <div class="hobbie-icon col-md-3"><i class="fas fa-swimming-pool"></i>
+                                                </div>
+                                                <div class="hobbie-description col-md-9">
+                                                    <p> Swimming ...</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="hobbie-wrapper row">
+                                                <div class="hobbie-icon col-md-3"><i class="fas fa-bars"></i>
+                                                </div>
+                                                <div class="hobbie-description col-md-9">
+                                                    <p> Traveling</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="hobbie-wrapper row">
+                                                <div class="hobbie-icon col-md-3"><i class="fa fa-newspaper"></i>
+                                                </div>
+                                                <div class="hobbie-description col-md-9">
+                                                    <p> Running</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div style="clear:both;"></div>
+                                        </div>
+                                        <!-- End Hobbies -->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </article>
+                <!-- End About Section -->
+
+                <!-- CAREER Section -->
+                <article class="hs-content resume-section" id="section2">
+                    <span class="sec-icon fas fa-trophy"></span>
+                    <div class="hs-inner">
+                        <span class="before-title">.02</span>
+                        <h2>AWARDS</h2>
+                        <!-- Career Wrapper -->
+                        <div class="resume-wrapper">
+                            <ul class="resume">
+                                <!-- Career Timeline -->
+
+                                <!-- Awards -->
+                                <li class="time-label">
+                                    <span class="content-title">PROFESSIONAL AWARDS</span>
+                                </li>
+                                
+                                <!-- Qualification -->
+                                <li>
+                                    <div class="resume-tag">
+                                        <span class="far fa-trophy"></span>
+                                        <div class="resume-date">
+                                            <span>2018</span>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <h3 class="timeline-header">Hebei Educational Department</h3>
+                                        <div class="timeline-body">
+                                            <h4>Three-graded Talent Scientist Award of Hebei Province. </h4>
+                                            <span>河北省"三三三人才工程"</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- End Qualification -->
+
+                                <!-- Qualification -->
+                                <li>
+                                    <div class="resume-tag">
+                                        <span class="far fa-trophy"></span>
+                                        <div class="resume-date">
+                                            <span>2018</span>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <h3 class="timeline-header">Shijiazhuang Communist Youth League</h3>
+                                        <div class="timeline-body">
+                                            <h4>Shijiazhuang Distinguished Youth Medal Award </h4>
+                                            <span>石家庄青年五四奖章</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- End Qualification -->
+
+                                <!-- Qualification -->
+                                <li>
+                                    <div class="resume-tag">
+                                        <span class="far fa-trophy"></span>
+                                        <div class="resume-date">
+                                            <span>2022</span>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <h3 class="timeline-header">Hebei Univerity Of Science and Technology</h3>
+                                        <div class="timeline-body">
+                                            <h4>Excellent Teaching Master Award</h4>
+                                            <span>河北科技大学教学名师</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- End Qualification -->
+
+                                <!-- Qualification -->
+                                <li>
+                                    <div class="resume-tag">
+                                        <span class="far fa-trophy"></span>
+                                        <div class="resume-date">
+                                            <span>2023</span>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <h3 class="timeline-header">China Computer Federation (CCF)</h3>
+                                        <div class="timeline-body">
+                                            <h4>Distinguished Membership Award</h4>
+                                            <span>中国计算机学会杰出会员</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- End Qualification -->
+                                
+                                <!-- Career Professional - MODIFY -->
+                                <li class="time-label">
+                                    <span class="content-title">PROFESSIONAL POSITIONS</span>
+                                </li>
+                                
+                                <!-- Member -->
+                                <li>
+                                    <div class="resume-tag">
+                                        <span class="fas fa-university"></span>
+                                        <div class="resume-date">
+                                            <span>now</span>
+                                            <div class="separator"></div>
+                                            <span><strong>2022</strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <h3 class="timeline-header">Executive Member</h3>
+                                        <div class="timeline-body">
+                                            <h4>CCF Technical Committee on Software Engineering</h4>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!--  End Member -->
+                                
+                                <!-- Member -->
+                                <li>
+                                    <div class="resume-tag">
+                                        <span class="fas fa-university"></span>
+                                        <div class="resume-date">
+                                            <span>now</span>
+                                            <div class="separator"></div>
+                                            <span><strong>2015</strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <h3 class="timeline-header">Executive Member</h3>
+                                        <div class="timeline-body">
+                                            <h4>CCF Technical Committee on High Performance Computing</h4>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!--  End Member -->
+
+                                <!-- Member -->
+                                <li>
+                                    <div class="resume-tag">
+                                        <span class="fas fa-university"></span>
+                                        <div class="resume-date">
+                                            <span>now</span>
+                                            <div class="separator"></div>
+                                            <span><strong>2014</strong></span>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <h3 class="timeline-header">Executive Member</h3>
+                                        <div class="timeline-body">
+                                            <h4>CCF Technical Committee on Distributed Computing and System</h4>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!--  End Member -->
+                                                               
+                                                                
+                            </ul>
+                        </div>
+                        <!-- End Career Wrapper -->
+                    </div>
+                </article>
+                <!-- End Career Section-->
+                
+                
+                <!-- PUBLICATIONS Section -->
+                <article class="hs-content publication-section" id="section3">
+                    <span class="sec-icon fas fa-pencil-alt"></span>
+                    <div class="hs-inner">
+                        <span class="before-title">.03</span>
+                        <h2>PUBLICATIONS</h2>
+                        
+                        <!-- Filters/Sort Menu -->
+                        <span class="content-title">PUBLICATIONS LIST</span>
+                        <div class="row publication-form">
+                            
+                            <!-- Filters Type Menu NON TOCCARE!! -->
+                            <div class="col-md-6 publication-filter">
+                                <div class="card-drop">
+                                    <a class='toggle'>
+                                        <i class='icon-suitcase'></i>
+                                        <span class='label-active'>ALL</span>
+                                    </a>
+                                    <ul id="filter">
+                                        <li class='active'><a data-label="ALL" data-group="all">ALL</a>
+                                        </li>
+                                        <li><a data-label="JOURNAL PAPERS" data-group="JOURNAL PAPERS">JOURNAL PAPERS</a>
+                                        </li>
+                                        <li><a data-label="CONFERENCES" data-group="CONFERENCES">CONFERENCES</a>
+                                        </li>
+                                        <!--<li><a data-label="WORKSHOPS" data-group="WORKSHOPS">WORKSHOPS</a>
+                                        </li>
+                                        <li><a data-label="THESIS" data-group="THESIS">THESIS</a>
+                                        </li>
+                                        <li><a data-label="BOOK CHAPTERS" data-group="BOOK CHAPTERS">BOOK CHAPTERS</a>
+                                        </li>-->
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- End Filters Type Menu -->
+                            
+                            <!-- Filters Tag Menu NON TOCCARE!! 
+                            <div class="col-md-6 publication-filter">
+                                <div class="card-drop-tag">
+                                    <a class='toggle'>
+                                        <i class='icon-suitcase'></i>
+                                        <span class='label-active'>TAGS</span>
+                                    </a>
+                                    <ul id="filtertag">
+                                        <li class='active'><a data-label="ALL TAGS" data-group-tag="all">ALL TAGS</a>
+                                        </li>
+                                        <li><a data-label="Software Quality" data-group-tag="SOFTWARE QUALITY">SOFTWARE QUALITY</a>
+                                        </li>
+                                        <li><a data-label="Software Testing" data-group-tag="SOFTWARE TESTING">SOFTWARE TESTING</a>
+                                        </li>
+                                        <li><a data-label="Socio-technical Analytics" data-group-tag="SOCIO-TECHNICAL ANALYTICS">SOCIO-TECHNICAL ANALYTICS</a>
+                                        </li>
+                                        <li><a data-label="Mobile Apps Evolution" data-group-tag="MOBILE APPS EVOLUTION">MOBILE APPS EVOLUTION</a>
+                                        </li>
+                                        <li><a data-label="Empirical Software Engineering" data-group-tag="EMPIRICAL SOFTWARE ENGINEERING">EMPIRICAL SOFTWARE ENGINEERING</a>
+                                        </li>
+                                        <li><a data-label="Tool Demo" data-group-tag="TOOL DEMO">TOOL DEMONSTRATIONS</a>
+                                        </li>
+                                        <li><a data-label="Dataset" data-group-tag="DATASETS">DATASETS</a>
+                                        </li>
+                                        <li><a data-label="Systematic Literature Review" data-group-tag="SYSTEMATIC LITERATURE REVIEW">SYSTEMATIC LITERATURE REVIEW</a>
+                                        </li>
+                                        <li><a data-label="Computer-Human Interaction" data-group-tag="COMPUTER-HUMAN INTERACTION">COMPUTER-HUMAN INTERACTION</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>-->
+                            <!-- End Filters Tag -->
+                            
+                            <!-- Sort Date NON TOCCARE!! -->
+                            <div class="col-md-6 publication-sort">
+                                <div class="sorting-button">
+                                    <span>SORTING BY DATE</span>
+                                    <button class="desc"><i class="fas fa-sort-numeric-down-alt"></i>
+                                    </button>
+                                    <button class="asc"><i class="fas fa-sort-numeric-down"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- End Sort Date -->
+                            
+                        </div>
+                        <!-- End Filter/Sort Menu -->
+
+                        <!-- Publication Wrapper -->
+                        <div id="mygrid">
+                            
+                            <!-- JOURNALS -->
+                            
+                            <!-- publication item -->
+                            <div id="J7"class="publication_item" data-groups='["all","JOURNAL PAPERS"]' data-date-publication="2023-05-09" >
+                                <div class="media">
+                                    <a href=".publication-detail7" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
+                                    <div class="date pull-left">
+                                        <span class="code">[J7]</span>
+                                        <span class="month">ASE</span>
+                                        <span class="year">2023</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h3><strong>Yang Zhang</strong>, Ke Guan, Lining Fang.</h3>
+                                        <h4>MIRROR: Multi-objective Refactoring Recommendation via Correlation Analysis</h4>
+                                        <h3>Automated Software Engineering</h3>
+                                        <span>-------------------------------------------------------------------------------------------------------------------------</span>
+                                    <span class="pdfDownload"><a href="#"><i class="fas fa-file-download"></i>&emsp;Download PDF</a></span>
+                                    </div>
+                                    
+                                    <hr style="margin:8px auto">
+                                    <span class="label label-journal">Journal</span>
+                                </div>
+                                <div class="mfp-hide mfp-with-anim publication-detail7 publication-detail">
+                                    <div class="project_content">
+                                        <h3 class="publication_title">MIRROR: Multi-objective Refactoring Recommendation via Correlation Analysis</h3>
+                                        <span class="publication_authors"><strong>Yang Zhang</strong>, Ke Guan, Lining Fang.</span>
+                                        <span class="label label-journal">Journal</span><br>
+                                        <p class="project_desc"><b>Abstract.</b> Refactoring is a critical but complex process to improve code quality by altering software structure without changing the observable behavior. Search-based approaches have been proposed to recommend refactoring solutions. However, existing works tend to leverage all the sub-attributes in an objective and ignore the relationship between the sub-attributes. Furthermore, the types of refactoring operations in the existing works can be further augmented. To this end, this paper proposes a novel approach, called MIRROR, to recommend refactoring by employing a multi-objective optimization across three objectives: (i) improving quality, (ii) removing code smell, and (iii) maximizing the similarity to refactoring history. Unlike previous works, MIRROR provides a way to further optimize attributes in each objective. To be more specific, given an objective, MIRROR investigates the possible correlations among attributes and selects those attributes with low correlations as the representation of this objective. MIRROR is evaluated on 6 real-world projects by answering 6 research questions. The experimental results demonstrate that MIRROR recommends an average of 43 solutions for each project. Furthermore, we compare MIRROR against existing tools JMove and QMove, and show that the F1 of MIRROR is 5.63% and 3.75% higher than that of JMove and QMove,
+                                            demonstrating the effectiveness of MIRROR. </p> 
+                                        <!-- Project Addon -->
+                                        <div class="project_adds">
+                                            
+                                        <!-- Download Pdf -->
+                                        <span><a class="ext_link" href="#"><i class="fas fa-file-download"></i><span >Download PDF</span></a></span>
+                                        <!-- End Download Pdf -->                                           
+                                        </div>
+                                        <!-- End Project Addon -->
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                            <!-- End publication item -->
+
+                            <!-- Publication item -->
+                            <div id="C3" class="publication_item" data-groups='["all","CONFERENCES", "SOFTWARE TESTING", "EMPIRICAL SOFTWARE ENGINEERING"]' data-date-publication="2023-07-12">
+                                <div class="media">
+                                    <a href=".publication-detailC3" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
+                                    <div class="date pull-left">
+                                        <span class="code">[C3]</span>
+                                        <span class="month">ICSE-DEMO</span>
+                                        <span class="year">2023</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h3><strong>Yang Zhang</strong>, <a href="https://cxiaosong.github.io/" target="_blank">Xiaosong Chang</a>, Lining Fang, Yifan Lu</h3>
+                                        <h4>DeepLog: Deep-Learning-Based Log Recommendation.</h4>
+                                        <h3>Proceedings of 45th International Conference on Software Engineering (ICSE - DEMO Track). May 17-20, 2023, Melbourne, Austrilia.</h3>
+                                        <span>-------------------------------------------------------------------------------------------------------------------------</span>
+                                        <span class="pdfDownload"><a href="#"><i class="fas fa-file-download"></i>&emsp;Download PDF</a></span>
+                                    </div>
+                                    <hr style="margin:8px auto">
+                                    <span class="label label-conference">Conference</span>
+                                </div>
+                                <div class="mfp-hide mfp-with-anim publication-detailC3 publication-detail">
+                                    <div class="project_content">
+                                        <h3 class="publication_title">Security Testing in the Wild: An Interview Study.*
+                                        </h3>
+                                        <span class="publication_authors"><strong>Yang Zhang</strong>, <a href="https://cxiaosong.github.io/" target="_blank">Xiaosong Chang</a>, Lining Fang, Yifan Lu</span>
+                                        <span class="label label-conference">Conference</span><br>
+                                        <p class="project_desc"><b>Abstract.</b> Log recommendation plays a vital role in analyzing run-time issues including anomaly detection, performance monitoring, and security evaluation. However, existing deeplearning-based approaches for log recommendation suffer from insufficient features and low F1. To this end, this paper proposes a prototype called DeepLog to recommend log location based on a deep learning model. DeepLog parses the source code into an abstract syntax tree and then converts each method into a block hierarchical tree in which DeepLog extracts both semantic and syntactic features. By doing this, we construct a dataset with more than 110K samples. DeepLog employs a double-branched neural network model to recommend log locations. We evaluate the effectiveness of DeepLog by answering four research questions. The experimental results demonstrate that it can recommend 8,725 logs for 23 projects and the F1 of DeepLog is 28.17% higher than
+                                            that of the existing approaches, which improves state-of-the-art. </p>
+                                        <!-- Project Addon -->
+                                        <div class="project_adds">   
+                                            <!-- Download Pdf -->
+                                            <span><a class="ext_link" href="#><i class="fas fa-file-download"></i><span>Download PDF</span></a></span>
+                                            <!-- End Download Pdf -->    
+                                        </div>
+                                        <!-- End Project Addon -->
+                                        
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                            <!-- End Publication item -->
+                            
+                            <!-- publication item -->
+                            <div id="J6"class="publication_item" data-groups='["all","JOURNAL PAPERS"]' data-date-publication="2022-05-15" >
+                                <div class="media">
+                                    <a href=".publication-detail6" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
+                                    <div class="date pull-left">
+                                        <span class="code">[J6]</span>
+                                        <span class="month">KBS</span>
+                                        <span class="year">2022</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h3><strong>Yang Zhang</strong>, Chuyan Ge, Shuai Hong, Ruili Tian, Chunhao Dong, Jingjing Liu.</h3>
+                                        <h4>DeleSmell: Code Smell Detection Based on Deep Learning and Latent Semantic Analysis.</h4>
+                                        <h3>Knowledge-Based Systems</h3>
+                                        <span>-------------------------------------------------------------------------------------------------------------------------</span>
+                                        <span class="pdfDownload"><a href="#"><i class="fas fa-file-download"></i>&emsp;Download PDF</a></span>
+                                    </div>
+                                    
+                                    <hr style="margin:8px auto">
+                                    <span class="label label-journal">Journal</span>
+                                </div>
+                                <div class="mfp-hide mfp-with-anim publication-detail6 publication-detail">
+                                    <div class="project_content">
+                                        <h3 class="publication_title">DeleSmell: Code Smell Detection Based on Deep Learning and Latent Semantic Analysis.</h3>
+                                        <span class="publication_authors"><strong>Yang Zhang</strong>, Chuyan Ge, Shuai Hong, Ruili Tian, Chunhao Dong, Jingjing Liu.</span>
+                                        <span class="label label-journal">Journal</span><br>
+                                        <p class="project_desc"><b>Abstract.</b> The presence of code smells will increase the risk of failure, make software difficult to maintain, and introduce potential technique debt in the future. Although many deep-learning-based approaches have been proposed to detect code smells, most existing works suffer from the problem of incomplete feature extraction and unbalanced distribution between positive samples and negative samples. Furthermore, the accuracy of existing works can be further improved. This paper proposes a novel approach named DeleSmell to detect code smells based on a deep learning model. The dataset is built by extracting samples from 24 real-world projects. To improve the imbalance in the dataset, a refactoring tool is developed to automatically transform good source code into smelly code and to generate positive samples based on real cases. DeleSmell collects both structural features through iPlasma and semantic features via latent semantic analysis and word2vec. DeleSmell’s model includes a convolutional neural network(CNN) branch and gate recurrent unit(GRU)-attention branch. The final classification is conducted by an support vector machine(SVM). In the experimentation, the effectiveness of DeleSmell is evaluated by answering seven research questions. The experimental results show that DeleSmell improves the accuracy of brain class (BC) and brain method (BM) code smells
+                                            detection  </p> 
+                                        <!-- Project Addon -->
+                                        <div class="project_adds">
+                                            
+                                        <!-- Download Pdf -->
+                                        <span><a class="ext_link" href="#"><i class="fas fa-file-download"></i><span >Download PDF</span></a></span>
+                                        <!-- End Download Pdf -->                                           
+                                        </div>
+                                        <!-- End Project Addon -->
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                            <!-- End publication item -->
+
+                            <!-- publication item -->
+                            <div id="J5"class="publication_item" data-groups='["all","JOURNAL PAPERS", "EMPIRICAL SOFTWARE ENGINEERING","SYSTEMATIC LITERATURE REVIEW"]' data-date-publication="2023-02-05" >
+                                <div class="media">
+                                    <a href=".publication-detail5" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
+                                    <div class="date pull-left">
+                                        <span class="code">[J5]</span>
+                                        <span class="month">CRAD</span>
+                                        <span class="year">2023</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h3><strong>张杨</strong>，乔柳，东春浩, 高鸿斌.</h3>
+                                        <h4><a href="https://crad.ict.ac.cn/cn/article/doi/10.7544/issn1000-1239.20220014" target="_blank">基于深度学习的数据竞争检测方法</a>.</h4>
+                                        <h3>计算机研究与发展. 2022, 59(9): 1914-1928.</h3>
+                                        <span>-------------------------------------------------------------------------------------------------------------------------</span>
+                                        <span class="pdfDownload"><a href="#"><i class="fas fa-file-download"></i>&emsp;Download PDF</a></span>
+                                    </div>
+                                    
+                                    <hr style="margin:8px auto">
+                                    <span class="label label-journal">Journal</span>
+                                </div>
+                                <div class="mfp-hide mfp-with-anim publication-detail5 publication-detail">
+                                    <div class="project_content">
+                                        <h3 class="publication_title">Deep Learning Based Data Race Detection Approach</h3>
+                                        <span class="publication_authors"><strong>Yang Zhang</strong>, Liu Qiao, Chunhao Dong, Hongbin Gao.</span>
+                                        <span class="label label-journal">Journal</span><br>
+                                        <p class="project_desc"><b>Abstract.</b> Existing approaches for deep-learning-based data race detection are suffering from the issues of single feature extraction and low accuracy. To improve the state-of-the-art, this paper proposes a novel approach called DeleRace to detect data race based on deep learning model. Firstly, DeleRace extracts instruction-level, method-level, and file-level features from a variety of real-world applications. All these features are transformed by word vectorization to build the training dataset. Secondly, ConRacer, as an existing data race tool, is employed to identify the real race. Based on this tool, those positive samples in the training dataset is labelled. To further optimize the dataset, DeleRace leverages SMOTE algorithm to distribute both positive samples and negative ones in balance. Finally, CNN-LSTM model is constructed and a classifier is trained to detect data race. In the experimentation, a total of 26 real-world applications is selected from different fields in Dacapo, JGF, IBM Contest and PJBench benchmark suites. The experimental results show that the accuracy of DeleRace is 96.79% which is 4.65% higher than existing deep-learning-based approaches. Furthermore, the performance of DeleRace is compared with that of both dynamic tools (such as Said and RVPredict) and static tools (such as SRD and ConRacer), which demonstrates the effectiveness of DeleRace. </p> 
+                                        <!-- Project Addon -->
+                                        <div class="project_adds">
+                                            
+                                        <!-- Download Pdf -->
+                                        <span><a class="ext_link" href="#"><i class="fas fa-file-download"></i><span >Download PDF</span></a></span>
+                                        <!-- End Download Pdf -->                                           
+                                        </div>
+                                        <!-- End Project Addon -->
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                            <!-- End publication item -->
+
+                            <!-- publication item -->
+                            <div id="J4"class="publication_item" data-groups='["all","JOURNAL PAPERS", "EMPIRICAL SOFTWARE ENGINEERING","SYSTEMATIC LITERATURE REVIEW"]' data-date-publication="2022-06-05" >
+                                <div class="media">
+                                    <a href=".publication-detail4" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
+                                    <div class="date pull-left">
+                                        <span class="code">[J4]</span>
+                                        <span class="month">NCAA</span>
+                                        <span class="year">2022</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h3><strong>Yang Zhang</strong>, Jiali Yan, Liu Qiao, Hongbin Gao.</h3>
+                                        <h4>A Novel Approach of Data Race Detection Based on CNN-BiLSTM Hybrid Neural Network.</h4>
+                                        <h3>Neural Computing and Applications. 2022.</h3>
+                                        <span>-------------------------------------------------------------------------------------------------------------------------</span>
+                                        <span class="pdfDownload"><a href="#"><i class="fas fa-file-download"></i>&emsp;Download PDF</a></span>
+                                    </div>
+                                    
+                                    <hr style="margin:8px auto">
+                                    <span class="label label-journal">Journal</span>
+                                </div>
+                                <div class="mfp-hide mfp-with-anim publication-detail4 publication-detail">
+                                    <div class="project_content">
+                                        <h3 class="publication_title">A Novel Approach of Data Race Detection Based on CNN-BiLSTM Hybrid Neural Network.</h3>
+                                        <span class="publication_authors"><strong>Yang Zhang</strong>, Jiali Yan, Liu Qiao, Hongbin Gao.</span>
+                                        <span class="label label-journal">Journal</span><br>
+                                        <p class="project_desc"><b>Abstract.</b> Existing data race detection approaches based on deep learning are suffering from the problems of unique feature extraction and low accuracy. To this end, this paper proposes a novel approach called SmartRace based on a CNN-BiLSTM hybrid neural network to detect data race. To build the dataset, SmartRace selects 25 real-world applications from five benchmark suites and then extracts multi-level features by a static analysis tool Wala. A tool ConRacer is employed to help label the samples. SmartRace leverages the Kmeans-SMOTE algorithm to make the positive samples and negative counterparts well distributed. The samples are vectorized and fed into a deep learning model. Finally, a CNN-BiLSTM hybrid neural network is built and trained to detect data race. The experimental results show that the accuracy of SmartRace is up to 4.94% higher than that of the existing detection approach. Furthermore, we compare SmartRace with
+                                            the existing dynamic and static detection tools, demonstrating the effectiveness of SmartRace. </p> 
+                                        <!-- Project Addon -->
+                                        <div class="project_adds">
+                                            
+                                        <!-- Download Pdf -->
+                                        <span><a class="ext_link" href="#"><i class="fas fa-file-download"></i><span >Download PDF</span></a></span>
+                                        <!-- End Download Pdf -->                                           
+                                        </div>
+                                        <!-- End Project Addon -->
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                            <!-- End publication item -->
+
+                            <!-- publication item -->
+                            <div id="J3"class="publication_item" data-groups='["all","JOURNAL PAPERS"]' data-date-publication="2022-05-05" >
+                                <div class="media">
+                                    <a href=".publication-detail3" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
+                                    <div class="date pull-left">
+                                        <span class="code">[J3]</span>
+                                        <span class="month">JOS</span>
+                                        <span class="year">2022</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h3><strong>张杨</strong>, 东春浩, 刘辉, 葛楚妍.</h3>
+                                        <h4><a href="http://www.jos.org.cn/jos/article/abstract/6548?st=article_issue" target="_blank">基于预训练模型和多层次信息的代码坏味检测方法</a>.</h4>
+                                        <h3>软件学报. 2022, 33(5): 1551-1568</h3>
+                                        <span>-------------------------------------------------------------------------------------------------------------------------</span>
+                                        <span class="pdfDownload"><a href="#"><i class="fas fa-file-download"></i>&emsp;Download PDF</a></span>
+                                    </div>
+                                    
+                                    <hr style="margin:8px auto">
+                                    <span class="label label-journal">Journal</span>
+                                </div>
+                                <div class="mfp-hide mfp-with-anim publication-detail3 publication-detail">
+                                    <div class="project_content">
+                                        <h3 class="publication_title">Code Smell Detection Approach Based on Pre-Training Model and Multi-Level Information</h3>
+                                        <span class="publication_authors">Yang Zhang, Chunhao Dong, Hui Liu, Chuyan Ge</span>
+                                        <span class="label label-journal">Journal</span><br>
+                                        <p class="project_desc"><b>Abstract.</b> Most of the existing code smell detection approaches rely on code structure information and heuristic rules, which pay little attention to the semantic information embedded in different levels of code, , and the accuracy of code smell detection approaches is not high. To solve this problem, the paper proposes a novel approach DeepSmell based on a pre-trained model and multi-level metics. Firstly, we use the static analysis tool to extract code smell instances and multi-level code metric information in the source program and mark these instances. Secondly, the level information that relate to code smells in the source code are parsed and obtained through the abstract syntax tree. The textual information composed of the level information is combined with code metric information to generate the data set. Finally, text information converts into word vectors using the BERT pre-training model. To apply the GRU-LSTM model to obtain the potential semantic relationship among the identifiers, and combine the CNN model and attention mechanism to code smell detection. The experiment tested four kinds of code smells including feature envy, long method, data class, and god class on 24 open source programs such as JUnit, Xalan, and SPECjbb2005. The experimental results show that DeepSmell improves the average recall and F1 by 9.3% and 10.44% respectively compared with existing detection methods, while maintaining a high level of precision at the same time. </p> 
+                                        <!-- Project Addon -->
+                                        <div class="project_adds">
+                                            
+                                        <!-- Download Pdf -->
+                                        <span><a class="ext_link" href="#"><i class="fas fa-file-download"></i><span >Download PDF</span></a></span>
+                                        <!-- End Download Pdf -->                                           
+                                        </div>
+                                        <!-- End Project Addon -->
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                            <!-- End publication item -->
+                            
+                            <!-- Publication item -->
+                            <div id="C2" class="publication_item" data-groups='["all","CONFERENCES"]' data-date-publication="2023-07-12">
+                                <div class="media">
+                                    <a href=".publication-detailC2" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
+                                    <div class="date pull-left">
+                                        <span class="code">[C2]</span>
+                                        <span class="month">ICSE-DEMO</span>
+                                        <span class="year">2023</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h3>Shuai Hong, <strong>Yang Zhang</strong>, <a href="https://chaoshuai-li.github.io/" target="_blank">Chaoshuai Li</a>, Yu Bai.</h3>
+                                        <h4>ReInstancer: Automatically Refactoring for Instanceof Pattern Matching.</h4>
+                                        <h3>Proceedings of 44th International Conference on Software Engineering (ICSE - Demo Track). May 22-27, 2022, Pittsburgh, PA, USA.</h3>
+                                        <span>-------------------------------------------------------------------------------------------------------------------------</span>
+                                        <span class="pdfDownload"><a href="#"><i class="fas fa-file-download"></i>&emsp;Download PDF</a></span>
+                                    </div>
+                                    <hr style="margin:8px auto">
+                                    <span class="label label-conference">Conference</span>
+                                </div>
+                                <div class="mfp-hide mfp-with-anim publication-detailC2 publication-detail">
+                                    <div class="project_content">
+                                        <h3 class="publication_title">ReInstancer: Automatically Refactoring for Instanceof Pattern Matching.
+                                        </h3>
+                                        <span class="publication_authors">Shuai Hong, <strong>Yang Zhang</strong>, <a href="https://chaoshuai-li.github.io/" target="_blank">Chaoshuai Li</a>, Yu Bai.</span>
+                                        <span class="label label-conference">Conference</span><br>
+                                        <p class="project_desc"><b>Abstract.</b> Pattern matching for instanceof is widely used with the advantage of conditionally extracting components from objects and with the disadvantage of the compulsory usage of type castings. The feature of pattern matching has been periodically previewed in the latest released version of JDK to avoid redundant type castings and to optimize pattern matching in multi-branch statements. Although pattern matching has many benefits, manual refactoring for instanceof pattern matching is time-consuming and tedious. Furthermore, no existing work can provide sufficient support for such refactoring. To this end, this paper presents a refactoring tool ReInstancer that mitigates and simplifies type castings by converting a multi-branch statement with instanceof pattern matching into a switch statement or expression automatically. ReInstancer is evaluated on 7 real-world applications, with a total of 4404 instanceof expressions. The evaluation results demonstrate that ReInstancer can successfully remove 2060 type castings and refactor 141 multibranch statements with a total of 1972 instanceof pattern matching,
+                                            which improves the code quality. </p>
+                                        <!-- Project Addon -->
+                                        <div class="project_adds">
+                                            <!-- Download Pdf -->
+                                            <span><a class="ext_link" href="#"><i class="fas fa-file-download"></i><span>Download PDF</span></a></span>
+                                            <!-- End Download Pdf -->
+                                        </div>
+                                        <!-- End Project Addon -->
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                            <!-- End Publication item -->
+
+                            <!-- publication item -->
+                            <div id="J2"class="publication_item" data-groups='["all","JOURNAL PAPERS", "EMPIRICAL SOFTWARE ENGINEERING","SYSTEMATIC LITERATURE REVIEW"]' data-date-publication="2023-02-05" >
+                                <div class="media">
+                                    <a href=".publication-detail2" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
+                                    <div class="date pull-left">
+                                        <span class="code">[J2]</span>
+                                        <span class="month">JSEP</span>
+                                        <span class="year">2023</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h3><strong>Yang Zhang</strong>, Chunhao Dong.</h3>
+                                        <h4>MARS: Detecting Brain Class/Method Code Smell Based on Metric-Attention Mechanism...</h4>
+                                        <h3>Journal of Software: Evolution and Process. 2021.</h3>
+                                        <span>-------------------------------------------------------------------------------------------------------------------------</span>
+                                        <span class="pdfDownload"><a href="#"><i class="fas fa-file-download"></i>&emsp;Download PDF</a></span>
+                                    </div>
+                                    
+                                    <hr style="margin:8px auto">
+                                    <span class="label label-journal">Journal</span>
+                                </div>
+                                <div class="mfp-hide mfp-with-anim publication-detail2 publication-detail">
+                                    <div class="project_content">
+                                        <h3 class="publication_title">MARS: Detecting brain class/method code smell based on metric–attention mechanism and residual network</h3>
+                                        <span class="publication_authors"><strong>Yang Zhang</strong>, Chunhao Dong.</span>
+                                        <span class="label label-journal">Journal</span><br>
+                                        <p class="project_desc"><b>Abstract.</b> Code smell is the structural design defect that makes programs difficult to understand, maintain, and evolve. Existing works of code smell detection mainly focus on prevalent code smells, such as feature envy, god class, and long method. Few works have been done on detecting brain class/method. Furthermore, existing deep-learning-based approaches leverage the CNN model to improve accuracy by barely increasing the number of layers, which may cause a problem of gradient degradation. To this end, this paper proposes a novel approach called MARS to detect brain class/method. MARS improves the gradient degradation by employing an improved residual network. It increases the weight value of those important code metrics to label smelly samples by introducing a metric–attention mechanism. To support the training of MARS, a dataset called BrainCode is generated by extracting more than 270,000 samples from 20 real-world applications. MARS is evaluated on BrainCode and compared to other machine-learning-based and deep-learning-based approaches. The experimental results demonstrate that the average accuracy of MARS is 2.01 % higher than that of the existing approaches, which improves
+                                            state-of-the-art. </p> 
+                                        <!-- Project Addon -->
+                                        <div class="project_adds">
+                                            
+                                        <!-- Download Pdf -->
+                                        <span><a class="ext_link" href="#"><i class="fas fa-file-download"></i><span >Download PDF</span></a></span>
+                                        <!-- End Download Pdf -->                                           
+                                        </div>
+                                        <!-- End Project Addon -->
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                            <!-- End publication item -->
+
+                            <!-- publication item -->
+                            <div id="J1"class="publication_item" data-groups='["all","JOURNAL PAPERS"]' data-date-publication="2021-12-05" >
+                                <div class="media">
+                                    <a href=".publication-detail1" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
+                                    <div class="date pull-left">
+                                        <span class="code">[J1]</span>
+                                        <span class="month">JOS</span>
+                                        <span class="year">2021</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h3><strong>张杨</strong>，邵帅，张冬雯.</h3>
+                                        <h4><a href="http://www.jos.org.cn/jos/article/abstract/6132?st=article_issue" target="_blank">基于下推自动机的细粒度锁自动重构方法</a>.</h4>
+                                        <h3> 软件学报. 2021, 32(12): 3710-3717</h3>
+                                        <span>-------------------------------------------------------------------------------------------------------------------------</span>
+                                        <span class="pdfDownload"><a href="#"><i class="fas fa-file-download"></i>&emsp;Download PDF</a></span>
+                                    </div>
+                                    
+                                    <hr style="margin:8px auto">
+                                    <span class="label label-journal">Journal</span>
+                                </div>
+                                <div class="mfp-hide mfp-with-anim publication-detail1 publication-detail">
+                                    <div class="project_content">
+                                        <h3 class="publication_title">An Automated Refactoring Approach for Fine-grained Lock Based on Pushdown Automaton</h3>
+                                        <span class="publication_authors"><strong>Yang Zhang</strong>, Shuai Shao, Dongwen Zhang.</span>
+                                        <span class="label label-journal">Journal</span><br>
+                                        <p class="project_desc"><b>Abstract.</b> As coarse-grained locks have a negative impact on the scalability of concurrent programs, this paper proposes an automatic refactoring approach to convert a coarse-grained lock into a fine-grained one. Several static analyses, such as visitor pattern analysis, alias analysis, and side-effect analysis are employed in this approach. The read and write pattern of a critical section is inferred by sideeffect analysis, and thena pushdown automaton is proposed to identify the read and write pattern. Finally, refactoring is conductedbased on these results. We implement an automatic tool FLock as the Eclipse plug-in. Our approach is evaluated by eleven open-source projects including HSQLDB, Jenkins and Cassandra, by presenting results such as the number of refactored locks, changed lines of code, refactoring time, accuracy, program performance after refactoring.We also compareFLock with the existing tools Relocker and CLOCK. The experimental results show that a total of 1757 built-in monitors are refactoredand each refactoring takes an average of 17.5 seconds. The experiments reveal that our tool can help developers convert coarse-grained locks into fine-grained locks effectively. </p> 
+                                        <!-- Project Addon -->
+                                        <div class="project_adds">
+                                            
+                                        <!-- Download Pdf -->
+                                        <span><a class="ext_link" href="#"><i class="fas fa-file-download"></i><span >Download PDF</span></a></span>
+                                        <!-- End Download Pdf -->                                           
+                                        </div>
+                                        <!-- End Project Addon -->
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                            <!-- End publication item -->
+
+                            <!-- Publication item -->
+                            <div id="C1" class="publication_item" data-groups='["all","CONFERENCES"]' data-date-publication="2020-07-18">
+                                <div class="media">
+                                    <a href=".publication-detailC1" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
+                                    <div class="date pull-left">
+                                        <span class="code">[C1]</span>
+                                        <span class="month">ISSTA</span>
+                                        <span class="year">2020</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h3><strong>Yang Zhang</strong>, <a href="https://jedishao23.github.io/" target="_blank">Shuai Shao</a>, <a href="http://www.cs.rutgers.edu/~jz798/" target="_blank">Juan Zhai</a>, <a href="https://www.cs.rutgers.edu/~sm2283/" target="_blank">Shiqing Ma</a>. </h3>
+                                        <h4>FineLock: Automatically Refactoring Coarse-grained Locks into Fine-grained Locks. </h4>
+                                        <h3>Proceedings of the 29th ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA2020). July 18-22, 2020. Virtual Event, USA.</h3>
+                                        <span>-------------------------------------------------------------------------------------------------------------------------</span>
+                                        <span class="pdfDownload"><a href="pdf/Conferencs/C71.pdf"><i class="fas fa-file-download"></i>&emsp;Download PDF</a></span>
+                                    </div>
+                                    <hr style="margin:8px auto">
+                                    <span class="label label-conference">Conference</span>
+                                </div>
+                                <div class="mfp-hide mfp-with-anim publication-detailC1 publication-detail">
+                                    <div class="project_content">
+                                        <h3 class="publication_title">FineLock: Automatically Refactoring Coarse-grained Locks into Fine-grained Locks.
+                                        </h3>
+                                        <span class="publication_authors"><strong>Yang Zhang</strong>, <a href="https://jedishao23.github.io/" target="_blank">Shuai Shao</a>, <a href="http://www.cs.rutgers.edu/~jz798/" target="_blank">Juan Zhai</a>, <a href="https://www.cs.rutgers.edu/~sm2283/" target="_blank">Shiqing Ma</a>.</span>
+                                        <span class="label label-conference">Conference</span><br>
+                                        <p class="project_desc"><b>Abstract.</b> Lock is a frequently-used synchronization mechanism to enforce
+                                            exclusive access to a shared resource. However, lock-based concurrent
+                                            programs are susceptible to lock contention, which leads to
+                                            low performance and poor scalability. Furthermore, inappropriate
+                                            granularity of a lock makes lock contention even worse. Compared
+                                            to coarse-grained lock, fine-grained lock can mitigate lock contention
+                                            but difficult to use. Converting coarse-grained lock into
+                                            fine-grained lock manually is not only error-prone and tedious, but
+                                            also requires a lot of expertise. In this paper, we propose to leverage
+                                            program analysis techniques and pushdown automaton to automatically
+                                            covert coarse-grained locks into fine-grained locks to reduce
+                                            lock contention. We developed a prototype FineLock and evaluates
+                                            it on 5 projects. The evaluation results demonstrate FineLock
+                                            can refactor 1,546 locks in an average of 27.6 seconds, including
+                                            converting 129 coarse-grained locks into fine-grained locks and
+                                            1,417 coarse-grained locks into read/write locks. By automatically
+                                            providing potential refactoring recommendations, our tool saves a
+                                            lot of efforts for developers. </p>
+                                        <!-- Project Addon -->
+                                        <div class="project_adds">
+                                            <!-- Download Pdf -->
+                                            <span><a class="ext_link" href="#"><i class="fas fa-file-download"></i><span>Download PDF</span></a></span>
+                                            <!-- End Download Pdf -->
+                                        </div>
+                                        <!-- End Project Addon -->
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                            <!-- End Publication item -->
+                                
+                            
+                        </div>
+                        <!-- NOTE -->
+                            <div class="publication_item">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <!-- 
+                                       <span>* These documents are made available as a means to ensure timely dissemination of scholarly and technical work on a non-commercial basis. Copyright and all rights therein are maintained by the authors or by other copyright holders, notwithstanding that they have offered their works here electronically. It is understood that all persons copying this information will adhere to the terms and constraints invoked by each copyright holder. These works may not be reposted without the explicit permission of the copyright holder.</span>
+                                        -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End NOTE -->
+                        <!-- End Publication Wrapper -->
+                    </div>
+                    <div class="clear"></div>
+                </article>
+                <!-- End Publication Section -->
+
+                <!-- BOOK Section -->
+                <article class="hs-content research-section" id="section4">
+                    <span class="sec-icon fa fa-book"></span>
+                    <div class="hs-inner">
+                        <span class="before-title">.04</span>
+                        <h2>BOOKS</h2>
+                        
+                        <!-- Research Project <span class="content-title">BOOKS</span>-->
+                        
+                        <div class="slide-wrapper">
+                            <nav>
+                                <a class="fa fa-angle-left" id="btn-prev"></a>
+                                <a class="fa fa-angle-right" id="btn-next"></a>
+
+                            </nav>
+                            <div class="slider-details">
+                                <span class="slide-counter"></span>
+                                <span class="slide-date"><i class="li_calendar"></i></span>
+                            </div>
+                            
+                            <!-- Project Item -->
+                            <div class="slide active" data-date="2023">
+                                <div class="slide-header">
+                                    <h3></h3>
+                                    <h4><a href="https://mp.weixin.qq.com/s?__biz=MzI5MzIwNDI1MQ==&mid=2650263862&idx=3&sn=ceb986c28cf179b5916c3c415cf6f13e&chksm=f476c942c301405436349cdfee7fdcea0b9f8bc1803f4648f41130192dd1eab290ea79b0c91e&mpshare=1&scene=23&srcid=05318RJxAah6a9HTaKJRf1FV&sharer_sharetime=1687335099086&sharer_shareid=9b67d05fac68b955f03083887445c636#rd" target="_blank">Parallel Programming</a></h4>
+                                </div>
+                                <div class="slide-content">
+                                    <img src="images/books/paraprog.jpg" width=200 height=300 id="profile_img"/>
+                                    <hr />
+                                </div>
+                            </div>
+                            <!-- End Project Item -->
+
+                            <!-- Project Item -->
+                            <div class="slide active" data-date="2020">
+                                <div class="slide-header">
+                                    <h3></h3>
+                                    <h4>Concurrency-oriented Software Refactoring</h4>
+                                </div>
+                                <div class="slide-content">
+                                    <img src="images/books/refactoring.jpg" border=1  id="profile_img"  class="img-rounded" width=200 height=300 />
+                                    <hr />
+                                </div>
+                            </div>
+                            <!-- End Project Item -->
+
+                            <!-- Project Item -->
+                            <div class="slide active" data-date="2014">
+                                <div class="slide-header">
+                                    <h3></h3>
+                                    <h4>Multicore-oriented Parallel Execution</h4>
+                                </div>
+                                <div class="slide-content">
+                                    <img src="images/books/core.jpg" border=1  id="profile_img"  class="img-rounded" width=200 height=300 />
+                                    <hr />
+                                </div>
+                            </div>
+                            <!-- End Project Item -->
+                            
+                        </div>
+                            
+                    </div>
+                </article>
+                <!-- End Research Section -->
 
 
-    <div id="footer">
-      <a href="https://dl.acm.org/profile/99659551190"> ACM Profile </a> |
-
-      <a href="http://www.cs.cmu.edu/afs/cs.cmu.edu/user/mleone/web/how-to.html" target="_blank">Advice on Research</a> |
-      <a href="http://homes.cs.washington.edu/~mernst/advice/write-technical-paper.html" target="_blank">Advice on Writing a Technical Paper</a> |
-      <a href="https://info.flagcounter.com/HbVu">...</a>
+                
 
 
-      <!-- Start of StatCounter Code for Dreamweaver -->
-      <!--    Visit counter:
-      <script type="text/javascript">
-      var sc_project=11373500;
-      var sc_invisible=0;
-      var sc_security="03737a84";
-      var sc_text=2;
-      var scJsHost = (("https:" == document.location.protocol) ?
-      "https://secure." : "http://www.");
-      document.write("<sc"+"ript type='text/javascript' src='" +
-      scJsHost+
-      "statcounter.com/counter/counter.js'></"+"script>");
-      </script>
-      <noscript><div class="statcounter"><a title="web analytics"
-      href="http://statcounter.com/" target="_blank"><img
-      class="statcounter"
-      src="//c.statcounter.com/11373500/0/03737a84/0/" alt="web
-      analytics"></a></div></noscript>
-      -->
-      <!-- End of StatCounter Code for Dreamweaver -->
 
+                <!-- TEACHING Section -->
+                <article class="hs-content teaching-section" id="section5">
+                    <span class="sec-icon fas fa-chalkboard-teacher"></span>
+
+                    <div class="hs-inner">
+                        <span class="before-title">.05</span>
+                        <h2>STUDENTS</h2>
+
+                        
+                        
+                        <!-- MAIN CONTENT -->
+                        <div class="main-content">
+                            <div class="fluid-container">
+                                <div class="content-wrapper">
+                                    <div class="page-section" id="stu2024">
+                                        <div class="row row-padding">
+                                            <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My postgraduate students received much recognition, including
+                                                many Ph.D candidates (e.g. <a href="https://uconn.edu/" title="Shuai Shao" target="_blank">University of Connecticut</a>,
+                                                <a href="https://www.bit.edu.cn/" title="Chunhao Dong" target="_blank">Beijing Institute of Technology</a>,
+                                                <a href="https://www.hit.edu.cn/" title="Chuyan Ge" target="_blank">Harbin Institute of Technology</a>,
+                                                <a href="https://www.dlmu.edu.cn/" title="Shuai Hong" target="_blank">Dalian Maritime University</a>),
+                                                assistant professors at academia (e.g. <a href="https://tudarco.ac.tz" title="Dickensi Edison Mlwafu" target="_blank">Tumaini Univerity</a>, Hebei Chemical and Pharmaceutical College, Shandong University of Political Science and Law),
+                                                and industrial companies.
+                                                Some students received national scholarship award, and Hebei postgraduate innovation foundation. I am fortunate to work with these talented students. 
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div class="page-section" id="stu2023">
+                                        <div class="row row-padding">
+                                            <p data-scroll-reveal="enter from the bottom after 0.3s" align=left><strong>2023</strong>
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2023tianquanquan.jpg" id="profile_img"><br/><br/>
+                                                    Quanquan Tian （田泉泉）<br/>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2023wangyifan.jpg" id="profile_img"><br/><br/>
+                                                    Yifan Wang （王一凡）<br/>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2023dingzixuan.jpg" id="profile_img"><br/><br/>
+                                                    Zixuan Ding （丁梓轩）<br/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row row-padding">
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2023zhengmeiyan.jpg" id="profile_img"><br/><br/>
+                                                    Meiyan Zheng （郑梅艳）<br/>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2023fanzishuo.jpg" id="profile_img"><br/><br/>
+                                                    Zishuo Fan （范梓硕）<br/>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2023yuanlijie.jpg" id="profile_img"><br/><br/>
+                                                    Lijie Yuan （袁利杰）<br/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        </p>
+                                    </div>
+                                    <hr style="margin: 8px;" />
+
+                                    <div class="page-section" id="stu2022">
+                                        <div class="row row-padding">
+                                            <p data-scroll-reveal="enter from the bottom after 0.3s" align=left><strong>2022</strong>
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2022lyf.jpg" id="profile_img"><br/><br/>
+                                                    Yifan Lu （路一帆）<br/>
+
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2022zch.jpg" id="profile_img"><br/><br/>
+                                                    Chunhui Zhang (张春辉) <br/>
+
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2022sgj.JPG" id="profile_img"><br/><br/>
+                                                    Gaojie Shen （申高洁）<br/>
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row row-padding">
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2022xy.jpg" id="profile_img"><br/><br/>
+                                                    Yuan Xue （薛渊）<br/>
+
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2022lyl.png" id="profile_img"><br/><br/>
+                                                    Yanlei Li （李彦磊）<br/>
+
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s">
+                                                    <img src="images/students/2022lsy.jpg" id="profile_img"><br/><br/>
+                                                    Siyi Liang （梁思懿）<br/>
+                                                    (co-advised with <a href="https://xxxy.web.hebust.edu.cn/jyjx/yjsjy/ssjy/baiyu.html" target="_blank">Yu Bai</a>)
+                                                </p>
+                                            </div>
+                                        </div>
+                                        </p>
+                                    </div>
+                                    <hr />
+
+
+                                    <div class="page-section" id="stu2021">
+                                            <div class="row row-padding">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=left><strong>2021</strong>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2021liujj.jpg" id="profile_img"><br/><br/>
+                                                        Jingjing Liu （刘晶晶）<br/>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2021xiezy.jpg" id="profile_img"><br/><br/>
+                                                        Zhaoyang Xie （谢朝阳）<br/>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2021guzg.png" id="profile_img"><br/><br/>
+                                                        Zhenggang Gu （谷正刚）<br/>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="row row-padding">
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2021changxs.jpg" id="profile_img"><br/><br/>
+                                                        <a href="https://cxiaosong.github.io/" target="_blank">Xiaosong Chang （常晓松） </a> <br/>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2021guank.jpg" id="profile_img"><br/><br/>
+                                                        Ke Guan （关珂）<br/>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2021zhangyc.png" id="profile_img"><br/><br/>
+                                                        Yichi Zhang （张亦弛）<br/>
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="row row-padding">
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2021wangtt.jpg" id="profile_img"><br/><br/>
+                                                        Tongtong Wang （王彤彤）<br/>
+                                                        (co-advised with Dongwen Zhang)
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2021lit.jpg" id="profile_img"><br/><br/>
+                                                        Tao Li （李涛）<br/>
+                                                        (co-advised with Dongwen Zhang)
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="row row-padding">
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2021songs.jpg" id="profile_img"><br/><br/>
+                                                    Shuai Song （宋帅）<br/>
+                                                    (co-advised with Dongwen Zhang)
+
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2021liuhy.jpg" id="profile_img"><br/><br/>
+                                                    Haiyang Liu （刘海洋）<br/>
+                                                    (co-advised with Xiaohong Wang)
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </p>
+                                    </div>
+                                    <hr />
+
+                                    <div class="page-section" id="stu2020">
+                                        <p data-scroll-reveal="enter from the bottom after 0.3s" align=left><strong>2020</strong>
+                                            <div class="row row-padding">
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2020fanglining.jpg" id="profile_img"><br/><br/>
+                                                        Lining Fang （房丽宁）<br/>
+                                                        (Assistant professor at Xingtai Vocational College of Applied Technology)
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2020hongshuai.png" id="profile_img"><br/><br/>
+                                                        Shuai Hong（洪帅）<br/>
+                                                        (Ph.D candidate at <a href="https://www.dlmu.edu.cn/" target="_blank">Dalian Maritime University</a>)
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2020lichaoshuai.jpg" id="profile_img"><br/><br/>
+                                                        <a href="https://chaoshuai-li.github.io/" target="_blank">Chaoshuai Li</a> （李朝帅）<br/>
+                                                    </p>
+                                                </div>
+                                            </p>
+                                            </div>
+                                            <br />
+                                            <div class="row row-padding">
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2020gechuyan.jpg" id="profile_img"><br/><br/>
+                                                        Chuyan Ge （葛楚妍）<br/>
+                                                        (Ph.D candidate at <a href="https://www.hit.edu.cn/" target="_blank">Harbin Institute of Technology</a>)
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2020yanjiali.jpg" id="profile_img"><br/><br/>
+                                                        Jiali Yan （闫佳丽）<br/>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </p>
+                                        </div>
+                                    <hr />
+
+
+                                <div class="page-section" id="stu2019">
+                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=left><strong>2019</strong>
+                                        <div class="row row-padding">
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2019liliuxu.jpg" id="profile_img"><br/><br/>
+                                                    Liuxu Li （李柳旭）<br/>
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2019jiminghan.jpg" id="profile_img"><br/><br/>
+                                                    Minghan Ji （纪铭涵）<br/>
+                                                    (China United Network Communication Co. Ltd at Xingtai)
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2019qiaoliu.png" id="profile_img"><br/><br/>
+                                                    Qiao Liu （乔柳）<br/>
+                                                    (Agricultural Bank of China at Anguo)
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <br />
+                                            <div class="row row-padding">
+                                            <div class="col-md-4 col-xm-3 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2019dongchunhao.png" id="profile_img"><br/><br/>
+                                                    Chunhao Dong （东春浩）<br/>
+                                                    (Ph.D candidate at <a href="https://www.bit.edu.cn/" target="_blank">Beijing Institute of Technology</a>)
+                                                </p>
+                                            </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2019haojiangbo.jpg" id="profile_img"><br/><br/>
+                                                        Jiangbo Hao （郝江波）<br/>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2019qipenghao.jpg" id="profile_img"><br/><br/>
+                                                        Penghao Qi （齐鹏昊）<br/>
+                                                        (co-advised with Dongwen Zhang)
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div class="row row-padding">
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2019lichunxia.jpg" id="profile_img"><br/><br/>
+                                                        Chunxia Li （李春霞）<br/>
+                                                        (China Construction Bank at Leshan, co-advised with Dongwen Zhang)
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2019xufeiyao.jpg" id="profile_img"><br/><br/>
+                                                        Feiyao Xu （许斐尧）<br/>
+                                                        (co-advised with Dongwen Zhang)
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </p>
+                                        </div>
+                                        <hr />
+
+
+
+                                        <div class="page-section" id="stu2018">
+                                            <p data-scroll-reveal="enter from the bottom after 0.3s" align=left><strong>2018</strong>
+                                            <div class="row row-padding">
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2018Dongshicheng.jpg" id="profile_img"><br/><br/>
+                                                        Shi-cheng Dong （董士程）<br/>
+                                                        (Assistant professor at <a href="https://www.sdupsl.edu.cn/" target="_blank">Shandong University of Political Science and Law</a>. National Scholarship Award.)
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2018Shaoshuai.jpg" id="profile_img"><br/><br/>
+                                                        <a href="https://jedishao23.github.io/" target="_blank">Shuai Shao</a> （邵帅）<br/>
+                                                        (Ph.D candidate first at <a href="https://www.uc.edu/" target="_blank">University of Cincinati</a> then at <a href="https://uconn.edu/" target="_blank">University of Connecticut</a>, USA. National Scholarship Award.)
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2018liuhuan.jpg" id="profile_img"><br/><br/>
+                                                        Huan Liu （刘欢）<br/>
+                                                        (Software engineer at <a href="http://www.gbase.cn/" target="_blank">GBASE Company</a>)
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                            <br />
+                                            <div class="row row-padding">
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2018Songchenglong.jpg" id="profile_img"><br/><br/>
+                                                        Cheng-long Song （宋成龙）<br/>
+                                                        (co-advised with Dongwen Zhang)
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2018Dickensi.png" id="profile_img"><br/><br/>
+                                                        Dickensi Edison Mlwafu <br/>
+                                                        (Assistant professor at <a href="https://tudarco.ac.tz" target="_blank">Tumaini Univerity Dar es salaam College</a> (Full-time) and at <a href="https://dit.ac.tz" target="_blank">Dar es salaam Institute of Techonology</a> (Part-time). International student from Tanzania)
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            </p>
+                                        </div>
+                                        <hr />
+
+                                        <div class="page-section" id="stu2017">
+                                            <p data-scroll-reveal="enter from the bottom after 0.3s" align=left><strong>2017</strong>
+                                            <div class="row row-padding">
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2017sunshixin.jpg" id="profile_img"><br/><br/>
+                                                        Shi-xin Sun （孙仕欣）<br/>
+                                                        (co-advised with Dongwen Zhang)
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-4 col-xm-3 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2017Sahine.jpeg" id="profile_img"><br/><br/>
+                                                        Mohammad Sahine <br/>
+                                                        (Pursuing another master degree at <a href="https://federation.edu.au/" target="_blank">Federation University Australia</a>, International student from Bangladesh)
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            </p>
+                                        </div>
+                                        <hr />
+
+                                        <div class="page-section" id="stu2016">
+                                        <p data-scroll-reveal="enter from the bottom after 0.3s" align=left><strong>2016</strong>
+                                        <div class="row row-padding">
+                                            <div class="col-md-4 col-xm-4 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2016yuxin.png" id="profile_img"><br/><br/>
+                                                    Xin Yu （于欣）<br/>
+                                                    (co-advised with Dongwen Zhang)
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 col-xm-4 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2016liangyanan.png" id="profile_img"><br/><br/>
+                                                    Ya-nan Liang （梁亚楠）<br/>
+                                                    (co-advised with Dongwen Zhang)
+                                                </p>
+                                            </div>
+                                            <div class="col-md-4 col-xm-4 text-center">
+                                                <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                    <img src="images/students/2016weimengmeng.png" id="profile_img"><br/><br/>
+                                                    Meng-meng Wei （魏萌萌）<br/>
+                                                    (China Construction Bank at Wuxi, co-advised with Dongwen Zhang)
+                                                </p>
+                                            </div>
+                                            </div>
+                                        </p>
+                                        </div>
+
+                                        <hr />
+
+                                        <div class="page-section" id="stu2015">
+                                            <p data-scroll-reveal="enter from the bottom after 0.3s" align=left><strong>2015</strong>
+                                            <div class="row row-padding">
+                                                <div class="col-md-4 col-xm-4 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s" align=center>
+                                                        <img src="images/students/2015zhengyajie.jpg" id="profile_img"><br/><br/>
+                                                        Ya-jie Zheng （郑雅洁）<br/>
+                                                        (Software engineer at Huaxia Bank, co-advised with Dongwen Zhang)
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </p>
+                                        </div>
+                                        <hr />
+
+
+                                        <div class="page-section" id="stu2014">
+                                            <p data-scroll-reveal="enter from the bottom after 0.3s" align=left>2014                       
+                                            <div class="row row-padding">
+                                                <div class="col-md-4 col-xm-4 text-center">
+                                                    <p data-scroll-reveal="enter from the bottom after 0.3s">
+                                                        <img src="images/students/2014liuchenguang.jpg" id="profile_img">
+                                                        <br/><br/>
+                                                        Chen-guang Liu (柳晨光)<br/>
+                                                        (Assistant professor at <a href="http://www.hebcpc.cn" target="_blank">Hebei Chemical and Pharmaceutical College</a>, co-advised with Dongwen Zhang)
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            </p>
+                                        </div>
+                                        <hr />
+
+
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </article>
+                <!-- End Teaching Section -->
+
+                
+
+                
+                
+                <!-- Calendar badge widget begin 
+                    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+                    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+                    <script type="text/javascript">Calendly.initBadgeWidget({ url: 'https://calendly.com/simona-coppola?hide_landing_page_details=1', text: 'Schedule time with me', color: '#01BDF2', textColor: '#ffffff', branding: false });</script>
+                <!-- Calendar badge widget end -->
+                
+            </div>
+            <!-- End hs-content-wrapper -->
+        </div>
+        <!-- End hs-content-scroller -->
     </div>
-     <!-- FOOTER SECTION END-->
+    <!-- End container -->
+    <div id="my-panel">
+    </div>
 
-    <!--  Jquery Core Script -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-    <!--  Core Bootstrap Script -->
-    <script src="assets/js/bootstrap.js"></script>
-    <!--  Flexslider Scripts -->
-         <script src="assets/js/jquery.flexslider.js"></script>
-     <!--  Scrolling Reveal Script -->
-    <script src="assets/js/scrollReveal.js"></script>
-    <!--  Scroll Scripts -->
-    <script src="assets/js/jquery.easing.min.js"></script>
-    <!--  Custom Scripts -->
-         <script src="assets/js/custom.js"></script>
+    <!-- PLUGIN SCRIPTS NON TOCCARE!! -->
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/default.js"></script>
+    <script type="text/javascript" src="js/watch.js"></script>
+    <script type="text/javascript" src="js/layout.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+    
+    <!-- END PLUGIN SCRIPTS -->
 </body>
+
 </html>
