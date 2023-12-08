@@ -277,7 +277,7 @@ a.hs-totop-link {
 
 .hs-menu nav {
     position: absolute;
-    top: 318px;
+    top: 400px;
     left: 0px;
     right: 0px;
     bottom: 80px;
@@ -634,7 +634,7 @@ ul.marquee li {
     padding: 0 10px;
     height: 30px;
     display: inline-block;
-    line-height: 30px;
+    line-height: 40px;
     font-size: 13px;
 }
 
@@ -1060,6 +1060,12 @@ ul.marquee li {
     margin-top: 0;
     margin-bottom: 9px;
     font-size: 11px;
+}
+
+.about-section .tab-pane p {
+    margin-top: 0;
+    margin-bottom: 9px;
+    font-size: 14px;
 }
 
 .about-section .tab-pane .hobbie-icon {
