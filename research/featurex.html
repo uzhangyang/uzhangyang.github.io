@@ -1,0 +1,150 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>FeatureX</title>
+        <style type="text/css">
+        pre code
+		{
+        color:rgb(127, 0, 85);
+        line-height:1.4;
+	    font-family:Consolas;
+        }
+
+        pre comment
+		{
+        color:rgb(63, 127, 95);
+        line-height:1.4;
+	    font-family:Consolas;
+		}
+
+        pre	{
+	    margin: 0;
+        padding-left: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+	    border: 0;
+	    border: 1px dotted #785;
+	    background: #f5f5f5;
+	    line-height:1.4;
+	    font-family:Consolas;
+        }
+
+        .content{
+            margin-left:250;
+            margin-right:250;
+        }
+        </style>
+    </head>
+<body>
+<div class="content">
+<h1>FeatureX: An Explainable Feature Selection for Deep Learning</h1>
+<hr/>
+<p style="text-align:justify">Feature selection, as a data preprocessing method, is of great significance in reducing dimension disaster and improving model performance. However, the majority of feature selection methods lack explainability when selecting features. When one feature is prioritized over another, few techniques provide quantitative information about this selection. Furthermore, existing feature selection techniques require users to provide corresponding thresholds or parameters to drive algorithm execution. However, in most cases, it is difficult for users to determine the optimal threshold or parameter for the current task. To address these problems, this paper proposes an explainable feature selection method called FeatureX.</p>
+<p style="text-align:justify">An overview of FeatureX is depicted in Figure 1. On the one hand, feature importance analysis is carried out via feature perturbation. The contribution to the model for each feature is calculated based on the changes in the model prediction results before and after perturbation. On the other hand, correlation analysis is employed to evaluate the potential relationship among distinct features as well as between features and labels. Correlation metrics are used to calculate correlation coefficients among variables. During the feature selection process, the quantitative information of each feature is calculated based on its contribution and correlation coefficient. A threshold value is automatically determined to identify the relevant feature and the feature with the highest contribution value. Finally, the features are prioritized to obtain the best feature subset.</p>
+<div style="text-align: center; margin: auto; width: 50%;"> <!-- 居中显示的容器 -->
+  <img src="featurex.png"  border="0" width="450" height="400"> 
+  <div style="text-align: center; margin-top: 10px;">Figure1: Overview of FeatureX</div> 
+</div>
+<p style="text-align:justify"> FeatureX combines feature perturbation, feature importance analysis, and statistical analysis to filter features. It also designs a feature importance analysis method based on feature perturbation to quantify the contribution value of features to the model. With the feature contribution and correlation coefficients, FeatureX screens these features to automatically identify the most relevant and high-contribution features.
+The experimental results show that the number of features is reduced by an average of 47.83%, and 63.33% of the models illustrate an improved accuracy compared to the previous one.</p>
+<h2>Each component of FeatureX</h2>
+<hr/>
+<h3>Feature Perturbation</h3>
+<p style="text-align:justify">We show the feature perturbation of <i>FeatureX</i> as the following code.</p>
+<pre>
+1 <code>y_list = [[] for _ in range(len(column_names))]</code>
+2 <code>interval = [i / 10 for i in range(11)]</code>
+3 <code>rel_out = np.argmax(init_val,axis=1) </code>
+</pre>
+
+<p style="text-align:justify"></p>
+<pre>
+1 <code>for j in range(len(column_names)):
+     if min_value_list[j] == 0 and max_value_list[j] == 1 and values_count_list[j]!=2:
+         values = [interval[i] for i in range(11)]
+     elif -0.5 < max_value_list[j] < 0.5 and -0.5 < min_value_list[j] <0.5:
+         intervals = (max_value_list[j] - min_value_list[j])/values_count_list[j]
+         num_partitions = int((max_value_list[j] - min_value_list[j])/intervals)
+         values = [min_value_list[j] + k * intervals for k in range(num_partitions)]
+     elif (max_value_list[j]-min_value_list[j])/values_count_list[j] > 100:
+         values = [x_list[j][i] for i in range(len(x_list[j]))]
+     elif len(x_list[j]) > 10000:
+         num_partitions = 1000
+         step = (max_value_list[j]-min_value_list[j])/num_partitions
+         values = [min_value_list[j] + k * step for k in range(num_partitions)]
+         x_list[j] = values
+     else:
+         values = [i for i in range(int(min_value_list[j]), int(max_value_list[j]) + 1)]</code>
+</pre>
+
+<p style="text-align:justify"></p>
+<pre>
+1 <code>rel = model.predict(modified_x)</code>
+2 <code>variety = rel - init_val</code>
+3 <code>first_value = variety[0][rel_out] </code>
+4 <code>y_list[j].append(first_value) </code>           
+</pre>
+
+<hr/>
+<h3>Correlation Analysis</h3>
+<p style="text-align:justify">We show the correlation analysis of <i>FeatureX</i> as the following code.</p>
+<pre>
+1 <code>Feature_correlation_list = []</code>
+2 <code>correlation_matrix, _ = spearmanr(spearmanr_data, axis=0)</code>
+</pre>
+<p style="text-align:justify"></p>
+<pre>
+1 <code>target_variable_list = []</code>
+2 <code>unique_values, counts = np.unique(target_variable.values, return_counts=True)</code>
+</pre>
+
+<p style="text-align:justify"></p>
+<pre>
+1 <code>if unique_values.shape !=(2,):
+	for feature in column_names:  
+	    point_biserial_corr, p_value = spearmanr(df[feature], target_variable)
+	    feature_dict[feature]['target'] = point_biserial_corr
+	    target_variable_list.append(str(f"{feature} - target_variable: {point_biserial_corr:.2f}"))
+  else:
+	for feature in column_names:
+	    point_biserial_corr, p_value = stats.pointbiserialr(df[feature], target_variable)
+	    feature_dict[feature]['target'] = point_biserial_corr
+	    target_variable_list.append(str(f"{feature} - target_variable: {point_biserial_corr:.2f}"))</code>           
+</pre>
+
+<hr/>
+<h3>Feature Selection</h3>
+<p style="text-align:justify">We show the feature selection of <i>FeatureX</i> as the following code.</p>
+<pre>
+1 <code>for metric in F:
+    if feature_dict[metric]['change_range']<0.1:
+        F_copy.remove(metric)
+    elif 0.1 < feature_dict[metric]['change_range'] <0.5 and -0.3 < feature_dict[metric]['target'] < 0.3 
+    	and feature_dict_copy[metric]['NOFR'] > 0:
+        for i in Rela_class_copy:
+            for j in i:
+                if metric == j:
+                    flag == 1
+                    change_range = [feature_dict[feature]['change_range'] for feature in i]
+                    max_change_range = max(change_range)
+                    max_feature = [feature for feature in i if feature_dict[feature]['change_range'] 
+                    == max_change_range][0]
+                    for feature in i:
+                        feature_dict_copy[feature]['NOFR'] = 0
+                        if feature != max_feature: 
+                            if feature in F_copy:
+                                F_copy.remove(feature)
+                    break
+            if flag == 1:
+                break
+        flag = 0</code>
+</pre>
+
+<h3>FeatureX Dataset</h3>
+<p style="text-align:justify">The source part of the dataset is available at the following URL <a href="https://raw.githubusercontent.com/aaaa-res/FeatureX/refs/heads/main/Dataset.rar">dataset</a></p>
+<h3>FeatureX compares models and data</h3>
+<p style="text-align:justify">The code and dataset for the <i>FeatureX</i> feasibility comparison experiment are available at the following URL <a href="https://github.com/aaaa-res/FeatureX"><i>FeatureX</i> compares models and data</a></p>
+</div>
+<img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_4/viewers_0/labels_1/pageviews_1/flags_0/percent_0/"  border="0">
+</body>
+</html>
