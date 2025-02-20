@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>deepcss</title>
+		<style type="text/css">
+		pre code
+		{
+		color:rgb(127, 0, 85);
+		line-height:1.4;
+		font-family:Consolas;
+		}
+
+		pre comment
+		{
+		color:rgb(63, 127, 95);
+		line-height:1.4;
+		font-family:Consolas;
+		}
+
+		pre	{
+		margin: 0;
+		padding-left: 5px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		border: 0;
+		border: 1px dotted #785;
+		background: #f5f5f5;
+		line-height:1.4;
+		font-family:Consolas;
+		}
+
+		.content{
+			margin-left:250;
+			margin-right:250;
+		}
+		</style>
+	</head>
+<body>
+<div class="content">
+<h1>DeepCSS: Severity Classification for Code Smell Based on Deep Learning</h1>
+<hr/>
+<p style="text-align:justify">Code smell severity refers to the different levels of impact extent that smelly instances may have upon a specific project when more than one kind of code smell exists. Severity classification helps developers better understand a code smell and prioritize multiple refactoring operations more efficiently, thus improving the efficiency of software maintenance. However, existing studies on code smell severity assessment and classification suffer from insufficient quantitative evaluation and low accuracy. To this end, this paper proposes DeepCSS, a novel approach to classify code smell severity based on deep learning. To evaluate the severity of code smells reasonably and accurately, a quantitative evaluation framework is proposed to evaluate the importance of assessing each related metric. With this evaluation framework, datasets are constructed for four types of code smell (including data class, god class, long method, and feature envy) extracted from 100 real-world projects. DeepCSS acquires structural and semantic information from which features are extracted by leveraging BiLSTM-Attention and the improved CNN model. Then the final classification is done by a fully connected network containing the Attention mechanism and Softmax functions. The experimental results show that DeepCSS can achieve an accuracy ranging from 95.11\% to 98.97\%. Compared to other studies, DeepCSS obtained an average improvement of 6.97\% and 1.39\% in MCC, demonstrating its effectiveness.</p>
+<p style="text-align:justify">Figure 1 presents the framework of DeepCSS divided into three phases: data pre-processing, feature extraction, and classification. Firstly, program analysis tools were used to obtain classes or methods with metrics and identifier text information from the real-world projects respectively, and the eligible data samples were filtered out through data cleaning and detection. Then the Electra pre-training model was employed to process the semantic information into word vectors that were acceptable to the neural network model. Secondly, data samples containing semantic and metric information were used as inputs into the neural network to complete the training and learning process of feature extraction. Finally, the expected output of the classifier was the severity categories of smelly instances, and the experimental data below will show that a better-performing multi-classifier resulted.</p>
+<div style="text-align: center; margin: auto; width: 50%;"> <!-- 居中显示的容器 -->
+  <img src="deepcss.png"  border="0" width="800" height="500"> 
+  <div style="text-align: center; margin-top: 10px;">Figure1: Overview of DeepCSS</div> 
+</div>
+<h2>Deep learning model of DeepCSS</h2>
+<hr/>
+<p style="text-align:justify">Figure 2 show the model of <i>DeepCSS</i>.</p>
+<div style="text-align: center; margin: auto; width: 50%;"> <!-- 居中显示的容器 -->
+  <img src="model.jpg"  border="0" width="1000" height="400"> 
+  <div style="text-align: center; margin-top: 10px;">Figure 2: Deep learning model of DeepCSS</div> 
+</div>
+<p style="text-align:justify">We show the architechure of deep learning model as the following code.</p>
+<pre>
+	<code>
+	for train_index, test_index in kf.split(x):
+		x1_train, x1_test = x1[train_index], x1[test_index]
+		x2_train, x2_test = x2[train_index], x2[test_index]
+		y_train, y_test = y[train_index], y[test_index]
+		
+		input_x1 = Input(shape=(x1_train.shape[1:]))
+		input_x2 = Input(shape=(x2_train.shape[1:]))
+		
+		l1 = Bidirectional(LSTM(32, activation='tanh', return_sequences=True))(input_x1)
+		l1 = Bidirectional(LSTM(64, activation='tanh', return_sequences=True))(l1)
+		l1 = Flatten()(l1)
+		l1 = Dense(256, activation='relu')(l1)
+		attention = Dense(1, activation='tanh')(l1)
+		attention = Flatten()(attention)
+		attention = Activation('softmax')(attention)
+		attention = RepeatVector(256)(attention)
+		attention = Permute([2, 1])(attention)
+		attention = Multiply()([l1, attention])   
+		attention = Lambda(lambda xin: K.sum(xin, axis=-2), output_shape=(256, ))(attention)
+		l1 = Flatten()(attention)
+
+		l2 = Conv1D(filters=32, kernel_size=6, strides=1, padding='same', activation='tanh')(input_x2)
+		l2 = BatchNormalization()(l2)
+		l2 = Conv1D(filters=64, kernel_size=6, strides=1, padding='same', activation='relu')(l2)
+		l2 = Conv1D(filters=64, kernel_size=6, strides=1, padding='same', activation='relu')(l2)
+		l2 = LeakyReLU(alpha=0.33)(l2)
+		l2 = Dropout(0.5)(l2)
+		l2 = BatchNormalization()(l2)
+		l2 = Conv1D(filters=128, kernel_size=6, strides=1, padding='same', activation='relu')(l2)
+		l2 = Conv1D(filters=128, kernel_size=6, strides=1, padding='same', activation='relu')(l2)
+		l2 = LeakyReLU(alpha=0.33)(l2)
+		l2 = Dropout(0.5)(l2)
+		l2 = BatchNormalization()(l2)
+		l2 = Conv1D(filters=256, kernel_size=6, strides=1, padding='same', activation='relu')(l2)
+		l2 = Conv1D(filters=256, kernel_size=6, strides=1, padding='same', activation='relu')(l2)
+		l2 = LeakyReLU(alpha=0.33)(l2)
+		l2 = Dropout(0.5)(l2)
+		l2 = BatchNormalization()(l2)
+		l2 = Dense(128, activation='relu', kernel_regularizer=regularizers.l2(0.001))(l2)
+		l2 = Flatten()(l2)
+
+		model_together = concatenate([l1, l2], axis=1)
+		output = Dense(128, activation='relu')(model_together)
+		output = LeakyReLU(alpha=0.33)(output)
+		attention = Dense(1, activation='tanh')(output)
+		attention = Flatten()(attention)
+		attention = Activation('softmax')(attention)
+		attention = RepeatVector(128)(attention)
+		attention = Permute([2, 1])(attention)
+		attention = Multiply()([output, attention])   
+		attention = Lambda(lambda xin: K.sum(xin, axis=-2), output_shape=(128, ))(attention)
+		output = Dense(num_classes, kernel_regularizer=regularizers.l2(0.01), activation='softmax')(attention)
+		model = Model(inputs=[input_x1, input_x2], outputs=output)
+
+		model.summary()
+		model.compile(optimizer=Adam(0.001),
+					  loss='categorical_crossentropy',
+					  metrics=['categorical_accuracy'])
+		lr_reduce = tf.keras.callbacks.ReduceLROnPlateau('val_loss', patience=3, factor=0.5, min_lr=0.000001)
+
+		history = model.fit([x1_train, x2_train],
+							y_train,
+							epochs=60,  
+							batch_size=8,
+							validation_data=([x1_test, x2_test], y_test),
+							callbacks=[lr_reduce],
+							shuffle=True)
+		 
+		scores = model.evaluate([x1_test, x2_test], y_test, verbose=0)
+		cv_losses.append(scores[0]) 
+		cv_accuracy.append(scores[1])  
+
+		y_test = np.argmax(y_test, axis=1)  
+		predict = model.predict([x1_test, x2_test], verbose=0)  
+		y_pred = np.argmax(predict, axis=1)  
+		Confusion_matrix = confusion_matrix(y_test, y_pred)
+		print(Confusion_matrix)
+		print(classification_report(y_test, y_pred, digits=5))
+
+		P_m = precision_score(y_test, y_pred, average='macro')
+		cv_precision.append(P_m)
+
+		R_m = recall_score(y_test, y_pred, average='macro')
+		cv_recall.append(R_m)
+
+		F1_m = f1_score(y_test, y_pred, average='macro')
+		cv_f1_score.append(F1_m)
+
+		mcc = matthews_corrcoef(y_test, y_pred)
+		cv_MCC.append(mcc)</code>
+</pre>
+
+<h2>All Source Code and Datasets</h2>
+<hr/>
+<p style="text-align:justify">The source code of DeepCSS and other approaches are available at the following URL <a href="https://github.com/AAAAaBae/DeepCSS/blob/main/SourceCode.zip">SourceCode</a></p>
+<p style="text-align:justify">The code smell severity datasets are available at the following URL <a href="https://github.com/AAAAaBae/DeepCSS/blob/main/Datasets.zip">Datasets</a></p>
+</div>
+<img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_4/viewers_0/labels_1/pageviews_1/flags_0/percent_0/"  border="0">
+</body>
+</html>
