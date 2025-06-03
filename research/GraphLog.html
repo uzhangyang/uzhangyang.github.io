@@ -1,0 +1,151 @@
+
+<!-- saved from url=(0050)https://uzhangyang.github.io/research/graphLog.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title>GraphLog</title>
+        <style type="text/css">
+        pre code
+		{
+        color:rgb(127, 0, 85);
+        line-height:1.4;
+	    font-family:Consolas;
+        }
+
+        pre comment
+		{
+        color:rgb(63, 127, 95);
+        line-height:1.4;
+	    font-family:Consolas;
+		}
+
+        pre	{
+	    margin: 0;
+        padding-left: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+	    border: 0;
+	    border: 1px dotted #785;
+	    background: #f5f5f5;
+	    line-height:1.4;
+	    font-family:Consolas;
+        }
+
+        .content{
+            margin-left:250;
+            margin-right:250;
+        }
+        </style>
+    <script type="text/javascript" src="chrome-extension://lgedckpahehacohndmafhkdmdjdgaima/js/inject.js"></script><script type="text/javascript" src="chrome-extension://lgedckpahehacohndmafhkdmdjdgaima/js/inject.js"></script></head>
+<body data-new-gr-c-s-check-loaded="14.1027.0" data-gr-ext-installed="">
+<div class="content">
+<h1>Logging Recommendation based on Deep Learning and Block Dependency Graph</h1>
+<hr>
+<p style="text-align:justify"> Logging is widely used in industrial practice to record software runtime behaviors, assisting developers in diagnosing
+ issues such as error tracing and anomaly detection. Existing approaches focus on recommending logging in a function
+ without considering inter-function characteristics. To this end, we first conduct an empirical study on 99 projects to
+ identify key features that may impact developers’ decisions on logging. Next, we propose GraphLog, a novel approach
+ that effectively fuses these key features for logging recommendations. Specifically, we construct a block dependency graph
+ from invocation relationships between code blocks to extract semantic, syntactic, thematic, and structural features. As
+ a result, we built a dataset with 91,700 samples. These samples are fed into a deep learning model that combines graph
+ convolutional networks (GCNs) and long short-term memory (LSTM) networks. GraphLog can recommend logging by
+ learning logging specifications across both spatial and temporal domains. To evaluate its effectiveness, we evaluate
+ GraphLog on seven real-world projects. Experimental results demonstrate that GraphLog obtains 77.23% F1 when
+ recommending logging, which is 2.64% higher than existing approaches. </p>
+
+
+
+
+<h2>GraphLog model and dataset</h2>
+<hr>
+<h3>GraphLog Model</h3>
+<p style="text-align:justify">We present the deep learning model of <i>GraphLog</i> in the following code.</p>
+
+
+<p style="text-align:justify">The model： </p>
+<p style="text-align:justify"></p>
+<pre>
+1  <code># multiple feature learning model                                                                      </code>
+2  <code>def get_graph_model_4(graph_leng,syntactic_len,method_name_x, method_name_y,                        </code>
+3  <code>                      num_word,embedding_dim):                                                      </code>
+4  <code>#     model1 = tf.keras.models.Sequential([                                                         </code>
+5  <code>#         Input(shape=(semantic_vec,1)),                                                            </code>
+6  <code>#         (Flatten()),                                                                              </code>
+7  <code>#         (keras.layers.Embedding(num_word, embedding_dim)),                                        </code>
+8  <code>#         (keras.layers.GlobalMaxPool1D()),                                                         </code>
+9  <code>#     ])                                                                                            </code>
+10 <code>    model2 = tf.keras.models.Sequential([                                                           </code>
+11 <code>        Input(shape=(graph_leng,1)),                                                                </code>
+12 <code>        Flatten(),                                                                                  </code>
+13 <code>    ])                                                                                              </code>
+14 <code>    model3 = tf.keras.models.Sequential([                                                           </code>
+15 <code>        Input(shape=(syntactic_len,1)),                                                             </code>
+16 <code>        (Flatten()),                                                                                </code>
+17 <code>        (keras.layers.Embedding(num_word, embedding_dim)),                                          </code>
+18 <code>        (keras.layers.GlobalMaxPool1D()),                                                           </code>
+19 <code>    ])                                                                                              </code>
+20 <code>    model4 = tf.keras.models.Sequential([                                                           </code>
+21 <code>        keras.layers.Masking(mask_value=0, input_shape=(method_name_x, method_name_y)),             </code>
+22 <code>        LSTM(units=8, activation='tanh', return_sequences=True),                                    </code>
+23 <code>        keras.layers.GlobalMaxPool1D(),                                                             </code>
+24 <code>                                                                                                    </code>
+25 <code>    ])                                                                                              </code>
+26 <code>    model_together = keras.layers.concatenate([ model2.output, model3.output,model4.output])        </code>
+27 <code>    model_together=Lambda(lambda x:keras.backend.expand_dims(x,axis=1))(model_together)             </code>
+28 <code>    x = LSTM(units=32, activation='tanh', return_sequences=True)(model_together)                    </code>
+29 <code>    x=keras.layers.GlobalMaxPool1D()(x)                                                             </code>
+30 <code>    final_output = Dropout(0.2)(x)                                                                  </code>
+31 <code>    final_output = Dense(2, activation='softmax')(final_output)                                     </code>
+32 <code>    model_together = Model(inputs=[model2.input, model3.input,model4.input], outputs=final_output)  </code>
+33 <code>    return model_together                                                                           </code>
+34 <code># graph Embedding layers</code>
+35 <code>kernel_initializer="glorot_uniform"                                           </code>
+36 <code>bias = True                                                                   </code>
+37 <code>bias_initializer="zeros"                                                      </code>
+38 <code>n_features = features_input.shape[2]                                          </code>
+39 <code>n_nodes = features_input.shape[1]                                             </code>
+40 <code># Initialise input layers                                                     </code>
+41 <code>x_features = Input(batch_shape=(1, n_nodes, n_features))                      </code>
+42 <code>print(x_features.shape)                                                       </code>
+43 <code>x_indices = Input(batch_shape=(1, None), dtype="int32")                       </code>
+44 <code>x_adjacency = Input(batch_shape=(1, n_nodes, n_nodes))                        </code>
+45 <code>x_inp = [x_features, x_indices, x_adjacency]                                  </code>
+46 <code>                                                                              </code>
+47 <code>x = Dropout(0.5)(x_features)                                                  </code>
+48 <code>x = GraphConvolution(32, activation='relu',                                   </code>
+49 <code>                     use_bias=True,                                           </code>
+50 <code>                     kernel_initializer=kernel_initializer,                   </code>
+51 <code>                     bias_initializer=bias_initializer)([x, x_adjacency])     </code>
+52 <code>x = Dropout(0.5)(x)                                                           </code>
+53 <code>x = GraphConvolution(32, activation='relu',                                   </code>
+54 <code>                     use_bias=True,                                           </code>
+55 <code>                     kernel_initializer=kernel_initializer,                   </code>
+56 <code>                     bias_initializer=bias_initializer)([x, x_adjacency])     </code>
+57 <code># x=LSTM(units=32, activation='tanh', return_sequences=True)(x)               </code>
+58 <code># x=(keras.layers.GlobalMaxPool1D())(x)                                       </code>
+59 <code># x=Flatten()(x)                                                              </code>
+60 <code>x = GatherIndices(batch_dims=1)([x, x_indices])                               </code>
+61 <code>                                                                              </code>
+62 <code>                                                                              </code>
+63 <code>output = Dense(1, activation='sigmoid')(x)                                    </code>
+64 <code>                                                                              </code>
+65 <code>model = Model(inputs=[x_features, x_indices, x_adjacency], outputs=output)    </code>
+
+</pre>
+
+<p style="text-align:justify">Compile model</p>
+<p style="text-align:justify"></p>
+<pre>
+1  <code>model1.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.01),loss=losses.binary_crossentropy,metrics=["accuracy"],)</code>
+2  <code>model2.compile(loss='categorical_crossentropy',optimizer='adam', metrics=['accuracy'])</code>
+</pre>
+
+
+<h3>GraphLog Dataset and models</h3>
+<p style="text-align:justify"> For the reproducibility of the evaluation, all models, datasets and plug-in source code are available at <a href="https://github.com/cxiaosong/GraphLog">dataset, model and plug-in</a></p>
+
+<img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_32/viewers_3/labels_1/pageviews_1/flags_0/percent_0/"  border="0">
+
+
+
+<grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
+</body></html>
