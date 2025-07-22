@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>dataref</title>
+		<style type="text/css">
+		pre code
+		{
+		color:rgb(127, 0, 85);
+		line-height:1.4;
+		font-family:Consolas;
+		}
+
+		pre comment
+		{
+		color:rgb(63, 127, 95);
+		line-height:1.4;
+		font-family:Consolas;
+		}
+
+		pre	{
+		margin: 0;
+		padding-left: 5px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		border: 0;
+		border: 1px dotted #785;
+		background: #f5f5f5;
+		line-height:1.4;
+		font-family:Consolas;
+		}
+
+		.content{
+			margin-left:250;
+			margin-right:250;
+		}
+		</style>
+	</head>
+<body>
+<div class="content">
+<h1>基于大语言模型的代码重构一致性实证研究</h1>
+<hr/>
+<p style="text-align:justify">代码重构一致性是确保软件质量、提升软件演化效率和保障软件可靠性的关键因素.近年来大语言模型(LLM)在代码生成、代码补全以及代码修复方面展现出巨大的潜力,然而LLM在代码重构方面研究还不够深入,缺乏对于重构前后程序行为一致性的系统评估.基于此,本文对基于LLM的代码重构前后程序行为一致性开展实证研究,首先从Github和LeetCode中选取程序构建了一个高质量数据集DataRef,该数据集包含468个Java代码段和544个Python代码段.其次使用ChatGPT3.5/4.0、CodeLlama和CodeGeeX等基础LLM对这些代码段进行重构,得到8,096个重构后的代码段,经审查发现其中1,108个代码段存在重构前后不一致的情况.我们依据产生原因对重构前后不一致性问题进行总结,识别出四大类(13个小类)不一致模式.在此基础上,我们基于不一致模式构建新的数据集DataRef+(包括272个Java代码段和297个Python代码段),并进一步验证了目前最新的LLM(包括DeepSeek-V3/R1、Qwen2.5-32B/72B)的重构能力,实验结果表明这些LLM虽然可以在一定程度上弥补早前LLM不一致情况,但是仍有6.06%的代码段出现不一致的情况.最后,我们提出一种融合检索增强与结构化Few-shot提示方法的重构不一致缓解策略,通过对ChatGPT3.5进行了提示微调,重构后不一致的情况减少12.46%.本文工作将为基于LLM的代码重构相关研究提供实践经验,为增强重构前后一致性提供支撑.</p>
+<p style="text-align:justify">图 1 展示了我们的整体工作流程.首先分别从 Github 和 LeetCode 中精选程序构
+建一个高质量数据集,该数据集包含 468 个 Java 代码段和 544 个 Python 代码段.其次使用 ChatGPT3.5/4.0、
+CodeLlama 和 CodeGeeX 等 LLM 对这些代码段进行重构,对于重构后的代码段,我们采用差分测试的方法检测重构前后的不一致情况.随后,我们采用开放卡片分类方法,对出现不一致行为的代码进行详细测试和比
+较,并对大模型重构后代码行为不一致的原因进行分类.为了进一步研究最新的 LLM 产生不一致的情况,我们
+在上述基础上构建不一致集,并利用该集评估 DeepSeek-V3、DeepSeek-R1、Qwen2.5-32B 和 Qwen2.5-72B 等
+目前最新 LLM 的重构能力.</p>
+<div style="text-align: center; margin: auto; width: 50%;"> <!-- 居中显示的容器 -->
+  <img src="https://raw.githubusercontent.com/waaylj/DataRef/main/Method.png"  border="0" style="max-width: 100%; height: auto;"> 
+  <div style="text-align: center; margin-top: 10px;">图1: 方法概述</div> 
+</div>
+
+<div style="text-align: center; margin: auto; width: 50%;"> <!-- 居中显示的容器 -->
+</div>
+
+<h2>源代码和数据集</h2>
+<hr/>
+<p style="text-align:justify">源代码可以在以下链接获得 <a href="https://github.com/waaylj/DataRef/blob/main/Source%20Code.zip">SourceCode</a></p>
+<p style="text-align:justify">DataRef数据集可以在以下链接获得 <a href="https://github.com/waaylj/DataRef/blob/main/DataRef.zip">DataRef</a></p>
+<p style="text-align:justify">DataRef+数据集可以在以下链接获得 <a href="https://github.com/waaylj/DataRef/blob/main/DataRef%2B.zip">DataRef+</a></p>
+<p style="text-align:justify">
+如果您对我们的源代码和数据集感兴趣，请引用我们的工作。<br>
+<br>
+
+</div>
+</body>
+</html>
