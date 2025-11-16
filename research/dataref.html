@@ -39,30 +39,57 @@
 	</head>
 <body>
 <div class="content">
-<h1>基于大语言模型的代码重构一致性实证研究</h1>
+<h1>An Empirical Study of LLM-based Refactoring
+Consistency</h1>
 <hr/>
-<p style="text-align:justify">代码重构一致性是确保软件质量、提升软件演化效率和保障软件可靠性的关键因素.近年来大语言模型(LLM)在代码生成、代码补全以及代码修复方面展现出巨大的潜力,然而LLM在代码重构方面研究还不够深入,缺乏对于重构前后程序行为一致性的系统评估.基于此,本文对基于LLM的代码重构前后程序行为一致性开展实证研究,首先从Github和LeetCode中选取程序构建了一个高质量数据集DataRef,该数据集包含468个Java代码段和544个Python代码段.其次使用ChatGPT3.5/4.0、CodeLlama和CodeGeeX等基础LLM对这些代码段进行重构,得到8,096个重构后的代码段,经审查发现其中1,108个代码段存在重构前后不一致的情况.我们依据产生原因对重构前后不一致性问题进行总结,识别出四大类(13个小类)不一致模式.在此基础上,我们基于不一致模式构建新的数据集DataRef+(包括272个Java代码段和297个Python代码段),并进一步验证了目前最新的LLM(包括DeepSeek-V3/R1、Qwen2.5-32B/72B)的重构能力,实验结果表明这些LLM虽然可以在一定程度上弥补早前LLM不一致情况,但是仍有6.06%的代码段出现不一致的情况.最后,我们提出一种融合检索增强与结构化Few-shot提示方法的重构不一致缓解策略,通过对ChatGPT3.5进行了提示微调,重构后不一致的情况减少12.46%.本文工作将为基于LLM的代码重构相关研究提供实践经验,为增强重构前后一致性提供支撑.</p>
-<p style="text-align:justify">图 1 展示了我们的整体工作流程.首先分别从 Github 和 LeetCode 中精选程序构
-建一个高质量数据集,该数据集包含 468 个 Java 代码段和 544 个 Python 代码段.其次使用 ChatGPT3.5/4.0、
-CodeLlama 和 CodeGeeX 等 LLM 对这些代码段进行重构,对于重构后的代码段,我们采用差分测试的方法检测重构前后的不一致情况.随后,我们采用开放卡片分类方法,对出现不一致行为的代码进行详细测试和比
-较,并对大模型重构后代码行为不一致的原因进行分类.为了进一步研究最新的 LLM 产生不一致的情况,我们
-在上述基础上构建不一致集,并利用该集评估 DeepSeek-V3、DeepSeek-R1、Qwen2.5-32B 和 Qwen2.5-72B 等
-目前最新 LLM 的重构能力.</p>
+<p style="text-align:justify">Behavioral consistency plays an important role in improving software evolution
+efficiency and guaranteeing software reliability in modern software refactoring.
+Although large language models (LLMs) demonstrate great potential in multiple software engineering tasks, including code generation, code completion, and
+code repair, few works have been conducted on LLM-based code refactoring.
+Furthermore, existing works are confused about how LLMs impact refactoring
+consistency. Therefore, there is an urgent need to conduct a systematic evaluation of behavioral consistency before and after refactoring. To this end, this
+paper conducts the first empirical study on LLM-based refactoring consistency.
+Firstly, a high-quality dataset DataRef is constructed with 468 Java and 544
+Python code segments. Secondly, these code segments are refactored by existing
+LLMs, such as ChatGPT3.5/4.0, CodeLlama, and CodeGeeX. Results demonstrate that a total of 1,108 refactored code segments have inconsistent symptoms.
+Then, we create a taxonomy to classify these symptoms based on inconsistency
+patterns. Thirdly, to study the refactoring ability of the latest LLM, we construct
+a new dataset DataRef+ including 272 Java and 297 Python code segments and
+refactor them with DeepSeek-V3/R1 and Qwen2.5-32B/72B. The experimental
+results illustrate that 6.06% of code segments suffer from inconsistencies. Finally,
+a mitigating strategy is proposed by combining retrieval-augmented generation
+and structured few-shot prompting, which reduces inconsistency by 12.46%. Our
+work provides empirical evidence for enhancing consistency before and after
+refactoring and paves the way for future LLM-related refactoring.
+</p>
+<br>
+<p style="text-align:justify">This paper conducts empirical research on the consistency before and after code
+refactoring. Firstly, high-quality programs are selected from GitHub and LeetCode
+to construct a high-quality dataset, which contains 468 Java code segments and 544
+Python code segments. Secondly, LLMs such as ChatGPT3.5/4.0, CodeLlama, and
+CodeGeeX are used to refactor these code segments. For the refactored code segments,
+we employ the method of differential testing to detect inconsistencies between the original and refactored versions. Subsequently, we adopt the open
+card sorting method to conduct detailed testing and comparison of
+the code with inconsistent behaviors, and classify the causes of behavioral inconsistencies in the code refactored by LLMs. Finally, to further investigate the inconsistency
+issues of the latest LLMs, we construct an inconsistency set based on the above work
+and use this set to evaluate the refactoring capabilities of LLMs such as DeepSeekV3, DeepSeek-R1, Qwen2.5-32B, and Qwen2.5-72B. Figure 1 illustrates the overall
+framework.</p>
 <div style="text-align: center; margin: auto; width: 50%;"> <!-- 居中显示的容器 -->
-  <img src="https://raw.githubusercontent.com/waaylj/DataRef/main/Method.png"  border="0" style="max-width: 100%; height: auto;"> 
-  <div style="text-align: center; margin-top: 10px;">图1: 方法概述</div> 
+  <img src="https://raw.githubusercontent.com/waaylj/DataRef/main/Method1.png"  border="0" style="max-width: 100%; height: auto;">
+  <div style="text-align: center; margin-top: 10px;">Fig. 1: Framework Overview</div>
 </div>
 
 <div style="text-align: center; margin: auto; width: 50%;"> <!-- 居中显示的容器 -->
 </div>
 
-<h2>源代码和数据集</h2>
+<h2>Source code and dataset</h2>
 <hr/>
-<p style="text-align:justify">源代码可以在以下链接获得 <a href="https://github.com/waaylj/DataRef/blob/main/Source%20Code.zip">SourceCode</a></p>
-<p style="text-align:justify">DataRef数据集可以在以下链接获得 <a href="https://github.com/waaylj/DataRef/blob/main/DataRef.zip">DataRef</a></p>
-<p style="text-align:justify">DataRef+数据集可以在以下链接获得 <a href="https://github.com/waaylj/DataRef/blob/main/DataRef%2B.zip">DataRef+</a></p>
+<p style="text-align:justify">The source code is available at the following link
+ <a href="https://github.com/waaylj/DataRef/blob/main/Source%20Code.zip">SourceCode</a></p>
+<p style="text-align:justify">The DataRef dataset is available at the following link <a href="https://github.com/waaylj/DataRef/blob/main/DataRef.zip">DataRef</a></p>
+<p style="text-align:justify">The DataRef+ dataset is available at the following link <a href="https://github.com/waaylj/DataRef/blob/main/DataRef%2B.zip">DataRef+</a></p>
 <p style="text-align:justify">
-如果您对我们的源代码和数据集感兴趣，请引用我们的工作。<br>
+Please cite our work if you are interested in the source code and dataset.<br>
 <br>
 
 </div>
