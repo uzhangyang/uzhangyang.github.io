@@ -198,6 +198,32 @@ if (diff == null) {
 </code>
 </pre>
 
+<h2>Future work</h2>
+<p>In direct response to the threats to validity identified in our paper, we have formulated the following concrete technical roadmaps to address current limitations and enhance the robustness of ReBrancher.</p>
+<hr>
+
+<h3>1. Optimization of State-Space</h3>
+<p>
+    As identified in our construct validity analysis, the automaton-based approach can face state-space explosion when handling methods with extreme
+nesting levels (e.g., exceeding 15 layers), potentially becoming a performance bottleneck. To mitigate this, we are actively developing an optimized automata construction engine focusing on Symbolic Finite Automata (SFA) and On-the-Fly Minimization. Instead of standard transitions over concrete character sets, SFA allows transitions to carry predicates, enabling ReBrancher to represent large value ranges with single symbolic transitions. Furthermore, by integrating a lazy construction algorithm, we can minimize automaton states dynamically during the traversal of the Control Flow Graph, ensuring that unreachable or redundant states are pruned before they consume memory.
+</p>
+<hr>
+
+<h3>2. Large-scale & Diverse Evaluation</h3>
+<p>
+    The main threat to external validity is that our current sample size, while covering real-world projects, might not fully represent the entire spectrum of Java software domains. To enhance the generalization of our findings, we are setting up an automated evaluation pipeline to scale our experiments. We target the Qualitas Corpus and the top 1,000 starred Java repositories on GitHub to test ReBrancher across diverse domains, such as embedded systems, distributed frameworks, and mobile applications. This large-scale validation ensures that our refactoring suggestions remain effective across different industrial architectural styles and coding standards.
+</p>
+<hr>
+
+<h3>3. Comprehensive Quality Evaluation</h3>
+<p>
+    Code quality should not be assessed solely by redundancy reduction or line count. To address this threat to conclusion validity, we are expanding our evaluation framework to include execution frequency of conditions and computational complexity via dynamic profiling. This ensures that the simplified logic does not introduce runtime performance overhead. Furthermore, to evaluate true maintainability beyond simple size metrics, we will incorporate Cognitive Complexity analysis and conduct human-centric evaluations to measure the actual improvements in code comprehensibility and developer productivity.
+</p>
+
+<h3>4. Decoupling Analysis Framework</h3>
+<p>
+    A threat to internal validity is the tool dependency on the Soot framework, where the accuracy of AST parsing and CFG construction is tightly coupled with Soot’s performance. To mitigate this, we are refactoring ReBrancher to introduce an Abstract Analysis Layer that strictly isolates the refactoring algorithms from the underlying static analysis tools. We also plan to support the Eclipse Java Development Tools (JDT) as an alternative backend. By cross-validating results between Soot and JDT, we can identify parser-specific artifacts and ensure that the generated refactorings are robust and independent of specific framework limitations.
+</p>
 
 <h2>The website of ReBrancher</h2>
 <hr/>
