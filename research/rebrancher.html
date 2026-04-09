@@ -33,6 +33,18 @@
             margin-left:250;
             margin-right:250;
         }
+        
+        /* 图片容器样式：居中排列，自适应 */
+        .image-gallery {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-gallery img {
+            max-width: 45%; /* 两张图片一排 */
+            height: auto;
+            margin: 10px; /* 增加一点间距 */
+            border: 1px solid #ccc; /* 加个边框更美观 */
+        }
         </style>
     </head>
 <body>
@@ -225,15 +237,34 @@ nesting levels (e.g., exceeding 15 layers), potentially becoming a performance b
     A threat to internal validity is the tool dependency on the Soot framework, where the accuracy of AST parsing and CFG construction is tightly coupled with Soot’s performance. To mitigate this, we are refactoring ReBrancher to introduce an Abstract Analysis Layer that strictly isolates the refactoring algorithms from the underlying static analysis tools. We also plan to support the Eclipse Java Development Tools (JDT) as an alternative backend. By cross-validating results between Soot and JDT, we can identify parser-specific artifacts and ensure that the generated refactorings are robust and independent of specific framework limitations.
 </p>
 
+<h2>Inconsistent Cases</h2>
+<hr/>
+<p style="text-align:justify">
+    A total of four inconsistent cases were identified before and after refactoring with ReBrancher. These four inconsistent cases are shown as follows.
+</p>
+<div class="image-gallery" style="text-align: center;">
+    <img src="img1.png" alt="Inconsistent Case 1" style="max-width: 90%; height: auto; margin: 10px 0; border: 1px solid #ccc;"><br>
+    <img src="img2.png" alt="Inconsistent Case 2" style="max-width: 90%; height: auto; margin: 10px 0; border: 1px solid #ccc;"><br>
+    <img src="img3.png" alt="Inconsistent Case 3" style="max-width: 90%; height: auto; margin: 10px 0; border: 1px solid #ccc;"><br>
+    <img src="img4.png" alt="Inconsistent Case 4" style="max-width: 90%; height: auto; margin: 10px 0; border: 1px solid #ccc;"><br>
+</div>
+
 <h2>The website of ReBrancher</h2>
 <hr/>
 <p style="text-align:justify">ReBrancher is implemented as an extension to Eclipse IDE, the prototype ReBrancher is available at <a href="https://github.com/Chaoshuai-Li/ReBrancher">ReBrancher</a>. 
 The benchmarks used to evaluate ReBrancher are available <a href="https://zenodo.org/record/7649353#.Y_DPPmnitro">here</a>. 
 </p>
+
+<p style="text-align:justify">
+The case study dataset, questionnaire, and scoring rubric used in the user survey of ReBrancher are available 
+<a href="https://doi.org/10.5281/zenodo.19480566">here</a>.
+</p>
+
 <div style="text-align:center">
 </div>
 </div>
 <img src="https://s01.flagcounter.com/count2/HbVu/bg_FFFFFF/txt_000000/border_CCCCCC/columns_4/maxflags_32/viewers_0/labels_1/pageviews_1/flags_0/percent_0/"  border="0">
+
 
 </body>
 </html>
