@@ -608,6 +608,223 @@
                             <!-- JOURNALS -->
 
                             <!-- publication item -->
+                            <div id="J18" class="publication_item" data-groups='["all","JOURNAL PAPERS"]' data-date-publication="2025-05-04" >
+                                <div class="media">
+                                    <a href=".publication-detail18" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
+                                    <div class="date pull-left">
+                                        <span class="code">KBS</span>
+                                        <span class="month"></span>
+                                        <span class="year">2026</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h3><strong>Yang Zhang</strong>, Yifan Wang</h3>
+                                        <h4>Vul-CGBT: Enhancing Code Vulnerability Detection via Contrastive Semantic Learning and Graph Embedding</h4>
+                                        <h3>Knowledge-Based Systems</h3>
+                                        <span>-------------------------------------------------------------------------------------------------------------------------</span>
+                                    <span class="pdfDownload"><a href="https://ieeexplore.ieee.org/document/11534577"><i class="fas fa-file-download"></i>&emsp;Download PDF</a></span>
+                                    </div>
+
+                                    <hr style="margin:8px auto">
+                                    <span class="label label-journal">Journal</span>
+                                </div>
+                                <div class="mfp-hide mfp-with-anim publication-detail18 publication-detail">
+                                    <div class="project_content">
+                                        <h3 class="publication_title">Vul-CGBT: Enhancing Code Vulnerability Detection via Contrastive Semantic Learning and Graph Embedding</h3>
+                                        <span class="publication_authors"><strong>Yang Zhang</strong>, Yifan Wang</span>
+                                        <span class="label label-journal">Journal</span><br>
+                                        <p class="project_desc"><b>Abstract.</b>
+                                          Code vulnerability detection is crucial for securing systems against attacks. However, existing methods rely on the fine-tuning
+paradigm of pre-trained models, failing to grasp vulnerable code semantics and thus struggling to capture subtle semantic differences
+between vulnerable/non-vulnerable code. Furthermore, they treat code as sequential input, overlooking the structural
+information of the source code. To address these challenges, this paper proposes Vul-CGBT, a novel approach for code vulnerability
+detection by integrating contrastive semantic learning with graph embeddings, which enhances detection performance by
+extracting vulnerability deep semantics and code structural characteristics. Firstly, a Transformer model is pre-trained via masked
+language model and contrastive semantic learning, with momentum contrastive learning enhancing its grasp of vulnerability semantic
+patterns, producing code sequence embeddings. Secondly, the abstract syntax tree of source code is parsed via Tree-sitter
+to construct a control flow and data flow graph, from which a graph convolutional network is used to learn graph embeddings.
+Finally, sequence and graph embeddings are fused and fed into a fully connected network for detection. Experimental results on the
+ReVeal, Big-Vul, and CodeXGLUE-Defect datasets show that Vul-CGBT achieves an F1-score of 51.17%, 61.15%, and 66.19%,
+respectively, outperforming baselines like PDBERT and LineVul by 3.07% ∼ 34.15%, 2.25% ∼ 50.49%, and 3.83% ∼ 22.24%
+across three datasets, demonstrating its effectiveness and generalizability.
+                                        </p>
+                                        <!-- Project Addon -->
+                                        <div class="project_adds">
+
+                                        <!-- Download Pdf -->
+                                        <span><a class="ext_link" href="#"><i class="fas fa-file-download"></i><span >Download PDF</span></a></span>
+                                        <!-- End Download Pdf -->
+                                        </div>
+                                        <!-- End Project Addon -->
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                            <!-- End publication item -->
+
+                            <!-- publication item -->
+                            <div id="J17" class="publication_item" data-groups='["all","JOURNAL PAPERS"]' data-date-publication="2025-05-04" >
+                                <div class="media">
+                                    <a href=".publication-detail17" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
+                                    <div class="date pull-left">
+                                        <span class="code">TSC</span>
+                                        <span class="month"></span>
+                                        <span class="year">2026</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h3><strong>Yang Zhang</strong>, Xi Zhang, Chunhao Dong, Chaoshuai Li, Grant Meredith</h3>
+                                        <h4>Automated Refactoring for Conditional Branching</h4>
+                                        <h3>IEEE Transactions on Services Computing</h3>
+                                        <span>-------------------------------------------------------------------------------------------------------------------------</span>
+                                    <span class="pdfDownload"><a href="https://ieeexplore.ieee.org/document/11534577"><i class="fas fa-file-download"></i>&emsp;Download PDF</a></span>
+                                    </div>
+
+                                    <hr style="margin:8px auto">
+                                    <span class="label label-journal">Journal</span>
+                                </div>
+                                <div class="mfp-hide mfp-with-anim publication-detail17 publication-detail">
+                                    <div class="project_content">
+                                        <h3 class="publication_title">Automated Refactoring for Conditional Branching</h3>
+                                        <span class="publication_authors"><strong>Yang Zhang</strong>, Xi Zhang, Chunhao Dong, Chaoshuai Li, Grant Meredith</span>
+                                        <span class="label label-journal">Journal</span><br>
+                                        <p class="project_desc"><b>Abstract.</b>
+                                          Conditional branching provides a fundamental
+structure for executing a specific branch based on the value
+of a boolean expression at run-time. However, repeated or
+nested conditional branching can lead to increased complexity.
+Furthermore, fall-through semantics in conditional branching
+result in uncontrollable jumps. Refactoring conditional branching
+manually is error-prone, time-consuming, and tedious. There
+is a critical need to provide automated refactoring support
+for conditional branching. To this end, this paper presents
+ReBrancher, an automated refactoring approach to eliminate
+repeated or nested conditional branching. Firstly, ReBrancher
+parses source code into an abstract syntax tree and walks
+through conditional branching statements. Secondly, it removes
+redundant fall-through semantics by static program analysis and
+an automaton. The automaton is constructed from a control flow
+graph to match patterns of conditional branching. Finally, it
+converts a conditional branching into a switch expression and
+removes the fall-through semantics. ReBrancher was evaluated on
+nine real-world projects involving 25,137 conditional branchings.
+Experimental results show that a total of 1,790 conditional
+branching constructs are refactored within an average of 18.62
+seconds per project. Furthermore, ReBrancher reduced the average
+cyclomatic complexity by 4.41% and removed 1,249 code
+smells, demonstrating its effectiveness in improving code quality.
+                                        </p>
+                                        <!-- Project Addon -->
+                                        <div class="project_adds">
+
+                                        <!-- Download Pdf -->
+                                        <span><a class="ext_link" href="#"><i class="fas fa-file-download"></i><span >Download PDF</span></a></span>
+                                        <!-- End Download Pdf -->
+                                        </div>
+                                        <!-- End Project Addon -->
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                            <!-- End publication item -->
+
+
+                            <!-- Publication item -->
+                            <div id="C7" class="publication_item" data-groups='["all","CONFERENCES"]' data-date-publication="2026-04-12">
+                                <div class="media">
+                                    <a href=".publication-detailC7" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
+                                    <div class="date pull-left">
+                                        <span class="code">FSE</span>
+                                        <span class="month"></span>
+                                        <span class="year">2026</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h3>Chunhao Dong, Yanjie Jiang, <strong>Yang Zhang</strong>, Hui Liu</h3>
+                                        <h4>Cross-Refactoring-Type Test Program Migration for Refactoring Engines</h4>
+                                        <h3>Proceedings of ACM International Conference on the Foundations of Software Engineering (FSE). 2026.</h3>
+                                        <span>-------------------------------------------------------------------------------------------------------------------------</span>
+                                        <span class="pdfDownload"><a href="#"><i class="fas fa-file-download"></i>&emsp;Download PDF</a></span>
+                                    </div>
+                                    <hr style="margin:8px auto">
+                                    <span class="label label-conference">Conference</span>
+                                </div>
+                                <div class="mfp-hide mfp-with-anim publication-detailC7 publication-detail">
+                                    <div class="project_content">
+                                        <h3 class="publication_title">Cross-Refactoring-Type Test Program Migration for Refactoring Engines
+                                        </h3>
+                                        <span class="publication_authors">Chunhao Dong, Yanjie Jiang, <strong>Yang Zhang</strong>, Hui Liu</span>
+                                        <span class="label label-conference">Conference</span><br>
+                                        <p class="project_desc"><b>Abstract.</b>
+
+                                        </p>
+                                        <!-- Project Addon -->
+                                        <div class="project_adds">
+                                            <!-- Download Pdf -->
+                                            <span><a class="ext_link" href="#"><i class="fas fa-file-download"></i><span>Download PDF</span></a></span>
+                                            <!-- End Download Pdf -->
+                                        </div>
+                                        <!-- End Project Addon -->
+
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                            <!-- End Publication item -->
+
+                            <!-- Publication item -->
+                            <div id="C6" class="publication_item" data-groups='["all","CONFERENCES"]' data-date-publication="2026-03-12">
+                                <div class="media">
+                                    <a href=".publication-detailC6" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
+                                    <div class="date pull-left">
+                                        <span class="code">ISSTA</span>
+                                        <span class="month"></span>
+                                        <span class="year">2026</span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h3>Chunhao Dong, Yanjie Jiang, <strong>Yang Zhang</strong>, Hui Liu</h3>
+                                        <h4>Testing Method Relocation Algorithms via Template-Based Systematic Structural Traversal and Precondition Filtering</h4>
+                                        <h3>Proceedings of ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA). 2026.</h3>
+                                        <span>-------------------------------------------------------------------------------------------------------------------------</span>
+                                        <span class="pdfDownload"><a href="#"><i class="fas fa-file-download"></i>&emsp;Download PDF</a></span>
+                                    </div>
+                                    <hr style="margin:8px auto">
+                                    <span class="label label-conference">Conference</span>
+                                </div>
+                                <div class="mfp-hide mfp-with-anim publication-detailC6 publication-detail">
+                                    <div class="project_content">
+                                        <h3 class="publication_title">Testing Method Relocation Algorithms via Template-Based Systematic Structural Traversal and Precondition Filtering
+                                        </h3>
+                                        <span class="publication_authors">Chunhao Dong, Yanjie Jiang, <strong>Yang Zhang</strong>, Hui Liu</span>
+                                        <span class="label label-conference">Conference</span><br>
+                                        <p class="project_desc"><b>Abstract.</b> Method relocation refactorings, primarily Move Method and Pull Up/Push Down Method, are indispensable
+for reducing coupling and enhancing cohesion. Despite their widespread automation in modern refactoring
+engines, these algorithms remain notoriously error-prone, posing significant risks to software reliability. A
+primary challenge in testing them lies in the vast search space of complex program structures and the intricate
+preconditions required for safe method relocation. To address this, we propose RelocTest, a comprehensive
+testing framework that combines template-driven structural traversal with automated precondition filtering.
+RelocTest systematically explores the input space by populating program templates specially designed
+for method relocation through a two-stage generation process: (1) Skeleton Synthesis, which systematically
+traverses diverse syntactic structures, and (2) LLM-Guided Completion, which leverages Large Language
+Models to inject diverse, executable code into these skeletons. This hybrid strategy ensures high structural
+coverage while maintaining test program validity. Furthermore, to optimize testing efficiency, we introduce
+an LLM-based Precondition Extractor that analyzes the implementation of method relocation algorithms to
+identify and prune test programs destined for rejection. We evaluated RelocTest on 7 mainstream refactoring
+engines. Our approach successfully uncovered 56 previously unknown bugs, with 19 already confirmed by
+tool vendors, demonstrating its effectiveness in hardening industrial-strength refactoring tools.</p>
+                                        <!-- Project Addon -->
+                                        <div class="project_adds">
+                                            <!-- Download Pdf -->
+                                            <span><a class="ext_link" href="#"><i class="fas fa-file-download"></i><span>Download PDF</span></a></span>
+                                            <!-- End Download Pdf -->
+                                        </div>
+                                        <!-- End Project Addon -->
+
+                                    </div>
+                                    <div style="clear:both"></div>
+                                </div>
+                            </div>
+                            <!-- End Publication item -->
+
+
+                            <!-- publication item -->
                             <div id="J16" class="publication_item" data-groups='["all","JOURNAL PAPERS"]' data-date-publication="2025-02-04" >
                                 <div class="media">
                                     <a href=".publication-detail16" class="ex-link open_popup" data-effect="mfp-zoom-out"><i class="far fa-plus-square"></i></a>
