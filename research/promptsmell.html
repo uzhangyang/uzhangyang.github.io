@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PromptSmell: code and data for multi-label Java code smell detection with prompt learning.">
+  <title>PromptSmell | Research</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172124;
+      --muted: #526063;
+      --line: #d8dedc;
+      --paper: #ffffff;
+      --soft: #f4f7f5;
+      --teal: #12695f;
+      --coral: #ad513d;
+      --highlight: #edf6f1;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font: 16px/1.6 Arial, Helvetica, sans-serif;
+    }
+    a { color: var(--teal); text-underline-offset: 3px; }
+    a:hover { color: var(--coral); }
+    a:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+    .wrap { width: min(calc(100% - 40px), 1120px); margin-inline: auto; }
+    .site-header { border-bottom: 1px solid var(--line); }
+    .header-inner {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .site-name { color: var(--ink); font-weight: 700; text-decoration: none; }
+    nav { display: flex; flex-wrap: wrap; gap: 18px; font-size: 14px; }
+    nav a { color: var(--muted); text-decoration: none; }
+    nav a:hover { color: var(--teal); text-decoration: underline; }
+    main { padding-bottom: 64px; }
+    .intro { padding-top: 54px; padding-bottom: 38px; }
+    .eyebrow { margin: 0 0 9px; color: var(--coral); font-weight: 700; font-size: 13px; text-transform: uppercase; }
+    h1 { margin: 0 0 10px; font-size: 48px; line-height: 1.1; letter-spacing: 0; }
+    .paper-title { margin: 0 0 12px; max-width: 860px; font-size: 20px; line-height: 1.4; }
+    .authors { margin: 0; color: var(--muted); }
+    .summary { margin-top: 18px; max-width: 880px; }
+    .quick-links { display: flex; flex-wrap: wrap; gap: 12px 22px; margin-top: 24px; }
+    .quick-links a { font-weight: 700; }
+    section { padding-block: 34px; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 10px; font-size: 25px; line-height: 1.3; letter-spacing: 0; }
+    p { max-width: 900px; margin: 0 0 14px; }
+    figure { margin: 0; }
+    .figure-scroll { margin-top: 20px; overflow-x: auto; background: var(--soft); border: 1px solid var(--line); }
+    .overview-image { display: block; width: 100%; min-width: 980px; height: auto; }
+    figcaption { padding-top: 8px; color: var(--muted); font-size: 13px; }
+    .key-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin: 24px 0 28px;
+      border-top: 2px solid var(--ink);
+      border-bottom: 1px solid var(--line);
+    }
+    .stat { min-height: 116px; padding: 18px 22px; }
+    .stat + .stat { border-left: 1px solid var(--line); }
+    .stat-value { display: block; color: var(--teal); font-size: 31px; line-height: 1.2; font-weight: 700; }
+    .stat-label { display: block; margin-top: 7px; color: var(--muted); font-size: 14px; line-height: 1.45; }
+    .table-scroll { overflow-x: auto; margin-top: 20px; }
+    .compact-table { max-width: 760px; }
+    table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+    th:first-child, td:first-child { text-align: left; }
+    thead th { border-top: 2px solid var(--ink); color: var(--muted); font-size: 13px; }
+    tbody tr.group td { padding-top: 17px; color: var(--teal); font-weight: 700; text-transform: uppercase; font-size: 12px; }
+    tbody tr.ours td { background: var(--highlight); font-weight: 700; }
+    tbody tr.milestone td { color: var(--teal); font-weight: 700; }
+    tbody tr:last-child td { border-bottom: 2px solid var(--ink); }
+    .note { margin-top: 14px; color: var(--muted); font-size: 14px; }
+    .resources { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 36px; margin-top: 16px; }
+    .resource { padding: 13px 0; border-top: 1px solid var(--line); }
+    .resource strong { display: block; margin-bottom: 2px; }
+    .resource span { color: var(--muted); font-size: 14px; }
+    footer { padding: 22px 0 35px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    @media (max-width: 760px) {
+      .wrap { width: min(calc(100% - 28px), 1120px); }
+      .header-inner { align-items: flex-start; flex-direction: column; gap: 6px; padding-block: 13px; }
+      .intro { padding-top: 32px; padding-bottom: 29px; }
+      h1 { font-size: 36px; }
+      .paper-title { font-size: 18px; }
+      h2 { font-size: 22px; }
+      .key-stats { grid-template-columns: 1fr; }
+      .stat { min-height: 0; padding-inline: 0; }
+      .stat + .stat { border-left: 0; border-top: 1px solid var(--line); }
+      .resources { grid-template-columns: 1fr; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="site-name" href="https://uzhangyang.github.io/">Yang Zhang Research</a>
+      <nav aria-label="Page navigation">
+        <a href="#method">Method</a>
+        <a href="#results">Main results</a>
+        <a href="#few-shot">Data efficiency</a>
+        <a href="#zero-shot">Zero-shot</a>
+        <a href="#resources">Code &amp; data</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="intro">
+      <p class="eyebrow">Software engineering research</p>
+      <h1>PromptSmell</h1>
+      <p class="paper-title">Not All Metrics Are Necessary: Multi-label Code Smell Detection with Prompt Learning and Large Language Models</p>
+      <p class="authors">Yang Zhang, Bukun Hu, Haiyang Liu, Vidya Saikrishna</p>
+      <p class="summary">PromptSmell formulates multi-label code smell detection as prompt-based prediction from raw Java methods. It supports encoder-style pre-trained code models and decoder-based code LLMs without using handcrafted software metrics as model inputs.</p>
+      <div class="quick-links">
+        <a href="https://github.com/mark-vp/PromptSmell">Code and data &rarr;</a>
+        <a href="#results">Key results &darr;</a>
+      </div>
+    </div>
+
+    <section id="method" aria-labelledby="method-heading">
+      <h2 id="method-heading">Method</h2>
+      <p>PromptSmell extracts method-level source code through AST analysis, combines the Long Parameter List and Long Method decisions into four target labels, and maps model predictions through an architecture-specific prompt and shared answer space.</p>
+      <figure>
+        <div class="figure-scroll">
+          <img class="overview-image" src="overview.png" width="3056" height="1301" alt="Overview of PromptSmell from Java source and AST extraction through label construction, encoder-style or decoder-based prompt inference, answer-space mapping, and final target labels.">
+        </div>
+        <figcaption>Overview of PromptSmell.</figcaption>
+      </figure>
+    </section>
+
+    <section id="results" aria-labelledby="results-heading">
+      <h2 id="results-heading">Main results</h2>
+      <p>PromptSmell outperforms classical neural models, classifier chains, and a modern code-pretrained baseline. The decoder-based DeepSeek-Coder instantiation obtains the strongest unified-test result.</p>
+
+      <div class="key-stats" aria-label="Key PromptSmell results">
+        <div class="stat"><span class="stat-value">94.65%</span><span class="stat-label">Best weighted F1 on the unified test set with PromptSmell-DeepSeek-Coder.</span></div>
+        <div class="stat"><span class="stat-value">96.15%</span><span class="stat-label">Average cross-project weighted F1 across six unseen projects.</span></div>
+        <div class="stat"><span class="stat-value">256</span><span class="stat-label">Labeled samples at which both PromptSmell backbones exceed the best evaluated SOTA zero-shot weighted F1.</span></div>
+      </div>
+
+      <div class="table-scroll" role="region" tabindex="0" aria-label="Comparison with representative baselines">
+        <table>
+          <thead>
+            <tr><th scope="col">Model</th><th scope="col">Accuracy</th><th scope="col">Precision<sub>w</sub></th><th scope="col">Recall<sub>w</sub></th><th scope="col">F1<sub>w</sub></th></tr>
+          </thead>
+          <tbody>
+            <tr><td>TextCNN</td><td>58.64%</td><td>41.09%</td><td>58.64%</td><td>47.64%</td></tr>
+            <tr><td>BiLSTM-Attention</td><td>60.64%</td><td>55.77%</td><td>60.64%</td><td>53.30%</td></tr>
+            <tr><td>TextRCNN</td><td>80.96%</td><td>80.84%</td><td>80.96%</td><td>79.66%</td></tr>
+            <tr><td>CC</td><td>51.78%</td><td>67.46%</td><td>65.24%</td><td>66.27%</td></tr>
+            <tr><td>GraphCodeBERT</td><td>84.22%</td><td>84.21%</td><td>84.22%</td><td>83.92%</td></tr>
+            <tr class="ours"><td>PromptSmell-UniXcoder</td><td>89.41%</td><td>89.28%</td><td>89.41%</td><td>89.17%</td></tr>
+            <tr class="ours"><td>PromptSmell-DeepSeek-Coder</td><td>94.68%</td><td>94.67%</td><td>94.68%</td><td>94.65%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Mean values are shown. Standard deviations and statistical tests are reported in the manuscript.</p>
+      <p>On six unseen projects, PromptSmell-DeepSeek-Coder reaches average accuracy, weighted precision, weighted recall, and weighted F1 values of 94.37%, 98.54%, 94.37%, and 96.15%, respectively. The corresponding average weighted F1 with UniXcoder is 94.35%.</p>
+    </section>
+
+    <section id="few-shot" aria-labelledby="few-shot-heading">
+      <h2 id="few-shot-heading">Performance with limited labeled data</h2>
+      <p>Both architectures improve rapidly with small labeled training sets. At 256 samples, their weighted F1 values already exceed the strongest zero-shot SOTA LLM result evaluated below.</p>
+      <div class="table-scroll compact-table" role="region" tabindex="0" aria-label="PromptSmell few-shot weighted F1 results">
+        <table>
+          <thead>
+            <tr><th scope="col">Training samples</th><th scope="col">UniXcoder F1<sub>w</sub></th><th scope="col">DeepSeek-Coder F1<sub>w</sub></th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>22.04%</td><td>16.59%</td></tr>
+            <tr><td>64</td><td>50.26%</td><td>57.73%</td></tr>
+            <tr class="milestone"><td>256</td><td>79.12%</td><td>76.05%</td></tr>
+            <tr><td>512</td><td>86.34%</td><td>83.54%</td></tr>
+            <tr><td>1,024</td><td>87.48%</td><td>86.06%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">The zero-sample rows use each PromptSmell backbone's architecture-specific prompt formulation; the remaining rows use labeled training subsets.</p>
+    </section>
+
+    <section id="zero-shot" aria-labelledby="zero-shot-heading">
+      <h2 id="zero-shot-heading">Zero-shot context with SOTA LLMs</h2>
+      <p>This RQ5 comparison uses the same test set, four-label mapping, and evaluation metrics. The SOTA LLMs receive direct task instructions without labeled demonstrations or task-specific fine-tuning.</p>
+      <div class="table-scroll" role="region" tabindex="0" aria-label="Zero-shot comparison results">
+        <table>
+          <thead>
+            <tr><th scope="col">Model</th><th scope="col">Accuracy</th><th scope="col">Precision<sub>w</sub></th><th scope="col">Recall<sub>w</sub></th><th scope="col">F1<sub>w</sub></th></tr>
+          </thead>
+          <tbody>
+            <tr class="group"><td colspan="5">PromptSmell</td></tr>
+            <tr><td>UniXcoder</td><td>30.52%</td><td>33.76%</td><td>30.52%</td><td>22.04%</td></tr>
+            <tr><td>DeepSeek-Coder-1.3B</td><td>32.06%</td><td>11.48%</td><td>32.06%</td><td>16.59%</td></tr>
+            <tr class="group"><td colspan="5">SOTA LLMs</td></tr>
+            <tr><td>GPT-5.6 Sol</td><td>63.17%</td><td>75.11%</td><td>63.17%</td><td>59.97%</td></tr>
+            <tr><td>GPT-6 Astra</td><td>71.75%</td><td>80.46%</td><td>71.75%</td><td>66.74%</td></tr>
+            <tr><td>DeepSeek V4 Pro</td><td>75.09%</td><td>81.31%</td><td>75.09%</td><td>72.83%</td></tr>
+            <tr><td>Gemini 3.8 Flash</td><td>74.83%</td><td>80.98%</td><td>74.83%</td><td>71.91%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Each SOTA LLM result is from one zero-shot round. PromptSmell's zero-sample rows are included to place the direct zero-shot results in context.</p>
+    </section>
+
+    <section id="resources" aria-labelledby="resources-heading">
+      <h2 id="resources-heading">Code and data</h2>
+      <div class="resources">
+        <div class="resource"><strong><a href="https://github.com/mark-vp/PromptSmell/tree/main/model">Model code</a></strong><span>Prompt learning, fine-tuning, and baseline scripts.</span></div>
+        <div class="resource"><strong><a href="https://github.com/mark-vp/PromptSmell/tree/main/data">Dataset</a></strong><span>Labeled methods and cross-project test sets.</span></div>
+        <div class="resource"><strong><a href="https://github.com/mark-vp/PromptSmell/tree/main/experiments/zero_shot_llms">SOTA LLM experiment</a></strong><span>Prompts, predictions, protocol, and evaluation script.</span></div>
+        <div class="resource"><strong><a href="https://github.com/mark-vp/PromptSmell/tree/main/result">Original results</a></strong><span>Experiment logs and figures from the PromptSmell study.</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">PromptSmell research materials &middot; <a href="https://github.com/mark-vp/PromptSmell/blob/main/LICENSE">Apache License 2.0</a></div></footer>
+</body>
+</html>
